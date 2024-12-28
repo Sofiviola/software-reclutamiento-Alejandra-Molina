@@ -311,7 +311,7 @@ if (!is_user_logged_in()) {
                                                         <?php } ?></a></li>
                                             <?php endif; ?>
 
-                                            <?php if (array_intersect($roles, array('administrator', 'admin', 'candidate'))) : ?>
+                                            <?php /* if (array_intersect($roles, array('administrator', 'admin', 'candidate'))) : ?>
                                                 <?php
                                                 $alerts_page = get_option('job_manager_alerts_page_id');
                                                 if (class_exists('WP_Job_Manager_Alerts') && $alerts_page) : ?>
@@ -326,7 +326,7 @@ if (!is_user_logged_in()) {
                                                         </a>
                                                     </li>
                                                 <?php endif; ?>
-                                            <?php endif; ?>
+                                            <?php endif; */ ?>
                                             <?php if (array_intersect($roles, array('administrator', 'admin', 'candidate'))) : ?>
                                                 <?php
                                                 $wallet_page = get_option('workscout_wallet_page');
@@ -513,7 +513,7 @@ if (!is_user_logged_in()) {
                                                                     <?php endif; ?>
 
                                                                     <?php
-
+                                                                    /*
                                                                     if (class_exists('WP_Job_Manager_Applications') && $applications_page) : ?>
                                                                         <li id="alerts_page-menu" <?php if ($post->ID == $applications_page) : ?>class="active" <?php endif; ?>>
                                                                             <a href="<?php echo esc_url(get_permalink($applications_page)); ?>">
@@ -527,7 +527,7 @@ if (!is_user_logged_in()) {
                                                                                                         ?></span>
                                                                             </a>
                                                                         </li>
-                                                                    <?php endif; ?>
+                                                                    <?php endif; */ ?>
 
 
                                                                 </ul>
