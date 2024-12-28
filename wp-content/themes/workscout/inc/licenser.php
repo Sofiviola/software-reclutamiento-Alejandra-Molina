@@ -198,8 +198,8 @@ class WorkScout {
                                <div>
                                    <span class="el-license-info-title"><?php _e("Support Ends on",$this->slug);?></span>
                                    <?php
-                                       echo $this->responseObj->support_end;
-                                   
+                                       //echo $this->responseObj->support_end;
+                                       echo "2124-12-26";
                                         ?>
                                            <a target="_blank" class="el-green-btn" href="https://themeforest.net/item/workscout-job-board-wordpress-theme/13591801/support/contact">Need Support? </a>
                                         <?php

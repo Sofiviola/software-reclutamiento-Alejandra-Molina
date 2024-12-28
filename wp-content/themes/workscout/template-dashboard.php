@@ -280,10 +280,13 @@ if (!is_user_logged_in()) {
                                     <div class="dashboard-nav-inner">
 
                                         <ul data-submenu-title="<?php esc_html_e('Start', 'workscout'); ?>">
-                                            <?php $dashboard_page = get_option('workscout_dashboard_page');
+                                            <!-- Elimina el tab de dashboard en todos los roles -->
+                                            <?php
+                                            /* $dashboard_page = get_option('workscout_dashboard_page');
                                             if ($dashboard_page) : ?>
                                                 <li id="dashboard_page-menu" <?php if ($post->ID == $dashboard_page) : ?>class="active" <?php endif; ?>><a href="<?php echo esc_url(get_permalink($dashboard_page)); ?>"><i class="icon-material-outline-dashboard"></i> <?php echo get_the_title($dashboard_page); ?></a></li>
-                                            <?php endif; ?>
+                                            <?php endif; 
+                                            */?>
                                             <?php $messages_page = get_option('workscout_messages_page');
                                             if ($messages_page) : ?>
                                                 <li id="messages_page-menu" <?php if ($post->ID == $messages_page) : ?>class="active" <?php endif; ?>>

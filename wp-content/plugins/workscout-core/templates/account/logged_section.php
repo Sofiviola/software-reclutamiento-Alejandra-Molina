@@ -22,12 +22,13 @@ $user_id = get_current_user_id();
 
 	<div class="header-notifications-dropdown">
 		<ul class="user-menu-small-nav">
-			<?php $dashboard_page = get_option('workscout_dashboard_page');
+			<!-- Elimina el tab de dashboard en menu hambuerguesa en todos los roles -->
+			<?php /* $dashboard_page = get_option('workscout_dashboard_page');
 			if ($dashboard_page) : ?>
 				<li <?php if (is_page() && $post->ID == $dashboard_page) : ?>class="active" <?php endif; ?>>
 					<a href="<?php echo esc_url(get_permalink($dashboard_page)); ?>"><i class="icon-material-outline-dashboard"></i> <?php esc_html_e('Dashboard', 'workscout_core'); ?></a>
 				</li>
-			<?php endif; ?>
+			<?php endif; */ ?>
 
 			<?php $messages_page = get_option('workscout_messages_page');
 			if ($messages_page) : ?>
