@@ -1,0 +1,35 @@
+/*
+Theme Name:   WorkScout Child
+Theme URI: http://workscout.in
+Author: Purethemes
+Author URI: http://themeforest.net/user/purethemes
+Description: WordPress Job Theme
+Version: 1.0
+License: ThemeForest
+License URI: http://themeforest.net/licenses
+Text Domain: workscout
+Domain Path: /languages/
+Tags: light, responsive-layout, post-formats, theme-options, translation-ready, two-columns
+Template:  workscout
+*/
+
+
+#header-container {
+    position: inherit !important;
+    top: unset !important;
+    height: auto !important;
+}
+
+#header {
+    top: unset !important;
+    background-color: #3F0E1E !important;
+}
+
+#wrapper.new-header {
+    padding-top: 0 !important;
+}
+
+
+.account-type{
+    display: none  !important;
+}

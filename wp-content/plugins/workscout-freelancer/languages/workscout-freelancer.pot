@@ -1,0 +1,2229 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WorkScout Freelancer For WP Job Manager\n"
+"POT-Creation-Date: 2024-07-10 12:12+0200\n"
+"PO-Revision-Date: 2024-01-23 23:56+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: workscout-freelancer.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: includes/admin/class-workscout-freelancer-admin.php:73
+msgid "Task Settings"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:55
+msgid "They will then need to be manually removed from the trash"
+msgstr ""
+
+#. translators: Placeholder %d is the number of days before items are removed from trash.
+#: includes/admin/class-workscout-freelancer-settings.php:58
+#, php-format
+msgid "They will then be permanently deleted after %d days."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:65
+msgid "Task Listings"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:119
+#: includes/admin/class-workscout-freelancer-settings.php:120
+msgid "Paid listings flow"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:121
+msgid "Set when the package option will appear"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:124
+msgid "Before submit form"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:125
+msgid "After submit form"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:211
+msgid "Task Submission"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:260
+msgid "Approval Required"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:261
+msgid "New submissions require admin approval"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:262
+msgid "If enabled, new submissions will be inactive, pending admin approval."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:269
+msgid "Allow Pending Edits"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:270
+msgid "Allow editing of pending tasks"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:271
+msgid ""
+"Users can continue to edit pending tasks until they are approved by an admin."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:278
+msgid "Allow Published Edits"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:279
+msgid "Allow editing of published tasks"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:280
+msgid ""
+"Choose whether published tasks can be edited and if edits require admin "
+"approval. When moderation is required, the original resume will be "
+"unpublished while edits await admin approval."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:283
+msgid "Users cannot edit"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:284
+msgid "Users can edit without admin approval"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:285
+msgid "Users can edit, but edits require admin approval"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:343
+msgid "Pages"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:348
+msgid "Submit Task Page"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:349
+msgid ""
+"Select the page where you have placed the [workscout_submit_task] shortcode. "
+"This lets the plugin know where the form is located."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:355
+msgid "Manage Task Page"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:356
+msgid ""
+"Select the page where you have placed the [workscout_task_dashboard] "
+"shortcode. This lets the plugin know where the dashboard is located."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:363
+msgid "Manage My Bids Page"
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:364
+msgid ""
+"Select the page where you have placed the [workscout_my_bids] shortcode. "
+"This lets the plugin know where the dashboard is located."
+msgstr ""
+
+#: includes/admin/class-workscout-freelancer-settings.php:386
+msgid "Everyone (Public)"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:72
+msgid "Choose a package &rarr;"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:139
+msgid "Choose a package"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:192
+msgid "Submit &rarr;"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:192
+msgid "Listing Details &rarr;"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:223
+#: includes/class-wc-paid-listings-submit-task-form.php:226
+#: includes/class-wc-paid-listings-submit-task-form.php:232
+msgid "Invalid Package"
+msgstr ""
+
+#: includes/class-wc-paid-listings-submit-task-form.php:243
+msgid "You already have this subscription."
+msgstr ""
+
+#: includes/class-wc-product-task-package.php:55
+#: includes/paid-listings/class-wc-product-task-package.php:100
+msgid "Add to cart"
+msgstr ""
+
+#: includes/class-wc-product-task-package.php:55
+#: includes/paid-listings/class-wc-product-task-package.php:100
+msgid "Read More"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:57
+#: includes/class-workscout-freelancer-task.php:72
+msgid "Bad request"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:64
+msgid "Invalid Bid"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:122
+msgid "Accept offer from "
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:185
+msgid "You have selected"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:185
+msgid "for this task"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:187
+msgid "Budget: "
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:191
+msgid "Time: "
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:195
+msgid "Proposal: "
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:244
+msgid "You have successfully choosed a bidder"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:249
+#: includes/class-workscout-freelancer-bid.php:253
+msgid "Error, please try again or contact support"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:358
+msgid "You do not have permission to view this task."
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:404
+#: includes/class-workscout-freelancer-reviews.php:201
+#: includes/class-workscout-freelancer-shortcodes.php:396
+#: includes/class-workscout-freelancer-shortcodes.php:709
+msgid "Name"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:405
+#: includes/class-workscout-freelancer-reviews.php:206
+msgid "Email"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:406
+msgid "Date Received"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:441
+msgid "Your bid was successfully sent"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:444
+msgid "You can't bid on this task"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:472
+msgid "Your bid was successfully updated"
+msgstr ""
+
+#: includes/class-workscout-freelancer-bid.php:475
+msgid "You can' update this bid"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:99
+msgctxt "Post type archive slug - resave permalinks after changing this"
+msgid "tasks"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:114
+msgctxt "Task permalink - resave permalinks after changing this"
+msgid "task"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:115
+msgctxt "Task Listing category slug - resave permalinks after changing this"
+msgid "task-category"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:148
+#: includes/class-workscout-freelancer-cpt.php:157
+#: templates/archive-task.php:86
+msgid "Tasks"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:149
+msgid "Task"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:158
+#: includes/class-workscout-freelancer-cpt.php:263
+#: includes/class-workscout-freelancer-cpt.php:306
+#: includes/class-workscout-freelancer-cpt.php:355
+#: includes/class-workscout-freelancer-cpt.php:422
+#: includes/class-workscout-freelancer-user.php:68
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:159
+#: includes/class-workscout-freelancer-cpt.php:356
+#: includes/class-workscout-freelancer-cpt.php:423
+msgid "Add New"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:160
+#: includes/class-workscout-freelancer-cpt.php:357
+#: includes/class-workscout-freelancer-cpt.php:424
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:161
+#: includes/class-workscout-freelancer-cpt.php:358
+#: includes/class-workscout-freelancer-cpt.php:425
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:89
+#: templates/task-dashboard.php:125 templates/task-dashboard.php:144
+#: templates/task-dashboard.php:157
+msgid "Edit"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:162
+#: includes/class-workscout-freelancer-cpt.php:266
+#: includes/class-workscout-freelancer-cpt.php:309
+#: includes/class-workscout-freelancer-cpt.php:359
+#: includes/class-workscout-freelancer-cpt.php:426
+#: includes/class-workscout-freelancer-user.php:71
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:163
+#: includes/class-workscout-freelancer-cpt.php:360
+#: includes/class-workscout-freelancer-cpt.php:427
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:164
+#: includes/class-workscout-freelancer-cpt.php:165
+#: includes/class-workscout-freelancer-cpt.php:361
+#: includes/class-workscout-freelancer-cpt.php:362
+#: includes/class-workscout-freelancer-cpt.php:428
+#: includes/class-workscout-freelancer-cpt.php:429
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:166
+#: includes/class-workscout-freelancer-cpt.php:262
+#: includes/class-workscout-freelancer-cpt.php:305
+#: includes/class-workscout-freelancer-cpt.php:363
+#: includes/class-workscout-freelancer-cpt.php:430
+#: includes/class-workscout-freelancer-user.php:67
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:167
+#: includes/class-workscout-freelancer-cpt.php:364
+#: includes/class-workscout-freelancer-cpt.php:431
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:168
+#: includes/class-workscout-freelancer-cpt.php:365
+#: includes/class-workscout-freelancer-cpt.php:432
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:169
+#: includes/class-workscout-freelancer-cpt.php:264
+#: includes/class-workscout-freelancer-cpt.php:307
+#: includes/class-workscout-freelancer-cpt.php:366
+#: includes/class-workscout-freelancer-cpt.php:433
+#: includes/class-workscout-freelancer-user.php:69
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:171
+#: includes/class-workscout-freelancer-cpt.php:368
+#: includes/class-workscout-freelancer-cpt.php:435
+#, php-format
+msgid "This is where you can create and manage %s."
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:196
+msgctxt "post status"
+msgid "Preview"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:201
+#, php-format
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-workscout-freelancer-cpt.php:205
+msgctxt "post status"
+msgid "Expired"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:211
+#, php-format
+msgid "Expired <span class=\"count\">(%s)</span>"
+msgid_plural "Expired <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-workscout-freelancer-cpt.php:215
+msgctxt "post status"
+msgid "Pending Payment"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:220
+#, php-format
+msgid "Pending Payment <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-workscout-freelancer-cpt.php:223
+msgctxt "post status"
+msgid "In progress"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:228
+#, php-format
+msgid "In progress <span class=\"count\">(%s)</span>"
+msgid_plural "In Progress <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-workscout-freelancer-cpt.php:231
+msgctxt "post status"
+msgid "Completed"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:236
+#, php-format
+msgid "Completed <span class=\"count\">(%s)</span>"
+msgid_plural "Completed <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-workscout-freelancer-cpt.php:242
+msgid "Task Category"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:243
+msgid "Task Categories"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:265
+#: includes/class-workscout-freelancer-cpt.php:308
+#: includes/class-workscout-freelancer-user.php:70
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:267
+#: includes/class-workscout-freelancer-cpt.php:310
+#: includes/class-workscout-freelancer-user.php:72
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:268
+#: includes/class-workscout-freelancer-cpt.php:311
+#: includes/class-workscout-freelancer-user.php:73
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:269
+#: includes/class-workscout-freelancer-cpt.php:312
+#: includes/class-workscout-freelancer-user.php:74
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:286
+#: includes/class-workscout-freelancer-cpt.php:287
+msgid "Task Skill"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:289
+msgctxt "Task Skills slug - resave permalinks after changing this"
+msgid "task-skill"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:345
+#: includes/class-workscout-freelancer-cpt.php:354
+msgid "Projects"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:346
+msgid "Project"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:412
+#: includes/class-workscout-freelancer-cpt.php:421
+#: includes/class-workscout-freelancer-shortcodes.php:397
+#: includes/class-workscout-freelancer-shortcodes.php:710
+#: templates/task-dashboard.php:104
+msgid "Bids"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:413
+msgid "Bid"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:468
+msgid "Type"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:469
+msgid "Posted"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:470
+msgid "Expires"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:471
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:113
+msgid "Featured?"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:472
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:88
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:123
+msgid "Actions"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:508
+msgid "M j, Y"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:509
+msgid "by a guest"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:509
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:520
+msgid "Approve"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:750
+#, php-format
+msgid "Approve %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:751
+#, php-format
+msgid "%s approved"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:755
+#, php-format
+msgid "Expire %s"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:756
+#, php-format
+msgid "%s expired"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:864
+msgid "Icon"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:897
+msgid "Features"
+msgstr ""
+
+#: includes/class-workscout-freelancer-cpt.php:1061
+msgid "Task category"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:39
+#: includes/class-workscout-freelancer-meta-boxes.php:54
+#: includes/class-workscout-freelancer-meta-boxes.php:794
+#: includes/class-workscout-freelancer-meta-boxes.php:884
+msgid "Country"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:80
+msgid "Task data"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:88
+msgid "Expiration date"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:97
+#: templates/sidebar-tasks.php:49
+msgid "Keywords"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:106
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:219
+msgid "Company"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:116
+msgid "Task deadline date"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:127
+msgid "Verified Listing"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:139
+msgid "Verified"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:142
+msgid "Tick the checkbox to mark it as Verified"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:149
+msgid "Featured Listing"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:161
+msgid "Featured"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:164
+msgid "Tick the checkbox to make it Featured"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:170
+msgid "Advanced meta data Listing"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:181
+msgid "WooCommerce Product ID"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:184
+msgid ""
+"WooCommerce Product ID. Don't change it unless you know what you are doing:)"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:190
+msgid "Listing fields"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:224
+msgid "Bid data"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:232
+#: templates/single-task.php:122
+msgid "Budget"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:240
+msgid "Time"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:247
+msgid "Time Scale"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:256
+msgid "Tasks attachments"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:263
+msgid "Task Attachments "
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:271
+msgid "Add or Upload Files"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:283
+msgid "Prices fields"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:286
+msgid "Type:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:290
+#: workscout-freelancer-functions.php:385
+#: workscout-freelancer-functions.php:392
+msgid "Fixed"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:291
+#: workscout-freelancer-functions.php:388
+msgid "Hourly"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:296
+msgid "Minimum Budget Range:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:301
+msgid "Maximum Budget Range:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:306
+msgid "Min rate per hour:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:311
+msgid "Max rate per hour:"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:333
+#: includes/class-workscout-freelancer-meta-boxes.php:336
+msgid "Video"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:339
+msgid "URL to oEmbed supported service"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:354
+msgid "Custom fields"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:357
+msgid "Example field"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:360
+msgid "Example field description"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:411
+msgid "Listing Taxonomy Meta"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:448
+#: includes/class-workscout-freelancer-meta-boxes.php:520
+msgid "Category Icon"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:485
+#: includes/class-workscout-freelancer-meta-boxes.php:553
+msgid "Icon will be displayed in categories grid view"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:489
+#: includes/class-workscout-freelancer-meta-boxes.php:558
+msgid "Custom Icon (SVG files only)"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:493
+#: includes/class-workscout-freelancer-meta-boxes.php:572
+msgid "Upload SVG Icon"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:496
+#: includes/class-workscout-freelancer-meta-boxes.php:578
+msgid "Category Cover"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:498
+#: includes/class-workscout-freelancer-meta-boxes.php:592
+msgid "Upload Image"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:499
+msgid ""
+"Similar to the single jobs you can add image to the category header. It "
+"should be 1920px wide"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:631
+#: includes/class-workscout-freelancer-meta-boxes.php:632
+#: includes/class-workscout-freelancer-meta-boxes.php:698
+#: includes/class-workscout-freelancer-meta-boxes.php:699
+msgid "Phone"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:637
+#: includes/class-workscout-freelancer-meta-boxes.php:640
+#: includes/class-workscout-freelancer-meta-boxes.php:704
+#: includes/class-workscout-freelancer-meta-boxes.php:707
+msgid "Social"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:644
+#: includes/class-workscout-freelancer-meta-boxes.php:645
+#: includes/class-workscout-freelancer-meta-boxes.php:711
+#: includes/class-workscout-freelancer-meta-boxes.php:712
+msgid "<i class=\"fa fa-twitter\"></i> Twitter"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:650
+#: includes/class-workscout-freelancer-meta-boxes.php:651
+#: includes/class-workscout-freelancer-meta-boxes.php:717
+#: includes/class-workscout-freelancer-meta-boxes.php:718
+msgid "<i class=\"fa fa-facebook-square\"></i> Facebook"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:657
+#: includes/class-workscout-freelancer-meta-boxes.php:658
+#: includes/class-workscout-freelancer-meta-boxes.php:724
+#: includes/class-workscout-freelancer-meta-boxes.php:725
+msgid "<i class=\"fa fa-linkedin\"></i> Linkedin"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:664
+#: includes/class-workscout-freelancer-meta-boxes.php:665
+#: includes/class-workscout-freelancer-meta-boxes.php:731
+#: includes/class-workscout-freelancer-meta-boxes.php:732
+msgid "<i class=\"fa fa-instagram\"></i> Instagram"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:670
+#: includes/class-workscout-freelancer-meta-boxes.php:671
+#: includes/class-workscout-freelancer-meta-boxes.php:737
+#: includes/class-workscout-freelancer-meta-boxes.php:738
+msgid "<i class=\"fa fa-youtube\"></i> YouTube"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:676
+#: includes/class-workscout-freelancer-meta-boxes.php:677
+#: includes/class-workscout-freelancer-meta-boxes.php:743
+#: includes/class-workscout-freelancer-meta-boxes.php:744
+msgid "<i class=\"fa fa-skype\"></i> Skype"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:682
+#: includes/class-workscout-freelancer-meta-boxes.php:683
+#: includes/class-workscout-freelancer-meta-boxes.php:749
+#: includes/class-workscout-freelancer-meta-boxes.php:750
+msgid "<i class=\"fa fa-skype\"></i> Whatsapp"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:764
+#: includes/class-workscout-freelancer-meta-boxes.php:978
+msgid "Competency Bars"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:765
+msgid "Add competency"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:772
+#: includes/class-workscout-freelancer-meta-boxes.php:954
+msgid "Skill"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:778
+msgid "Level (0-100%)"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:809
+msgid "Gallery"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:816
+#: includes/class-workscout-freelancer-meta-boxes.php:892
+msgid "Header Image"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:830
+msgid "Social Sites"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:831
+msgid "Add Site"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:834
+#: includes/class-workscout-freelancer-meta-boxes.php:923
+msgid "Service"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:842
+#: includes/class-workscout-freelancer-meta-boxes.php:932
+msgid "URL"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:961
+msgid "Level ( 0-100%)"
+msgstr ""
+
+#: includes/class-workscout-freelancer-meta-boxes.php:989
+msgid "Competency"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:94
+msgid "Submit Review"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:127
+msgid "Review has been deleted"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:129
+msgid "You are trying to remove not your listing"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:234
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:385
+#: includes/class-workscout-freelancer-reviews.php:464
+msgid "Rating"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:394
+msgid "General Rating"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:477
+msgid "No Rating Submitted"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:490
+msgid "You need to be signed in to manage your reviews."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:725
+msgid "<strong>ERROR:</strong> File you upload must be valid file type,"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:728
+msgid ""
+"<strong>ERROR:</strong> The uploaded file exceeds the upload_max_filesize "
+"directive in php.ini."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:730
+msgid ""
+"<strong>ERROR:</strong> The uploaded file exceeds the MAX_FILE_SIZE "
+"directive that was specified in the HTML form."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:732
+msgid ""
+"<strong>ERROR:</strong> The uploaded file was only partially uploaded. "
+"Please try again later."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:734
+msgid "<strong>ERROR:</strong> Missing a temporary folder."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:736
+msgid "<strong>ERROR:</strong> Failed to write file to disk."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:738
+msgid "<strong>ERROR:</strong> A PHP extension stopped the file upload."
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:793
+msgid "You don't have any reviews for "
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:809
+msgid "on"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:829
+msgid "Edit your reply"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:832
+msgid "Reply to this review"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:1087
+msgid "Thank you for your review!"
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:1173
+msgid "You already voted "
+msgstr ""
+
+#: includes/class-workscout-freelancer-reviews.php:1183
+#: includes/class-workscout-freelancer-reviews.php:1188
+msgid "Helpful Review "
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:137
+msgid "Invalid Resume ID"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:187
+msgid "Invalid Task ID"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:196
+#, php-format
+msgid "%s has been deleted"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:206
+#, php-format
+msgid "%s has been hidden"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:228
+#, php-format
+msgid "%s has been completed"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:238
+#, php-format
+msgid "%s has been published"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:398
+#: includes/class-workscout-freelancer-shortcodes.php:711
+msgid "Info"
+msgstr ""
+
+#: includes/class-workscout-freelancer-shortcodes.php:399
+#: includes/class-workscout-freelancer-shortcodes.php:712
+#: lib/cmb2-tabs/example.php:28 lib/cmb2-tabs/example.php:52
+#: lib/cmb2-tabs/example.php:134 lib/cmb2-tabs/example.php:158
+msgid "Title"
+msgstr ""
+
+#: includes/class-workscout-freelancer-user.php:48
+msgid "User Skill"
+msgstr ""
+
+#: includes/class-workscout-freelancer-user.php:49
+msgid "Users Skills"
+msgstr ""
+
+#: includes/class-workscout-freelancer-user.php:51
+msgctxt "Skill slug - resave permalinks after changing this"
+msgid "skill"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:116
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:1045
+msgid "Invalid task"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:142
+msgid "Save changes"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:148
+msgid "Submit changes for approval"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:216
+msgid "Your changes have been saved."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:223
+#: templates/task-submitted.php:70
+msgid "View &rarr;"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-edit-task.php:225
+msgid ""
+"Your changes have been submitted and your task will be available again once "
+"approved."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:64
+msgid "Submit Details"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:70
+#: templates/task-preview.php:38
+msgid "Preview"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:76
+msgid "Done"
+msgstr ""
+
+#. translators: Placeholder %d is the maximum number of skills a visitor can add.
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:211
+#, php-format
+msgid "Maximum of %d."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:222
+msgid "Choose a Company"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:232
+msgid "Project Name"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:235
+msgid "e.g build me a website"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:240
+#: templates/sidebar-tasks.php:57
+msgid "Category"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:250
+#: templates/sidebar-tasks.php:7 templates/sidebar-tasks.php:15
+msgid "Location"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:253
+msgid "e.g. \"London, UK\", \"New York\", \"Houston, TX\""
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:258
+msgid "Remote Position"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:259
+msgid "Select if remote job."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:266
+msgid "Deadline"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:274
+msgid "Billing type"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:275
+msgid "Select billing type."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:279
+msgid "Fixed Price Project"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:280
+msgid "Hourly Project"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:286
+msgid "What is your estimated budget?"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:289
+msgid "Budget Min."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:299
+msgid "Budget Max."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:307
+msgid "What is your min hourly rate ?"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:310
+msgid "Minimum"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:320
+msgid "Maximum"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:330
+#: templates/sidebar-tasks.php:127
+msgid "Skills"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:341
+msgid "Describe your Project"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:350
+msgid "Attachments (e.g. project brief)"
+msgstr ""
+
+#. translators: Placeholder %s is the maximum file size of the upload.
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:356
+#, php-format
+msgid "Optionally upload your documents to view. Max. file size: %s."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:509
+#, php-format
+msgid "%s is a required field"
+msgstr ""
+
+#. translators: Placeholder %s is the name of the invalid field.
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:516
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:522
+#, php-format
+msgid "%s is invalid"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:529
+msgid "Please enter a valid email address"
+msgstr ""
+
+#. translators: Placeholder %d is the maximum number of skills they can enter.
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:543
+#, php-format
+msgid "Please enter no more than %d skills."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:560
+msgid "Invalid attachment provided."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:633
+msgid "Preview &rarr;"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:672
+msgid "You must be signed in to post your task."
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:1120
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:1141
+msgid "Private Listing"
+msgstr ""
+
+#: includes/forms/class-workscout-freelancer-form-submit-task.php:1146
+msgid "User Not Logged In"
+msgstr ""
+
+#: includes/paid-listings/class-wc-product-task-package.php:13
+msgid "Task Package"
+msgstr ""
+
+#: includes/paid-listings/class-wc-product-task-package.php:15
+msgid "Task Package Subscription"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:79
+msgid "Listing Limit"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:80
+msgid "How many listings should this package allow the user to post?"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:83
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:59
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:66
+msgid "Unlimited"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:88
+msgid "Listing Count"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:89
+msgid "How many listings has the user already posted with this package?"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:97
+msgid "Listing Duration"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:98
+msgid "How many days should listings posted with this package be active?"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:101
+msgid "Default"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:106
+msgid "Feature Listings?"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:114
+msgid "Allow Booking Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:124
+msgid "Allow Reviews Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:132
+msgid "Allow Social Links Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:140
+msgid "Allow Opening Hours Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:148
+msgid "Allow Video"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:156
+msgid "Allow Coupons"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:164
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:172
+msgid "Allow Gallery"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:182
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:109
+msgid "User"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:200
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:110
+msgid "Product"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:201
+msgid "Optionally link this package to a product."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:204
+msgid "Choose a product&hellip;"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:235
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:122
+msgid "Order ID"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:236
+msgid "Optionally link this package to an order."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:239
+msgid "N/A"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:245
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-edit-listing-package.php:81
+msgid "Save Package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-add-package.php:327
+msgid "Package successfully saved"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-edit-listing-package.php:56
+msgid "Assigned to Task Package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-edit-listing-package.php:108
+msgid "Package successfully changed"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-edit-listing-package.php:111
+msgid "You haven't changed package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:44
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:43
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:50
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:53
+msgid "n/a"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:72
+msgid "Change package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:86
+msgid "Listing"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:87
+msgid "Package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:124
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:185
+msgid "Filter"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:130
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:191
+msgid "Empty Trash"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:162
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:232
+msgid "Filter by category"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings-table.php:192
+msgid "Search Listings"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings.php:41
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:41
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings.php:53
+msgid "Listings Packages"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings.php:53
+msgid "Listings Packages Manager"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings.php:74
+msgid "Listing's Packages"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-listings.php:93
+msgid "Edit Task Package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:57
+#, php-format
+msgid "%d Days"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:59
+#, php-format
+msgid "%s Posted"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:90
+#: templates/task-dashboard.php:171
+msgid "Delete"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:111
+msgid "Limit"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:112
+msgid "Duration"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:114
+msgid "Booking Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:115
+msgid "Reviews  Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:116
+msgid "Social Links Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:117
+msgid "Opening Hours Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:118
+msgid "Video Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:119
+msgid "Coupons Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:120
+msgid "Gallery Module"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin-packages.php:121
+msgid "Images Limit"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:53
+msgid "Packages Manager"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:73
+msgid "Package successfully deleted"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:84
+msgid "Task Packages"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:84
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-admin.php:103
+msgid "Add User Package"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-cart.php:122
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-cart.php:140
+msgid "Listing title"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-orders.php:116
+#, php-format
+msgid ""
+"<strong>%s</strong> has been submitted successfully and will be visible once "
+"approved."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-orders.php:120
+#, php-format
+msgid ""
+"<strong>%s</strong> has been submitted successfully and will be visible once "
+"payment has been confirmed."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings-orders.php:123
+#, php-format
+msgid "<strong>%s</strong> has been submitted successfully."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:63
+msgid "Listing limit"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:64
+msgid "The number of listings a user can post with this package."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:77
+msgid "Listing duration"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:78
+msgid "The number of days that the listing will be active."
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:91
+msgid "Feature Listing?"
+msgstr ""
+
+#: includes/paid-listings/class-workscout-freelancer-paid-listings.php:92
+msgid "Feature this listing - it will have a badge and sticky status."
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:9 lib/cmb2-tabs/example.php:109
+msgid "Example tabs"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:25 lib/cmb2-tabs/example.php:131
+msgid "Tab 1"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:33 lib/cmb2-tabs/example.php:57
+#: lib/cmb2-tabs/example.php:139 lib/cmb2-tabs/example.php:163
+msgid "Subtitle"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:38 lib/cmb2-tabs/example.php:144
+msgid "Background image"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:49 lib/cmb2-tabs/example.php:155
+msgid "Tab 2"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:65 lib/cmb2-tabs/example.php:171
+msgid "Review {#}"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:66 lib/cmb2-tabs/example.php:172
+msgid "Add review"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:67 lib/cmb2-tabs/example.php:173
+msgid "Remove review"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:72 lib/cmb2-tabs/example.php:178
+msgid "Author name"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:77 lib/cmb2-tabs/example.php:183
+msgid "Author avatar"
+msgstr ""
+
+#: lib/cmb2-tabs/example.php:85 lib/cmb2-tabs/example.php:191
+msgid "Comment"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:5
+msgid "Set your minimal hourly rate"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:15
+msgid "Add up to 10 skills"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:20
+msgid "e.g. Angular, Laravel"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:41
+#: templates/single-partials/single-task-attachments.php:10
+msgid "Attachments"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:80
+msgid "Upload Files"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:81
+#, php-format
+msgid "Maximum file size: %s."
+msgstr ""
+
+#: templates/account/freelancer-fields.php:87
+msgid "Tagline"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:88
+msgid "iOS Expert + Node Dev"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:92
+msgid "Nationality"
+msgstr ""
+
+#: templates/account/freelancer-fields.php:94
+msgid "Select Country"
+msgstr ""
+
+#: templates/archive-task-full.php:31
+msgid "Search"
+msgstr ""
+
+#: templates/archive-task-full.php:42
+msgid "Search Results"
+msgstr ""
+
+#: templates/archive-task.php:78
+msgid "Browse Tasks"
+msgstr ""
+
+#: templates/archive-task.php:81
+#, php-format
+msgid ""
+"We have <em class=\"count_jobs\">%s</em> <em class=\"tasks_text\">tasks</em> "
+"for you"
+msgid_plural ""
+"We have <em class=\"count_jobs\">%s</em> <em class=\"tasks_text\">tasks</em> "
+"for you"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/content-single-task.php:69 templates/my-bids.php:65
+#: templates/sidebar-tasks.php:109 templates/single-task.php:120
+msgid "Hourly Rate"
+msgstr ""
+
+#: templates/content-single-task.php:71
+msgid "Project Budget"
+msgstr ""
+
+#: templates/content-single-task.php:142 templates/single-task.php:194
+msgid "Project Description"
+msgstr ""
+
+#: templates/content-single-task.php:168 templates/single-task.php:227
+#: templates/task-dashboard.php:85
+msgid "Bidding has closed"
+msgstr ""
+
+#: templates/content-task-grid.php:23 templates/content-task.php:22
+#: templates/single-task.php:104
+msgid "Private Person"
+msgstr ""
+
+#: templates/content-task-grid.php:57 templates/content-task.php:57
+msgid "Bid Now"
+msgstr ""
+
+#: templates/form-fields/dynamic-input-field.php:35
+msgid "Add Skills"
+msgstr ""
+
+#: templates/my-bids.php:5
+msgid "Bids List"
+msgstr ""
+
+#: templates/my-bids.php:12
+msgid "Active"
+msgstr ""
+
+#: templates/my-bids.php:13 templates/task-dashboard.php:29
+msgid "Closed"
+msgstr ""
+
+#: templates/my-bids.php:22
+msgid "You do not have any bids."
+msgstr ""
+
+#: templates/my-bids.php:42
+msgid "Your bid was accepted for task"
+msgstr ""
+
+#: templates/my-bids.php:46
+msgid "Task has expired, your bid was not accepted"
+msgstr ""
+
+#: templates/my-bids.php:66 templates/task-bids.php:152
+msgid "Delivery Time"
+msgstr ""
+
+#: templates/my-bids.php:73 templates/my-bids.php:111
+#: templates/task-dashboard.php:273
+msgid "Edit Bid"
+msgstr ""
+
+#: templates/my-bids.php:78
+msgid "Cancel Bid"
+msgstr ""
+
+#: templates/my-bids.php:120 templates/my-bids.php:121
+#: templates/my-bids.php:142 templates/my-bids.php:143
+#: templates/single-task.php:243 templates/single-task.php:245
+#: templates/single-task.php:266 templates/single-task.php:268
+msgid "Set your"
+msgstr ""
+
+#: templates/my-bids.php:120 templates/single-task.php:243
+msgid "hourly rate"
+msgstr ""
+
+#: templates/my-bids.php:121 templates/single-task.php:245
+msgid "bid amount"
+msgstr ""
+
+#: templates/my-bids.php:142 templates/my-bids.php:143
+#: templates/single-task.php:266 templates/single-task.php:268
+msgid "delivery time"
+msgstr ""
+
+#: templates/my-bids.php:142 templates/single-task.php:266
+msgid "in hours"
+msgstr ""
+
+#: templates/my-bids.php:143 templates/single-task.php:268
+msgid "in days"
+msgstr ""
+
+#: templates/my-bids.php:160 templates/single-task.php:375
+msgid "Describe your proposal"
+msgstr ""
+
+#: templates/my-bids.php:162 templates/single-task.php:377
+msgid "What makes you the best candidate for that project?"
+msgstr ""
+
+#: templates/my-bids.php:167
+msgid "Update your Bid"
+msgstr ""
+
+#: templates/no-task-found.php:2
+msgid "There are no tasks matching your search."
+msgstr ""
+
+#: templates/sidebar-tasks.php:16
+msgid "Find My Location"
+msgstr ""
+
+#: templates/sidebar-tasks.php:17
+msgid "type and hit enter"
+msgstr ""
+
+#: templates/sidebar-tasks.php:27
+msgid "Search by Radius"
+msgstr ""
+
+#: templates/sidebar-tasks.php:32
+msgid "Radius around selected destination"
+msgstr ""
+
+#: templates/sidebar-tasks.php:50
+msgid "job title, keywords or company"
+msgstr ""
+
+#: templates/sidebar-tasks.php:74
+msgid "Choose a category"
+msgstr ""
+
+#: templates/sidebar-tasks.php:90
+msgid "Fixed Price"
+msgstr ""
+
+#: templates/single-partials/single-company.php:4 templates/single-task.php:101
+msgid "Added by"
+msgstr ""
+
+#: templates/single-partials/single-company.php:19
+msgid "No reviews yet"
+msgstr ""
+
+#: templates/single-partials/single-task-bids.php:18
+msgid "Freelancers Bidding"
+msgstr ""
+
+#: templates/single-partials/single-task-bids.php:89
+#: templates/task-bids.php:152
+msgid "days"
+msgstr ""
+
+#: templates/single-partials/single-task-skills.php:6
+msgid "Skills Required"
+msgstr ""
+
+#: templates/single-task.php:213
+msgid "This task has expired."
+msgstr ""
+
+#: templates/single-task.php:223
+msgid " Bidding ends in "
+msgstr ""
+
+#: templates/single-task.php:235
+msgid "Bid on this job!"
+msgstr ""
+
+#: templates/single-task.php:284 templates/single-task.php:285
+#: templates/single-task.php:382
+msgid "Place a Bid"
+msgstr ""
+
+#: templates/single-task.php:290
+msgid "You have already bid on this project."
+msgstr ""
+
+#: templates/single-task.php:290
+msgid "You can edit your bids"
+msgstr ""
+
+#: templates/single-task.php:290
+msgid "here"
+msgstr ""
+
+#: templates/single-task.php:292
+msgid "Login to Bid"
+msgstr ""
+
+#: templates/single-task.php:301
+msgid "Thanks for the bid!"
+msgstr ""
+
+#: templates/single-task.php:306
+msgid "Don't have an account? "
+msgstr ""
+
+#: templates/single-task.php:306
+msgid "Sign Up"
+msgstr ""
+
+#: templates/single-task.php:335
+msgid "Place Bid"
+msgstr ""
+
+#: templates/single-task.php:344
+#, php-format
+msgid "Set your %s hourly rate %s"
+msgstr ""
+
+#: templates/single-task.php:346
+#, php-format
+msgid "Set your %s bid amount %s"
+msgstr ""
+
+#: templates/single-task.php:356
+#, php-format
+msgid "Set your %s delivery time %s in hours"
+msgstr ""
+
+#: templates/single-task.php:358
+#, php-format
+msgid "Set your %s delivery time %s in days"
+msgstr ""
+
+#: templates/task-bids.php:41
+#, php-format
+msgid "%s Bidder"
+msgid_plural "%s Bidders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/task-bids.php:44
+msgid "Highest First"
+msgstr ""
+
+#: templates/task-bids.php:45
+msgid "Lowest First"
+msgstr ""
+
+#: templates/task-bids.php:46
+msgid "Fastest First"
+msgstr ""
+
+#: templates/task-bids.php:157 templates/task-bids.php:199
+#: templates/task-bids.php:230
+msgid "Accept Offer"
+msgstr ""
+
+#: templates/task-bids.php:219
+msgid "I have read and agree to the Terms and Conditions"
+msgstr ""
+
+#: templates/task-bids.php:221
+msgid "Accept"
+msgstr ""
+
+#: templates/task-bids.php:241 templates/task-bids.php:260
+#: templates/task-dashboard.php:294
+msgid "Send Message"
+msgstr ""
+
+#: templates/task-bids.php:251
+msgid "Send"
+msgstr ""
+
+#: templates/task-dashboard.php:16
+msgid " My Tasks"
+msgstr ""
+
+#: templates/task-dashboard.php:23
+msgid "All"
+msgstr ""
+
+#: templates/task-dashboard.php:24 workscout-freelancer-functions.php:179
+msgid "Published"
+msgstr ""
+
+#: templates/task-dashboard.php:25
+msgid "In progress"
+msgstr ""
+
+#: templates/task-dashboard.php:26 workscout-freelancer-functions.php:189
+msgid "Completed"
+msgstr ""
+
+#: templates/task-dashboard.php:27 workscout-freelancer-functions.php:185
+msgid "Hidden"
+msgstr ""
+
+#: templates/task-dashboard.php:28
+msgid "Pending"
+msgstr ""
+
+#: templates/task-dashboard.php:38
+msgid "You do not have any active task listings."
+msgstr ""
+
+#: templates/task-dashboard.php:83
+msgid "left"
+msgstr ""
+
+#: templates/task-dashboard.php:106
+msgid "Avg. Bid"
+msgstr ""
+
+#: templates/task-dashboard.php:130
+msgid "Hide"
+msgstr ""
+
+#: templates/task-dashboard.php:136
+msgid "Set Task as Completed"
+msgstr ""
+
+#: templates/task-dashboard.php:149
+msgid "Publish"
+msgstr ""
+
+#: templates/task-dashboard.php:164
+msgid "Relist"
+msgstr ""
+
+#: templates/task-dashboard.php:193
+msgid "Manage Bidders"
+msgstr ""
+
+#: templates/task-dashboard.php:197
+msgid "Order Summary"
+msgstr ""
+
+#: templates/task-dashboard.php:228 templates/task-dashboard.php:284
+msgid "Rate Freelancer"
+msgstr ""
+
+#: templates/task-dashboard.php:230
+msgid "Edit your rating"
+msgstr ""
+
+#: templates/task-dashboard.php:261
+msgid "Contact Freelancer"
+msgstr ""
+
+#: templates/task-package-selection.php:35
+msgid "Your active packages"
+msgstr ""
+
+#: templates/task-package-selection.php:44
+msgid "featured"
+msgstr ""
+
+#. translators: 1: Posted count. 2: Featured marking. 3: Limit.
+#: templates/task-package-selection.php:47
+#, php-format
+msgid "%1$s %2$s task posted out of %3$d"
+msgid_plural "%1$s %2$s tasks posted out of %3$d"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: Posted count. 2: Featured marking.
+#: templates/task-package-selection.php:51
+#, php-format
+msgid "%1$s %2$s task posted"
+msgid_plural "%1$s %2$s tasks posted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/task-package-selection.php:56
+#, php-format
+msgid "listed for %s day"
+msgid_plural "listed for %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/task-package-selection.php:70
+msgid "Or Purchase New Package"
+msgstr ""
+
+#: templates/task-package-selection.php:72
+msgid "Choose Package"
+msgstr ""
+
+#: templates/task-package-selection.php:100
+msgid "Recommended"
+msgstr ""
+
+#: templates/task-package-selection.php:114
+msgid "Unlimited number of listings"
+msgstr ""
+
+#: templates/task-package-selection.php:118
+msgid "This plan includes "
+msgstr ""
+
+#: templates/task-package-selection.php:119
+#, php-format
+msgid "%d listing"
+msgid_plural "%s listings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/task-package-selection.php:125
+msgid "Listings are visible "
+msgstr ""
+
+#: templates/task-package-selection.php:126
+#, php-format
+msgid "for %s day"
+msgid_plural "for %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/task-package-selection.php:130
+msgid "Unlimited availability of listings"
+msgstr ""
+
+#: templates/task-package-selection.php:134
+msgid "Highlighted in Search Results"
+msgstr ""
+
+#: templates/task-package-selection.php:146
+msgid "Buy this package"
+msgstr ""
+
+#: templates/task-package-selection.php:146
+msgid "Choose this package"
+msgstr ""
+
+#: templates/task-package-selection.php:159
+msgid "No packages found"
+msgstr ""
+
+#: templates/task-preview.php:31
+msgid "Submit Task &rarr;"
+msgstr ""
+
+#: templates/task-preview.php:32
+msgid "&larr; Edit task"
+msgstr ""
+
+#: templates/task-submit.php:41
+msgid "Select Company"
+msgstr ""
+
+#: templates/task-submit.php:49
+msgid "(optional)"
+msgstr ""
+
+#: templates/task-submit.php:59
+msgid ""
+"You need to select company before adding job listing. If you didn't add "
+"company profile yet click button below."
+msgstr ""
+
+#: templates/task-submit.php:60
+msgid "Add Company"
+msgstr ""
+
+#: templates/task-submit.php:72
+msgid "Task Submission Form"
+msgstr ""
+
+#: templates/task-submitted.php:26
+msgid "Thanks for your submission!"
+msgstr ""
+
+#. translators: Placeholder is URL to view the task.
+#: templates/task-submitted.php:35
+#, php-format
+msgid ""
+"Your task has been submitted successfully. To view your task <a "
+"href=\"%s\">click here</a>."
+msgstr ""
+
+#: templates/task-submitted.php:44
+msgid "Your task has been submitted successfully and is pending approval."
+msgstr ""
+
+#. translators: %1$s is the url to the job listing; %2$s is the title of the job listing.
+#: templates/task-submitted.php:55
+#, php-format
+msgid ""
+" You will be able to apply for <a href=\"%1$s\">%2$s</a> once your task has "
+"been approved."
+msgstr ""
+
+#: workscout-freelancer-functions.php:181
+msgid "Expired"
+msgstr ""
+
+#: workscout-freelancer-functions.php:183
+msgid "Pending Review"
+msgstr ""
+
+#: workscout-freelancer-functions.php:187
+msgid "In Progress"
+msgstr ""
+
+#: workscout-freelancer-functions.php:191
+msgid "Inactive"
+msgstr ""
+
+#: workscout-freelancer-functions.php:534
+#, php-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: workscout-freelancer-functions.php:535
+#, php-format
+msgid ", %s hour"
+msgid_plural ", %s hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: workscout-freelancer-functions.php:601
+msgid "Quality of Work"
+msgstr ""
+
+#: workscout-freelancer-functions.php:602
+msgid "Quality of customer service and attitude to work with you"
+msgstr ""
+
+#: workscout-freelancer-functions.php:605
+msgid "Communication Skills:"
+msgstr ""
+
+#: workscout-freelancer-functions.php:606
+msgid "Effective communication is crucial for a successful collaboration."
+msgstr ""
+
+#: workscout-freelancer-functions.php:609
+msgid "Professionalism"
+msgstr ""
+
+#: workscout-freelancer-functions.php:610
+msgid ""
+"Professionalism encompasses various aspects, including responsiveness, "
+"politeness, and the ability to handle challenges with a positive attitude."
+msgstr ""
+
+#: workscout-freelancer-functions.php:648
+msgid "Remote"
+msgstr ""
+
+#: workscout-freelancer-functions.php:660
+msgid "Anywhere"
+msgstr ""
+
+#: workscout-freelancer.php:158
+msgid ""
+"<em>WorkScout Freelancer</em> requires WP Job Manager to be installed and "
+"activated."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WorkScout Freelancer For WP Job Manager"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "This plugin adds freelancer functionality for WorkScout WP Job Manager"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Purethemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://purethemes.net/"
+msgstr ""
