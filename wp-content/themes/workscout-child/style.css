@@ -33,3 +33,9 @@ Template:  workscout
 .account-type{
     display: none  !important;
 }
+
+
+/* Esconder Breadcrumbs */
+#breadcrumbs {
+    display: none  !important;
+}
