@@ -8,13 +8,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-12-29 19:03+0000\n"
-"Language-Team: Español\n"
-"X-Generator: Loco https://localise.biz/\n"
+"PO-Revision-Date: 2015-07-25 15:59-0600\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.3\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: es_ES\n"
-"X-Loco-Version: 2.6.14; wp-6.7.1"
+"Language: es_CR\n"
 
 #: includes/admin/class-wp-resume-manager-admin.php:64
 msgid "Settings"
@@ -72,11 +71,11 @@ msgstr "CV enviado. <a target=\"_blank\" href=\"%s\">Vista previa CV</a>"
 
 #: includes/admin/class-wp-resume-manager-cpt.php:223
 msgid ""
-"Resume scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
-"href=\"%2$s\">Preview Resume</a>"
+"Resume scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview Resume</a>"
 msgstr ""
-"CV programado por: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">"
-"Vista previa CV</a>"
+"CV programado por: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Vista previa CV</a>"
 
 #: includes/admin/class-wp-resume-manager-cpt.php:224
 msgid "M j, Y @ G:i"
@@ -445,8 +444,8 @@ msgstr "API KEY de Linkedin"
 
 #: includes/admin/class-wp-resume-manager-settings.php:203
 msgid ""
-"Get your API key by creating a new application on https://www.linkedin."
-"com/secure/developer"
+"Get your API key by creating a new application on https://www.linkedin.com/"
+"secure/developer"
 msgstr ""
 "Obtenga su clave de API mediante la creación de una nueva aplicación en "
 "https://www.linkedin.com/secure/developer"
@@ -528,8 +527,9 @@ msgid ""
 "Select the page where you have placed the [submit_resume_form] shortcode. "
 "This lets the plugin know where the form is located."
 msgstr ""
-"Seleccione la página donde ha colocado el código corto [submit_resume_form] ."
-" Esto permite que el plugin reconozca donde se encuentra el formulario."
+"Seleccione la página donde ha colocado el código corto "
+"[submit_resume_form] . Esto permite que el plugin reconozca donde se "
+"encuentra el formulario."
 
 #: includes/admin/class-wp-resume-manager-settings.php:251
 msgid "Candidate Dashboard Page"
@@ -958,7 +958,7 @@ msgstr "Empleador"
 #: includes/admin/class-wp-resume-manager-writepanels.php:260
 #: includes/forms/class-wp-resume-manager-form-submit-resume.php:272
 msgid "Job Title"
-msgstr "Nombre del Trabajo"
+msgstr "Nombre del Trabaho"
 
 #: includes/admin/class-wp-resume-manager-writepanels.php:286
 #: includes/forms/class-wp-resume-manager-form-submit-resume.php:206
@@ -1393,9 +1393,9 @@ msgstr "Ocultar notificación"
 
 #: includes/updater/views/html-ms-update.php:6
 msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" "
-"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a "
-"href=\"%4$s\">update now</a>."
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
 msgstr ""
 
 #: includes/wp-resume-manager-functions.php:214
@@ -1603,11 +1603,11 @@ msgstr "Adicionar CV"
 
 #: templates/contact-details-email.php:1
 msgid ""
-"To contact this candidate email <a class=\"job_application_email\" "
-"href=\"mailto:%1$s%2$s\">%1$s</a>"
+"To contact this candidate email <a class=\"job_application_email\" href="
+"\"mailto:%1$s%2$s\">%1$s</a>"
 msgstr ""
-"Para contactar a este candidato enviar email a  <a "
-"class=\"job_application_email\" href=\"mailto:%1$s%2$s\">%1$s</a>"
+"Para contactar a este candidato enviar email a  <a class="
+"\"job_application_email\" href=\"mailto:%1$s%2$s\">%1$s</a>"
 
 #: templates/contact-details-email.php:4
 msgid "Contact using webmail: "

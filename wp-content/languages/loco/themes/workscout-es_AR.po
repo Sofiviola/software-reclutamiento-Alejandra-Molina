@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WorkScout\n"
 "POT-Creation-Date: 2024-07-05 11:44+0200\n"
-"PO-Revision-Date: 2024-12-29 14:25+0000\n"
+"PO-Revision-Date: 2024-12-29 19:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español de Argentina\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr "Industrias"
 #: archive-company.php:65
 msgctxt "Company category permalink - resave permalinks after changing this"
 msgid "company-category"
-msgstr "categoría-empresa"
+msgstr ""
 
 #: archive-company.php:69
 msgid "Employee Strength"
@@ -81,7 +81,7 @@ msgstr "La fuerza de los empleados"
 msgctxt ""
 "Company employees strength permalink - resave permalinks after changing this"
 msgid "company-employees-strength"
-msgstr "fuerza-empleados-empresa"
+msgstr ""
 
 #: archive-company.php:75 archive-company.php:76 content-company.php:59
 #: content-single-company.php:124 inc/wp-job-manager.php:279
@@ -93,7 +93,7 @@ msgstr "Salario promedio"
 msgctxt ""
 "Company avarage salary permalink - resave permalinks after changing this"
 msgid "company-average-salary"
-msgstr "salario-promedio-empresa"
+msgstr ""
 
 #: archive-company.php:81 archive-company.php:82 content-single-company.php:119
 #: inc/wp-job-manager.php:275 single-company.php:234
@@ -103,7 +103,7 @@ msgstr "Ganancia"
 #: archive-company.php:83
 msgctxt "Company revenue permalink - resave permalinks after changing this"
 msgid "company-revenue"
-msgstr "ingresos- de la empresa"
+msgstr ""
 
 #: archive-company.php:131 template-home-box.php:109
 #: template-home-resumes.php:117 template-home.php:116

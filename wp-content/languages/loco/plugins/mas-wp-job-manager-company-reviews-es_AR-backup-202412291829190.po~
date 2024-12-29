@@ -1,0 +1,289 @@
+# Copyright (C) 2021 MadrasThemes
+# This file is distributed under the same license as the MAS Company Reviews For WP Job Manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: MAS Company Reviews For WP Job Manager 1.0.2\n"
+"Report-Msgid-Bugs-To: https://github.com/madrasthemes/masvideos/issues\n"
+"POT-Creation-Date: 2021-03-29 08:35:04+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-12-29 18:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: Español de Argentina\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: es_AR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1"
+
+#: includes/class-mas-wpjmcr-edit.php:109
+msgid "Title"
+msgstr "Título"
+
+#: includes/class-mas-wpjmcr-edit.php:118 templates/job-review-moderate.php:23
+msgid "Review"
+msgstr "Revisar"
+
+#: includes/class-mas-wpjmcr-edit.php:127
+msgid "Gallery"
+msgstr "Galería"
+
+#: includes/class-mas-wpjmcr-edit.php:219
+msgid "Delete images:"
+msgstr "Eliminar imágenes:"
+
+#: includes/class-mas-wpjmcr-edit.php:231 includes/functions.php:512
+msgid "Delete"
+msgstr ""
+
+#: includes/class-mas-wpjmcr-edit.php:238
+msgid "Upload images:"
+msgstr "Subir imágenes:"
+
+#: includes/class-mas-wpjmcr-form.php:103
+msgid "Photo Gallery"
+msgstr "Galería de fotos"
+
+#: includes/class-mas-wpjmcr-form.php:115
+#: includes/class-mas-wpjmcr-settings.php:125
+msgid "Comment Title"
+msgstr "Título del comentario"
+
+#: includes/class-mas-wpjmcr-form.php:137
+msgid "You can't add a star rating to your own company."
+msgstr "No puedes agregar una calificación de estrellas a tu propia empresa."
+
+#: includes/class-mas-wpjmcr-form.php:159
+msgid ""
+"Guests are not allowed to post a review. Please <a href=\"%s\">log in</a> to "
+"review."
+msgstr ""
+"Los invitados no pueden publicar comentarios. Por favor, <a href=\"%s\">"
+"inicie sesión</a> para comentar."
+
+#: includes/class-mas-wpjmcr-form.php:201
+msgid "You have already posted a review."
+msgstr "Ya has publicado una reseña."
+
+#: includes/class-mas-wpjmcr-post-edit.php:56
+msgid "Recalculate reviews"
+msgstr "Recalcular reseñas"
+
+#: includes/class-mas-wpjmcr-post-edit.php:133
+msgid "Reviews count recalculated."
+msgstr "Se ha recalculado el recuento de reseñas."
+
+#: includes/class-mas-wpjmcr-post-edit.php:135
+msgid "Fail to recalculate reviews. Please try again."
+msgstr "No se pudieron recalcular las reseñas. Inténtalo nuevamente."
+
+#: includes/class-mas-wpjmcr-settings.php:52
+msgid "Company Reviews"
+msgstr "Reseñas de empresas"
+
+#: includes/class-mas-wpjmcr-settings.php:58
+msgid "Stars"
+msgstr "Estrellas"
+
+#: includes/class-mas-wpjmcr-settings.php:59
+msgid "How many stars would you like to use?"
+msgstr "¿Cuántas estrellas te gustaría utilizar?"
+
+#: includes/class-mas-wpjmcr-settings.php:66
+msgid "Review categories"
+msgstr "Categorías de revisión"
+
+#: includes/class-mas-wpjmcr-settings.php:67
+msgid ""
+"Categories you would you like to use, each category seperated by comma(,)."
+msgstr "Categorías que desea utilizar, cada categoría separada por coma (,)."
+
+#: includes/class-mas-wpjmcr-settings.php:75
+#: includes/class-mas-wpjmcr-settings.php:76
+msgid "Listing owners can moderate reviews"
+msgstr "Los propietarios de anuncios pueden moderar las reseñas"
+
+#: includes/class-mas-wpjmcr-settings.php:77
+msgid "Let listing owners moderate the reviews on their listings."
+msgstr ""
+"Permita que los propietarios de anuncios moderen las reseñas de sus anuncios."
+
+#: includes/class-mas-wpjmcr-settings.php:85
+msgid "Allow listing owner review"
+msgstr "Permitir revisión por parte del propietario del listado"
+
+#: includes/class-mas-wpjmcr-settings.php:86
+msgid "Allow listing owners to review their own listings."
+msgstr ""
+"Permitir que los propietarios de listados revisen sus propios listados."
+
+#: includes/class-mas-wpjmcr-settings.php:95
+msgid "Allow multiple review"
+msgstr "Permitir múltiples revisiones"
+
+#: includes/class-mas-wpjmcr-settings.php:96
+msgid ""
+"Allow multiple review from the same user (does not apply to listing owner)."
+msgstr ""
+"Permitir múltiples revisiones del mismo usuario (no se aplica al propietario "
+"del listado)."
+
+#: includes/class-mas-wpjmcr-settings.php:105
+msgid "Allow guests to review"
+msgstr "Permitir a los huéspedes revisar"
+
+#: includes/class-mas-wpjmcr-settings.php:106
+msgid "Allow logged out users to leave a review."
+msgstr "Permitir que los usuarios que hayan cerrado sesión dejen una reseña."
+
+#: includes/class-mas-wpjmcr-settings.php:115
+msgid "Allow blank comment"
+msgstr "Permitir comentarios en blanco"
+
+#: includes/class-mas-wpjmcr-settings.php:116
+msgid "Allow blank comment content in review."
+msgstr "Permitir contenido de comentarios en blanco en la revisión."
+
+#: includes/class-mas-wpjmcr-settings.php:126
+msgid "Allow users to add comment title to their review."
+msgstr "Permitir a los usuarios agregar título de comentario a su reseña."
+
+#: includes/class-mas-wpjmcr-settings.php:127
+msgid "If enabled user can add comment title when they submit review."
+msgstr ""
+"Si esta opción está habilitada, el usuario puede agregar un título de "
+"comentario cuando envía una reseña."
+
+#: includes/class-mas-wpjmcr-settings.php:135
+msgid "Image Upload"
+msgstr "Subir imagen"
+
+#: includes/class-mas-wpjmcr-settings.php:136
+msgid "Allow users to add image gallery to their review."
+msgstr "Permitir a los usuarios agregar una galería de imágenes a su reseña."
+
+#: includes/class-mas-wpjmcr-settings.php:137
+msgid "If enabled user can upload gallery when they submit review."
+msgstr ""
+"Si está habilitado, el usuario puede cargar la galería cuando envía una "
+"reseña."
+
+#: includes/class-mas-wpjmcr-settings.php:144
+msgid "Dashboard Actions"
+msgstr "Acciones del panel de control"
+
+#: includes/class-mas-wpjmcr-shortcodes.php:133
+msgid "Review moderation has not been enabled."
+msgstr "No se ha habilitado la moderación de reseñas."
+
+#: includes/class-mas-wpjmcr-shortcodes.php:137
+msgid "Please log in to moderate reviews."
+msgstr "Inicie sesión para moderar las reseñas."
+
+#: includes/class-mas-wpjmcr-shortcodes.php:246
+msgid "%1$s requested a review moderation for Review #%2$s for %3$s"
+msgstr ""
+"%1$s solicitó una moderación de revisión para la Revisión #%2$s para %3$s"
+
+#: includes/class-mas-wpjmcr-shortcodes.php:255
+msgid "Your review moderation request for %1$s was sent successfully."
+msgstr ""
+"Su solicitud de moderación de revisión para %1$s fue enviada exitosamente."
+
+#: includes/class-mas-wpjmcr-shortcodes.php:260
+msgid "Review #%1$d for %2$s reported to site admin."
+msgstr "Revisión #%1$d para %2$s reportada al administrador del sitio."
+
+#: includes/class-mas-wpjmcr-shortcodes.php:286
+msgid "Review #%1$d for %2$s updated."
+msgstr "Se actualizó la revisión #%1$d para %2$s."
+
+#: includes/class-mas-wpjmcr-submit.php:79
+msgid "<strong>ERROR:</strong> Please select a rating for all categories."
+msgstr ""
+"<strong>ERROR:</strong> Seleccione una calificación para todas las "
+"categorías."
+
+#: includes/functions.php:27
+msgid "Speed"
+msgstr "Velocidad"
+
+#: includes/functions.php:28
+msgid "Quality"
+msgstr "Calidad"
+
+#: includes/functions.php:29
+msgid "Price"
+msgstr "Precio"
+
+#: includes/functions.php:509
+msgid "Approve"
+msgstr "Aprobar"
+
+#: includes/functions.php:510
+msgid "Unapprove"
+msgstr "Desaprobar"
+
+#: includes/functions.php:511 templates/job-review-moderate.php:53
+msgid "Spam"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "MAS Company Reviews For WP Job Manager"
+msgstr ""
+
+#: templates/job-review-moderate.php:15
+msgid "Moderate your reviews below."
+msgstr "Modere sus reseñas a continuación."
+
+#: templates/job-review-moderate.php:24
+msgid "Author"
+msgstr "Autor"
+
+#: templates/job-review-moderate.php:25
+msgid "Ratings"
+msgstr "Calificaciones"
+
+#: templates/job-review-moderate.php:26
+msgid "Actions"
+msgstr "Comportamiento"
+
+#: templates/job-review-moderate.php:33
+msgid "There are currently no reviews found for any of your listings."
+msgstr "Actualmente no se han encontrado reseñas para ninguno de tus anuncios."
+
+#: templates/job-review-moderate.php:41
+msgid "(no title)"
+msgstr ""
+
+#: templates/job-review-moderate.php:47
+msgid "Unapproved"
+msgstr "No aprobado"
+
+#: templates/job-review-moderate.php:50
+msgid "Approved"
+msgstr "Aprobado"
+
+#: templates/job-review-moderate.php:57
+msgid "Deleted"
+msgstr "Eliminado"
+
+#: templates/job-review-moderate.php:70
+msgid "On listing %s"
+msgstr "En el listado %s"
+
+#. Description of the plugin/theme
+msgid ""
+"Leave reviews for listings in MAS WP Job Manager Company. Define review "
+"categories and choose the number of stars available."
+msgstr ""
+"Deje comentarios sobre los anuncios de la empresa MAS WP Job Manager. Defina "
+"las categorías de comentarios y elija la cantidad de estrellas disponibles."
+
+#. Author of the plugin/theme
+msgid "MadrasThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://madrasthemes.com/"
+msgstr ""

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-07-25T08:58:08+00:00\n"
-"PO-Revision-Date: 2024-12-29 19:06+0000\n"
+"PO-Revision-Date: 2024-12-29 19:05+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: wp-job-manager\n"
 "Language: es_AR\n"
@@ -626,19 +626,19 @@ msgstr "Página de archivo de listados de trabajos"
 #: includes/class-wp-job-manager-post-types.php:1339
 msgctxt "Job permalink - resave permalinks after changing this"
 msgid "job"
-msgstr ""
+msgstr "trabajo"
 
 #: includes/admin/class-wp-job-manager-permalink-settings.php:117
 #: includes/class-wp-job-manager-post-types.php:1340
 msgctxt "Job category slug - resave permalinks after changing this"
 msgid "job-category"
-msgstr ""
+msgstr "Visibilidad-laboral"
 
 #: includes/admin/class-wp-job-manager-permalink-settings.php:126
 #: includes/class-wp-job-manager-post-types.php:1341
 msgctxt "Job type slug - resave permalinks after changing this"
 msgid "job-type"
-msgstr ""
+msgstr "tipo-trabajo"
 
 #: includes/admin/class-wp-job-manager-promoted-jobs-admin.php:85
 #: includes/admin/class-wp-job-manager-promoted-jobs-admin.php:271
@@ -1827,7 +1827,7 @@ msgstr ""
 #: includes/admin/views/html-admin-setup-step-2.php:63
 msgctxt "Default page title (wizard)"
 msgid "Jobs"
-msgstr ""
+msgstr "Empleos"
 
 #: includes/admin/views/html-admin-setup-step-2.php:64
 msgid ""
@@ -2301,7 +2301,7 @@ msgstr "Tipos de trabajo"
 
 #: includes/class-wp-job-manager-post-types.php:427
 msgid "Job"
-msgstr "Trabajo"
+msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:428
 msgid "Jobs"
@@ -2387,7 +2387,7 @@ msgstr "Aquí es donde se almacenan los datos de los usuarios invitados."
 #: includes/class-wp-job-manager-post-types.php:1323
 msgctxt "Post type archive slug - resave permalinks after changing this"
 msgid "jobs"
-msgstr ""
+msgstr "trabajos"
 
 #: includes/class-wp-job-manager-post-types.php:1640
 #: includes/forms/class-wp-job-manager-form-submit-job.php:210

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-04-24T13:19:07+00:00\n"
-"PO-Revision-Date: 2024-12-29 14:38+0000\n"
+"PO-Revision-Date: 2024-12-29 14:35+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: wp-job-manager-tags\n"
 "Language: es_AR\n"
@@ -37,7 +37,7 @@ msgstr ""
 #. Author of the plugin
 #: wp-job-manager-tags.php
 msgid "Automattic"
-msgstr "Automático"
+msgstr ""
 
 #. Author URI of the plugin
 #: wp-job-manager-tags.php
@@ -46,7 +46,7 @@ msgstr ""
 
 #: includes/class-job-manager-job-tags-shortcodes.php:51
 msgid "Filter by tag:"
-msgstr "Filtrar por etiqueta:"
+msgstr ""
 
 #: includes/class-job-manager-job-tags-shortcodes.php:209
 msgid "tagged"
@@ -59,8 +59,8 @@ msgstr "No se encontraron trabajos etiquetados con %s."
 #: includes/class-job-manager-job-tags-shortcodes.php:356
 msgid "%s job"
 msgid_plural "%s jobs"
-msgstr[0] "%s trabajo"
-msgstr[1] "%s empleos"
+msgstr[0] ""
+msgstr[1] ""
 
 #: wp-job-manager-tags.php:102
 msgid ""
@@ -76,11 +76,11 @@ msgstr ""
 
 #: wp-job-manager-tags.php:142
 msgid "Job Tag"
-msgstr "Etiqueta de trabajo"
+msgstr ""
 
 #: wp-job-manager-tags.php:143
 msgid "Job Tags"
-msgstr "Etiquetas de trabajo"
+msgstr ""
 
 #: wp-job-manager-tags.php:156
 msgid "Search %s"
@@ -88,7 +88,7 @@ msgstr "Buscar %s"
 
 #: wp-job-manager-tags.php:157
 msgid "All %s"
-msgstr "Todos los %s"
+msgstr ""
 
 #: wp-job-manager-tags.php:158
 msgid "Parent %s"
@@ -100,7 +100,7 @@ msgstr "Padres %s:"
 
 #: wp-job-manager-tags.php:160
 msgid "Edit %s"
-msgstr "Editar %s"
+msgstr ""
 
 #: wp-job-manager-tags.php:161
 msgid "Update %s"
@@ -108,7 +108,7 @@ msgstr "Actualizar %s"
 
 #: wp-job-manager-tags.php:162
 msgid "Add New %s"
-msgstr "Agregar nuevo %s"
+msgstr ""
 
 #: wp-job-manager-tags.php:163
 msgid "New %s Name"
@@ -125,7 +125,7 @@ msgstr "Archivos de etiquetas"
 
 #: wp-job-manager-tags.php:193
 msgid "Enable Tag Archives"
-msgstr "Habilitar archivos de etiquetas"
+msgstr ""
 
 #: wp-job-manager-tags.php:194
 msgid ""
@@ -137,15 +137,6 @@ msgid ""
 "org/Template_Hierarchy#Custom_Taxonomies_display\">Template Hierarchy</a> "
 "for more information."
 msgstr ""
-"Al habilitar los archivos de etiquetas, las etiquetas de trabajo (dentro de "
-"los trabajos y las nubes de etiquetas) se vincularán a un archivo de todos "
-"los trabajos con dicha etiqueta. Tenga en cuenta que los archivos de "
-"etiquetas se verán como sus archivos de publicaciones a menos que cree una "
-"plantilla especial para manejar la visualización de listados de trabajos "
-"llamada <code>taxonomy-job_listing_tag.php</code> dentro de su tema. "
-"Consulte <a href=\"http://codex.wordpress."
-"org/Template_Hierarchy#Custom_Taxonomies_display\">Jerarquía de "
-"plantillas</a> para obtener más información."
 
 #: wp-job-manager-tags.php:201
 msgid "Tags Filter Type"
@@ -153,29 +144,25 @@ msgstr "Etiquetas Tipo de filtro"
 
 #: wp-job-manager-tags.php:202
 msgid "Determines how jobs are queried when selecting tags."
-msgstr "Determina cómo se consultan los trabajos al seleccionar etiquetas."
+msgstr ""
 
 #: wp-job-manager-tags.php:205
 msgid "Jobs will be shown if within ANY chosen tag"
 msgstr ""
-"Los trabajos se mostrarán si están dentro de CUALQUIER etiqueta elegida"
 
 #: wp-job-manager-tags.php:206
 msgid "Jobs will be shown if within ALL chosen tags"
 msgstr ""
-"Los trabajos se mostrarán si están dentro de TODAS las etiquetas elegidas"
 
 #: wp-job-manager-tags.php:213
 msgid "Maximum Job Tags"
-msgstr "Máximo de etiquetas de trabajo"
+msgstr ""
 
 #: wp-job-manager-tags.php:214
 msgid ""
 "Enter the number of tags per job submission you wish to allow, or leave "
 "blank for unlimited tags."
 msgstr ""
-"Ingrese la cantidad de etiquetas por envío de trabajo que desea permitir o "
-"déjelo en blanco para etiquetas ilimitadas."
 
 #: wp-job-manager-tags.php:221
 msgid "Tag Input"
@@ -183,34 +170,30 @@ msgstr "Entrada de etiquetas"
 
 #: wp-job-manager-tags.php:241
 msgid "Maximum of %d."
-msgstr "Máximo de %d."
+msgstr ""
 
 #: wp-job-manager-tags.php:247 wp-job-manager-tags.php:258
 #: wp-job-manager-tags.php:268
 msgid "Job tags"
-msgstr "Etiquetas de trabajo"
+msgstr ""
 
 #: wp-job-manager-tags.php:248 wp-job-manager-tags.php:259
 msgid ""
 "Choose some tags, such as required skills or technologies, for this job."
 msgstr ""
-"Elija algunas etiquetas, como habilidades o tecnologías requeridas, para "
-"este trabajo."
 
 #: wp-job-manager-tags.php:249
 msgid "Choose some tags&hellip;"
-msgstr "Elige algunas etiquetas&hellip;"
+msgstr ""
 
 #: wp-job-manager-tags.php:269
 msgid ""
 "Comma separate tags, such as required skills or technologies, for this job."
 msgstr ""
-"Separe con comas las etiquetas, como las habilidades o tecnologías "
-"requeridas, para este trabajo."
 
 #: wp-job-manager-tags.php:272
 msgid "e.g. PHP, Social Media, Management"
-msgstr "p. ej. PHP, redes sociales, gestión"
+msgstr ""
 
 #: wp-job-manager-tags.php:294
 msgid "Please enter no more than %d tags."

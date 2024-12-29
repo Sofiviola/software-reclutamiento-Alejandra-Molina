@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: CMB2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/cmb2\n"
 "POT-Creation-Date: 2016-06-27 17:01:22+00:00\n"
-"PO-Revision-Date: 2024-12-29 18:52+0000\n"
+"PO-Revision-Date: 2024-12-28 20:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español de Argentina\n"
 "MIME-Version: 1.0\n"
@@ -391,7 +391,7 @@ msgstr ""
 
 #: includes/CMB2_JS.php:114
 msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-msgstr "Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic"
+msgstr ""
 
 #: includes/CMB2_JS.php:115
 msgid "Next"
