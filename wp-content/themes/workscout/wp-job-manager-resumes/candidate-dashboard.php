@@ -137,8 +137,27 @@ $freelancer_profile = get_user_meta($user_id, 'freelancer_profile', true);
 	</div>
 
 </div>
-<?php if ($submit_resume_form_page_id && (resume_manager_count_user_resumes() < $submission_limit || !$submission_limit)) : ?>
+<?php /* if ($submit_resume_form_page_id && (resume_manager_count_user_resumes() < $submission_limit || !$submission_limit)) : ?>
 
 	<a class="button margin-top-30" href="<?php echo esc_url(get_permalink($submit_resume_form_page_id)); ?>"><?php esc_html_e('Add Resume', 'workscout'); ?></a>
 
-<?php endif; ?>
+<?php endif; */ ?>
+
+
+<?php 
+$current_user = wp_get_current_user(); // Obtén al usuario actual
+$roles = $current_user->roles; // Obtén los roles del usuario actual
+
+// Comprueba si el usuario tiene el rol 'candidate'
+if (in_array('candidate', $roles)) :
+    // Verifica si el usuario ya tiene un CV cargado
+    if ($submit_resume_form_page_id && resume_manager_count_user_resumes() == 0 && (resume_manager_count_user_resumes() < $submission_limit || !$submission_limit)) : 
+?>
+        <a class="button margin-top-30" href="<?php echo esc_url(get_permalink($submit_resume_form_page_id)); ?>">
+            <?php esc_html_e('Add Resume', 'workscout'); ?>
+        </a>
+<?php 
+    endif; 
+endif; 
+?>
+

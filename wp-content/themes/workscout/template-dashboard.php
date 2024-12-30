@@ -286,7 +286,7 @@ if (!is_user_logged_in()) {
                                             if ($dashboard_page) : ?>
                                                 <li id="dashboard_page-menu" <?php if ($post->ID == $dashboard_page) : ?>class="active" <?php endif; ?>><a href="<?php echo esc_url(get_permalink($dashboard_page)); ?>"><i class="icon-material-outline-dashboard"></i> <?php echo get_the_title($dashboard_page); ?></a></li>
                                             <?php endif; 
-                                            */?>
+                                            */ ?>
                                             <?php $messages_page = get_option('workscout_messages_page');
                                             if ($messages_page) : ?>
                                                 <li id="messages_page-menu" <?php if ($post->ID == $messages_page) : ?>class="active" <?php endif; ?>>
@@ -501,16 +501,47 @@ if (!is_user_logged_in()) {
                                                                             </a>
                                                                         </li>
                                                                     <?php endif; ?>
-
+<!-- Ocultar el agregar Cv para todo rol que no sea Candidato y si ya tiene uno cargado  -->
                                                                     <?php
+                                                                    /*
+if (class_exists('WP_Resume_Manager') && $submit_resume) : ?>
+    <li id="submit_resume-menu" 
+        <?php 
+        if ($post->ID == $submit_resume) : ?>class="active"<?php endif; ?>>
+        <a href="<?php echo esc_url(get_permalink($submit_resume)); ?>">
+            <?php esc_html_e('Add Resume', 'workscout'); ?>
+        </a>
+    </li>
+<?php 
+endif; 
+*/
+                                                                    ?>
+<?php 
+if (class_exists('WP_Resume_Manager') && $submit_resume) : 
+    $current_user = wp_get_current_user(); // Obtén al usuario actual
+    $roles = $current_user->roles; // Obtén los roles del usuario actual
+    
+    // Comprueba si el usuario tiene el rol 'candidate'
+    if (array_intersect($roles, array('candidate'))) :
+        // Obtiene los paquetes de usuario para verificar si tiene CV
+        if (function_exists('wc_paid_listings_get_user_packages')) :
+            $user_packages = wc_paid_listings_get_user_packages(get_current_user_id());
 
-                                                                    if (class_exists('WP_Resume_Manager') &&  $submit_resume) : ?>
-                                                                        <li id="submit_resume-menu" <?php if ($post->ID == $submit_resume) : ?>class="active" <?php endif; ?>>
-                                                                            <a href="<?php echo esc_url(get_permalink($submit_resume)); ?>">
-                                                                                <?php esc_html_e('Add Resume', 'workscout'); ?>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php endif; ?>
+            // Comprueba si no hay paquetes (ningún CV cargado)
+            if (empty($user_packages)) :
+?>
+                <li id="submit_resume-menu" <?php if (isset($post->ID) && $post->ID == $submit_resume) : ?>class="active"<?php endif; ?>>
+                    <a href="<?php echo esc_url(get_permalink($submit_resume)); ?>">
+                        <?php esc_html_e('Add Resume', 'workscout'); ?>
+                    </a>
+                </li>
+<?php 
+            endif; // Cierre de la verificación de paquetes
+        endif; // Cierre de la función existente
+    endif; // Cierre de la verificación de rol
+endif; 
+?>
+
 
                                                                     <?php
                                                                     /*
@@ -613,7 +644,7 @@ if (!is_user_logged_in()) {
                                         echo "<h1>" . get_the_title() . "</h1>";
                                     }
                                 ?>
-                                  
+
                                 <?php } ?>
 
                                 <?php if ($is_dashboard_page == $post->ID) { ?><span><?php esc_html_e('We are glad to see you again!', 'workscout'); ?></span><?php } ?>
