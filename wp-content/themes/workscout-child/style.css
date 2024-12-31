@@ -36,6 +36,10 @@ Template:  workscout
 
 
 /* Esconder Breadcrumbs */
-#breadcrumbs {
+#breadcrumbs, .job-manager-single-alert-link, .company-info {
+    display: none  !important;
+}
+
+#widget_bookmarks_share-3, #widget_bookmarks_share-4, #widget_bookmarks_share-5 {
     display: none  !important;
 }
