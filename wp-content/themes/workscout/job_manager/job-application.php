@@ -30,7 +30,7 @@ if ($apply = get_the_job_application_method()) :
 		}
 		?>
 
-		<a href="#apply-dialog" class="small-dialog popup-with-zoom-anim button apply-dialog-button"><?php esc_html_e('Apply for job', 'workscout'); ?></a>
+		<a href="#apply-dialog" class="small-dialog popup-with-zoom-anim button apply-dialog-button"><?php esc_html_e('Postularme a este trabajo', 'workscout'); ?></a>
 
 		<div id="apply-dialog" class="small-dialog zoom-anim-dialog mfp-hide apply-popup">
 			<div class="small-dialog-headline">

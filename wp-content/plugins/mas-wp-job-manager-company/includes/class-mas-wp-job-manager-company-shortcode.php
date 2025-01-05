@@ -75,7 +75,7 @@ if ( ! class_exists( 'MAS_WPJMC_Shortcode' ) ) :
                             wp_trash_post( $company_id );
 
                             // Message
-                            $this->company_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been deleted', 'mas-wp-job-manager-company' ), $company->post_title ) . '</div>';
+                            $this->company_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s ha sido eliminado', 'mas-wp-job-manager-company' ), $company->post_title ) . '</div>';
 
                         break;
                         case 'hide' :

@@ -1,3 +1,5 @@
+<!-- si el usuario esta loggueado -->
+<?php if (is_user_logged_in()) : ?>
 <div id="tab1" class="tab-slider--body">
 	<?php global $post;
 
@@ -41,3 +43,4 @@
 		</form>
 	<?php endif; ?>
 </div>
+<?php endif; ?>

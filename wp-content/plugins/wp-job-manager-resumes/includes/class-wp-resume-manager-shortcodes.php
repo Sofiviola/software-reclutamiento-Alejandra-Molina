@@ -127,7 +127,7 @@ class WP_Resume_Manager_Shortcodes {
 						wp_trash_post( $resume_id );
 
 						// Message
-						$this->resume_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been deleted', 'wp-job-manager-resumes' ), $resume->post_title ) . '</div>';
+						$this->resume_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s ha sido eliminado', 'wp-job-manager-resumes' ), $resume->post_title ) . '</div>';
 
 						break;
 					case 'hide':

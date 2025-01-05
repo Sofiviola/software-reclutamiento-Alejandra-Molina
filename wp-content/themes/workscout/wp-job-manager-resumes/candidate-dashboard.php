@@ -61,7 +61,7 @@ $freelancer_profile = get_user_meta($user_id, 'freelancer_profile', true);
 												<ul>
 													<li><i class="icon-material-outline-account-circle"></i> <?php the_candidate_title('', '', true, $resume); ?></li>
 													<li><i class="icon-material-outline-location-on"></i> <?php ws_candidate_location(false, $resume); ?></li>
-													<li><i class="icon-material-outline-folder"></i> <?php the_resume_category($resume);  ?></li>
+													<!-- <li><i class="icon-material-outline-folder"></i> <?php the_resume_category($resume);  ?></li> -->
 													<li><i class="icon-material-outline-date-range"></i> <?php if (!empty($resume->_resume_expires) && strtotime($resume->_resume_expires) > current_time('timestamp')) {
 																												printf(esc_html__('Expires %s', 'workscout'), date_i18n(get_option('date_format'), strtotime($resume->_resume_expires)));
 																											} else {

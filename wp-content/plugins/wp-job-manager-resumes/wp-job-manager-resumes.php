@@ -300,7 +300,7 @@ class WP_Resume_Manager {
 			'wp-resume-manager-candidate-dashboard',
 			'resume_manager_candidate_dashboard',
 			array(
-				'i18n_confirm_delete' => __( 'Are you sure you want to delete this resume?', 'wp-job-manager-resumes' ),
+				'i18n_confirm_delete' => __( '¿Estás seguro de que deseas eliminar este currículum?', 'wp-job-manager-resumes' ),
 			)
 		);
 

@@ -469,7 +469,7 @@ class Job_Dashboard_Shortcode {
 
 					// Message.
 					// translators: Placeholder %s is the job listing title.
-					$this->job_dashboard_message = Notice::success( sprintf( __( '%s has been deleted', 'wp-job-manager' ), wpjm_get_the_job_title( $job ) ) );
+					$this->job_dashboard_message = Notice::success( sprintf( __( '%s ha sido eliminado', 'wp-job-manager' ), wpjm_get_the_job_title( $job ) ) );
 
 					break;
 				case 'duplicate':

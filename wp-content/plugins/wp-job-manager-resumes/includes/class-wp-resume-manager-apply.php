@@ -149,7 +149,7 @@ class WP_Resume_Manager_Apply {
 				}
 
 				if ( $this->send_application( $job_id, $resume_id, $application_message ) ) {
-					$this->message = __( 'Your application has been sent successfully', 'wp-job-manager-resumes' );
+					$this->message = __( 'Su solicitud ha sido enviada exitosamente', 'wp-job-manager-resumes' );
 					add_filter( 'job_manager_show_job_apply_' . $job_id, '__return_false' );
 				} else {
 					throw new Exception( __( 'Error sending application', 'wp-job-manager-resumes' ) );

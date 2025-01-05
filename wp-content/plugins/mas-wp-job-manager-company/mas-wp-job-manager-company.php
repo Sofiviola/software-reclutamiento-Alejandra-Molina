@@ -227,7 +227,7 @@ class MAS_WP_Job_Manager_Company {
 			'mas-wp-job-manager-company-dashboard',
 			'mas_wp_job_manager_company_dashboard',
 			array(
-				'i18n_confirm_delete' => esc_html__( 'Are you sure you want to delete this resume?', 'mas-wp-job-manager-company' ),
+				'i18n_confirm_delete' => esc_html__( '¿Estás seguro de que deseas eliminar este currículum?', 'mas-wp-job-manager-company' ),
 			)
 		);
 

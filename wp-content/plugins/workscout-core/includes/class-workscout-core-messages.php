@@ -161,7 +161,7 @@ class Workscout_Core_Messages
 
         if ($id) {
             $result['type'] = 'success';
-            $result['message'] = __('Your message was successfully sent', 'workscout_core');
+            $result['message'] = __('Su mensaje fue enviado exitosamente', 'workscout_core');
         } else {
             $result['type'] = 'error';
             $result['message'] = __('Message couldn\'t be send', 'workscout_core');
@@ -201,7 +201,7 @@ class Workscout_Core_Messages
 
         if ($id) {
             $result['type'] = 'success';
-            $result['message'] = __('Your message was successfully sent', 'workscout_core');
+            $result['message'] = __('Su mensaje fue enviado exitosamente', 'workscout_core');
         } else {
             $result['type'] = 'error';
             $result['message'] = __('Message couldn\'t be send', 'workscout_core');
