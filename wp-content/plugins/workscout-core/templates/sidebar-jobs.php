@@ -139,7 +139,7 @@ if (is_page()) {
 		<?php if (get_option('job_manager_enable_types')) { ?>
 			<div class="widget job-widget-job-types" <?php if ($job_types_widget == "off") : echo ' style="display:none;" ';
 														endif; ?>>
-				<?php if (!is_tax('job_listing_type')) : ?><h4><?php esc_html_e('Job type', 'workscout_core'); ?></h4><?php endif; ?>
+				<?php if (!is_tax('job_listing_type')) : ?><h4><?php esc_html_e('Tipo de trabajo', 'workscout_core'); ?></h4><?php endif; ?>
 				<?php get_job_manager_template('job-filter-job-types.php', array('job_types' => '', 'atts' => array('orderby' => 'rand'), 'selected_job_types' => '')); ?>
 			</div>
 		<?php } ?>
@@ -165,7 +165,7 @@ if (is_page()) {
 		?>
 			<div class="widget job-widget-categories" <?php if ($job_categories_widget == "off") : echo ' style="display:none;" ';
 														endif; ?>>
-				<h4><?php esc_html_e('Category', 'workscout_core'); ?></h4>
+				<h4><?php esc_html_e('Categorias', 'workscout_core'); ?></h4>
 				<div class="search_categories">
 
 					<?php if ($show_category_multiselect) : ?>
@@ -282,7 +282,7 @@ if (is_page()) {
 			<div class="widget widget_range_filter widget-tag" <?php if ($job_tags_widget == "off") : echo ' style="display:none;" ';
 																endif; ?>>
 				<div class="filter_wide filter_by_tag">
-					<h4><?php esc_html_e('Filter by tag:', 'workscout_core') ?></h4>
+					<h4><?php esc_html_e('Filtrar por etiqueta:', 'workscout_core') ?></h4>
 					<span class="filter_by_tag_cloud"></span>
 				</div>
 			</div>

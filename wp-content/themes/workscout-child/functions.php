@@ -38,6 +38,7 @@ return $fields;
 }
 
 
+
 // MODIFICAR CAMPOS DEL RESUME
 // Add your own function to filter the fields
 add_filter( 'submit_resume_form_fields', 'resume_file_required' );

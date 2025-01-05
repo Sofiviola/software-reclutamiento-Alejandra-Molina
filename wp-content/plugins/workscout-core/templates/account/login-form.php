@@ -29,17 +29,17 @@ if (defined('PWP_NAME')) { ?>
             </p>
             <div class="checkboxes margin-top-10">
                 <input name="rememberme" type="checkbox" id="remember-me" value="forever" />
-                <label for="remember-me"><?php esc_html_e('Remember Me', 'workscout_core'); ?></label>
+                <label for="remember-me"><?php esc_html_e('Recordarme', 'workscout_core'); ?></label>
             </div>
             <p>
                 <?php wp_nonce_field('workscout-ajax-login-nonce', 'login_security'); ?>
                 <input id="workscout_login_submit" type="submit" value="<?php esc_attr_e('Login', 'workscout_core'); ?>" />
             </p>
             <p>
-                <?php esc_html_e('Don\'t have an account?', 'workscout_core'); ?> <a class="modal-register-link" href="<?php echo get_permalink($loginpage); ?>?action=register"><?php esc_html_e('Sign up now', 'workscout_core'); ?></a>
+                <?php esc_html_e('Aún no tienes una cuenta?', 'workscout_core'); ?> <a class="modal-register-link" href="<?php echo get_permalink($loginpage); ?>?action=register"><?php esc_html_e('Registrarse', 'workscout_core'); ?></a>
             </p>
             <p>
-                <a href="<?php echo wp_lostpassword_url(home_url('/')); ?>" title="<?php esc_attr_e('Lost Password?', 'workscout_core'); ?>"><?php esc_html_e('Lost Password?', 'workscout_core'); ?></a>
+                <a href="<?php echo wp_lostpassword_url(home_url('/')); ?>" title="<?php esc_attr_e('Olvidates tu contraseña?', 'workscout_core'); ?>"><?php esc_html_e('Olvidates tu contraseña?', 'workscout_core'); ?></a>
             </p>
             <div class="notification error reg-form-output closeable" style="display: none; margin-top: 20px; margin-bottom: 0px;">
                 <p></p>

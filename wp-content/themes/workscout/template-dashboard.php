@@ -358,7 +358,7 @@ if (!is_user_logged_in()) {
                                                         if ($jobs_dashboard) : ?>
                                                             <li id="jobs_dashboard-menu" <?php if ($post->ID == $jobs_dashboard) : ?>class="active" <?php endif; ?>>
                                                                 <a href="<?php echo esc_url(get_permalink($jobs_dashboard)); ?>">
-                                                                    <?php esc_html_e('Manage Jobs', 'workscout'); ?> <span class="nav-tag"><?php
+                                                                    <?php esc_html_e('Administrar trbajos', 'workscout'); ?> <span class="nav-tag"><?php
                                                                                                                                             $count_publish =  workscout_count_posts_by_user($user_id, 'job_listing', 'publish');
                                                                                                                                             $count_pending =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending');
                                                                                                                                             $count_pending_payment =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending_payment');

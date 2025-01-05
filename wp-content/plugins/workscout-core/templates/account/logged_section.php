@@ -33,7 +33,7 @@ $user_id = get_current_user_id();
 			<?php $messages_page = get_option('workscout_messages_page');
 			if ($messages_page) : ?>
 				<li <?php if (is_page() && $post->ID == $messages_page) : ?>class="active" <?php endif; ?>>
-					<a href="<?php echo esc_url(get_permalink($messages_page)); ?>"><i class="icon-material-outline-question-answer"></i> <?php esc_html_e('Messages', 'workscout_core'); ?>
+					<a href="<?php echo esc_url(get_permalink($messages_page)); ?>"><i class="icon-material-outline-question-answer"></i> <?php esc_html_e('Mensajes', 'workscout_core'); ?>
 						<?php
 						$counter = workscout_get_unread_counter();
 						if ($counter) { ?>
@@ -63,7 +63,7 @@ $user_id = get_current_user_id();
 				<?php
 				$resumes_dashboard = get_option('resume_manager_candidate_dashboard_page_id');
 				if (class_exists('WP_Resume_Manager') &&  $resumes_dashboard) : ?>
-					<li id="resumes_dashboard-menu" <?php if (isset($post) && $post->ID == $resumes_dashboard) : ?>class="active" <?php endif; ?>>
+					<!-- <li id="resumes_dashboard-menu" <?php if (isset($post) && $post->ID == $resumes_dashboard) : ?>class="active" <?php endif; ?>>
 						<a href="<?php echo esc_url(get_permalink($resumes_dashboard)); ?>"><i class="icon-material-outline-account-circle"></i>
 							<?php esc_html_e('Manage Resumes', 'workscout_core'); ?> <span class="small-tag"><?php
 																										$count_publish =  workscout_count_posts_by_user($user_id, 'resume', 'publish');
@@ -73,7 +73,7 @@ $user_id = get_current_user_id();
 																										$total_pending_count = $count_publish + $count_pending + $count_draft;
 																										echo $total_pending_count; ?></span>
 						</a>
-					</li>
+					</li> -->
 				<?php endif; ?>
 
 
@@ -122,7 +122,7 @@ if(class_exists('WorkScout_Freelancer')) {
 				if ($jobs_dashboard) : ?>
 					<li id="jobs_dashboard-menu" <?php if (isset($post) && $post->ID == $jobs_dashboard) : ?>class="active" <?php endif; ?>>
 						<a href="<?php echo esc_url(get_permalink($jobs_dashboard)); ?>"> <i class="icon-material-outline-business-center"></i>
-							<?php esc_html_e('Manage Jobs', 'workscout_core'); ?> <span class=" small-tag"><?php
+							<?php esc_html_e('Administrar trbajos', 'workscout_core'); ?> <span class=" small-tag"><?php
 																										$count_publish =  workscout_count_posts_by_user($user_id, 'job_listing', 'publish');
 																										$count_pending =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending');
 																										$count_pending_payment =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending_payment');
@@ -146,12 +146,26 @@ if(class_exists('WorkScout_Freelancer')) {
 
 			<?php endif; ?>
 
+			<!-- if candidate add "Mis postulaciones" that redirect to /mis-postulaciones -->
+			<?php if (in_array($role, array('candidate'))) : ?>
+				<?php $candidate_dashboard = get_option('resume_manager_candidate_dashboard_page_id');
+				if ($candidate_dashboard) : ?>
+					<li id="candidate_dashboard-menu" <?php if (isset($post) && $post->ID == $candidate_dashboard) : ?>class="active" <?php endif; ?>>
+						<a href="/mis-postulaciones"> <i class="icon-material-outline-business-center"></i>
+							<?php esc_html_e('Mis Postulaciones', 'workscout_core'); ?>
+						</a>	
+					</li>
+				<?php endif; ?>
+			<?php endif; ?>
 
 			<?php $profile_page = get_option('workscout_profile_page');
 			if ($profile_page) : ?>
 				<li id=" profile_page-menu" <?php if (isset($post) && $post->ID == $profile_page) : ?>class="active" <?php endif; ?>><a href="<?php echo esc_url(get_permalink($profile_page)); ?>"><i class="icon-material-outline-settings"></i> <?php esc_html_e('My Profile', 'workscout_core'); ?></a>
 				</li>
 			<?php endif; ?>
+
+
+
 
 			<!-- <li><a href=" #">My Profile</a></li> -->
 			<li><a href="<?php echo wp_logout_url(get_permalink()); ?>"><i class="icon-material-outline-power-settings-new"></i><?php esc_html_e('Logout', 'workscout_core'); ?></a></li>

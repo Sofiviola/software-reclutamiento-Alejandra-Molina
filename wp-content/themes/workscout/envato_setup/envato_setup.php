@@ -2714,7 +2714,7 @@ if (!class_exists('Envato_Theme_Setup_Wizard')) {
 				update_option('job_manager_submit_job_form_page_id', $postajob);
 			}
 
-			$jobdashboard = $this->get_page_by_title('Manage Jobs');
+			$jobdashboard = $this->get_page_by_title('Administrar trbajos');
 			if ($jobdashboard) {
 				update_option('job_manager_job_dashboard_page_id', $jobdashboard);
 			}

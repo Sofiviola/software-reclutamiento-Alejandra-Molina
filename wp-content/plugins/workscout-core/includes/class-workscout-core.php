@@ -356,7 +356,7 @@ class WorkScout_Core
 			'nonce' => wp_create_nonce('ajax-nonce'),
 			'is_rtl'                  	=> is_rtl() ? 1 : 0,
 			'lang'                    	=> defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '', // WPML workaround until this is standardized
-			'loadingmessage' 			=> esc_html__('Sending user info, please wait...', 'workscout_core'),
+			'loadingmessage' 			=> esc_html__('Enviando información del usuario, por favor espere...', 'workscout_core'),
 			'submitCenterPoint'		    => get_option('workscout_submit_center_point', '52.2296756,21.012228700000037'),
 			'centerPoint'		      	=> get_option('workscout_map_center_point', '52.2296756,21.012228700000037'),
 			'country'		      		=> get_option('workscout_maps_limit_country'),

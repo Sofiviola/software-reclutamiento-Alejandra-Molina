@@ -344,13 +344,16 @@ if (!is_user_logged_in()) {
 
                                         <?php if (array_intersect($roles, array('candidate'))) : ?>
 
-                                            <?php $test = get_option('workscout_past_applications'); ?>
+                                            <?php 
+                                            $test = get_option('workscout_past_applications'); 
+                                            $is_active = (isset($post) && $post->post_name === 'mis-postulaciones');
+                                            ?>
 
                                             <ul data-submenu-title="<?php esc_html_e('Postulaciones', 'workscout'); ?>">
 
 
-                                                <li id="past_applications_page-menu" <?php if ($post->ID == $test) : ?>class="active" <?php endif; ?>>
-                                                    <a href="/mis-postulaciones">
+                                            <li id="past_applications_page-menu" <?php if ($is_active) : ?>class="active"<?php endif; ?>>
+                                                <a href="/mis-postulaciones">
                                                         <i class="icon-material-outline-business-center"></i>
                                                         <?php echo 'Mis Postulaciones' ?>
                                                     </a>
@@ -379,7 +382,7 @@ if (!is_user_logged_in()) {
                                                         if ($jobs_dashboard) : ?>
                                                             <li id="jobs_dashboard-menu" <?php if ($post->ID == $jobs_dashboard) : ?>class="active" <?php endif; ?>>
                                                                 <a href="<?php echo esc_url(get_permalink($jobs_dashboard)); ?>">
-                                                                    <?php esc_html_e('Manage Jobs', 'workscout'); ?> <span class="nav-tag"><?php
+                                                                    <?php esc_html_e('Administrar empleos', 'workscout'); ?> <span class="nav-tag"><?php
                                                                                                                                             $count_publish =  workscout_count_posts_by_user($user_id, 'job_listing', 'publish');
                                                                                                                                             $count_pending =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending');
                                                                                                                                             $count_pending_payment =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending_payment');
@@ -484,7 +487,7 @@ if (!is_user_logged_in()) {
                                             endif;
                                             ?>
                                             <?php if (class_exists('WorkScout_Freelancer') || class_exists('WP_Resume_Manager')) { ?>
-                                                <?php if (array_intersect($roles, array('administrator', 'admin', 'candidate'))) : ?>
+                                                <?php if (array_intersect($roles, array( 'candidate'))) : ?>
                                                     <ul data-submenu-title="<?php esc_html_e('Organize and Manage', 'workscout'); ?>">
                                                         <?php if (class_exists('WorkScout_Freelancer')) { ?>
                                                             <li id="task_my_bids-menu" <?php if ($post->ID == $task_my_bids) : ?>class="active" <?php endif; ?>>
@@ -503,10 +506,6 @@ if (!is_user_logged_in()) {
                                                         $applications_page = get_option('workscout_past_applications');
                                                         if (class_exists('WP_Resume_Manager')) { ?>
 
-                                                            <li <?php if (in_array($post->ID, array($resumes_dashboard, $submit_resume, $applications_page))) {
-                                                                    echo 'class="active-submenu"';
-                                                                } ?>><a href="#"><i class="icon-material-outline-account-circle"></i> <?php esc_html_e('Resumes', 'workscout'); ?></a>
-                                                                <ul>
                                                                     <?php
 
                                                                     if (class_exists('WP_Resume_Manager') &&  $resumes_dashboard) : ?>
@@ -582,9 +581,7 @@ endif;
                                                                     <?php endif; ?>
 
 
-                                                                </ul>
                                                                 <?php wp_nav_menu(array('theme_location' => 'candidate', 'menu_id' => 'employer', 'container' => false, 'items_wrap' => '%3$s', 'fallback_cb' => false)); ?>
-                                                            </li>
                                                         <?php } ?>
                                                     </ul>
                                             <?php endif;

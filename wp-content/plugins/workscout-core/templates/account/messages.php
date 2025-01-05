@@ -44,7 +44,7 @@ $messages = new Workscout_Core_Messages();
 									} else {
 										$name = $user_data->first_name .' '.$user_data->last_name;
 									} ?>
-									<h5><?php echo esc_html($name); ?> <?php if($referral) : ?> <span class="mes_referral" style="float:none;"> <?php echo esc_html($referral);  ?></span><?php endif; ?>
+									<h5><?php echo esc_html($name); ?> <?php if($referral) : ?> <?php endif; ?>
 										<?php if(!$if_read) : ?><i><?php esc_html_e('Unread','workscout_core') ?></i><?php endif; ?>
 									</h5>
 									<span><?php echo human_time_diff( $last_msg[0]->created_at, current_time('timestamp')  );  ?> <?php esc_html_e('ago','workscout_core') ?></span>

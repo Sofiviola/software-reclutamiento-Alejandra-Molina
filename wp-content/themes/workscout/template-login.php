@@ -52,7 +52,7 @@ get_header($header_type); ?>
 		<?php if ( !empty($_GET['change_password']) ): ?>
 			<div class="columns six my-account woo-login-form">
 				
-					<h2><?php _e('Change password','workscout') ?></h2>
+					<h2><?php _e('Cambiar contraseña','workscout') ?></h2>
 					<p><?php _e('You may change your password if you are so inclined.','workscout') ?></p>
 					<?php echo do_shortcode('[workscout_old_password_form]'); ?> 
 				
@@ -72,7 +72,7 @@ get_header($header_type); ?>
 				<div class="myaccount_user">
 					<?php printf(	__( '<h2 class="my-acc-h2">Hello <strong>%1$s</strong></h2>', 'workscout' ), $current_user->display_name );	?>
 						<a class="button gray" href="<?php echo wp_logout_url('index.php');  ?>"><?php esc_html_e('Log out','workscout') ?></a>
-			                 &nbsp; <a class="button gray" href="?change_password=1"><i class="fa fa-user"></i> <?php esc_html_e('Change password','workscout') ?></a>
+			                 &nbsp; <a class="button gray" href="?change_password=1"><i class="fa fa-user"></i> <?php esc_html_e('Cambiar contraseña','workscout') ?></a>
 					<?php
 					
 					if ( in_array( 'candidate', (array) $user->roles ) || in_array( 'administrator', (array) $user->roles ) ) { 

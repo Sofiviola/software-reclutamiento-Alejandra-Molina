@@ -7,7 +7,7 @@ $template_loader = new Workscout_Core_Template_Loader;
 
 if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 	<div class="notification success closeable margin-bottom-35">
-		<p><?php esc_html_e('Your profile has been updated.', 'workscout_core'); ?></p><a class="close" href="#"></a>
+		<p><?php esc_html_e('Tu perfil ha sido actualizado.', 'workscout_core'); ?></p><a class="close" href="#"></a>
 	</div>
 <?php endif; ?>
 
@@ -25,7 +25,7 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 			<div class="dashboard-box margin-top-0">
 				
 				<div class="headline">
-					<h3><i class="icon-feather-folder-plus"></i> <?php esc_html_e('Profile Details', 'workscout_core') ?></h3>
+					<h3><i class="icon-feather-folder-plus"></i> <?php esc_html_e('Información personal', 'workscout_core') ?></h3>
 				</div>
 				<form method="post" enctype='multipart/form-data' id="edit_user" action="<?php the_permalink(); ?>">
 					<div class="dashboard-list-box-static">
@@ -61,13 +61,13 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 							<div class="clearfix"></div>
 
 
-							<label for="first-name"><?php esc_html_e('First Name', 'workscout_core'); ?></label>
+							<label for="first-name"><?php esc_html_e('Nombre', 'workscout_core'); ?></label>
 							<input class="text-input" name="first-name" type="text" id="first-name" value="<?php echo $current_user->user_firstname; ?>" />
 
-							<label for="last-name"><?php esc_html_e('Last Name', 'workscout_core'); ?></label>
+							<label for="last-name"><?php esc_html_e('Apellido', 'workscout_core'); ?></label>
 							<input class="text-input" name="last-name" type="text" id="last-name" value="<?php echo $current_user->user_lastname; ?>" />
 
-							<label for="phone"><?php esc_html_e('Phone', 'workscout_core'); ?></label>
+							<label for="phone"><?php esc_html_e('Teléfono', 'workscout_core'); ?></label>
 							<input class="text-input" name="phone" type="text" id="phone" value="<?php echo $current_user->phone; ?>" type="text">
 
 							<?php if (isset($_GET['user_err_pass']) && !empty($_GET['user_err_pass'])) : ?>
@@ -94,12 +94,12 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 							<label for="email"><?php esc_html_e('E-mail', 'workscout_core'); ?></label>
 							<input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta('user_email', $current_user->ID); ?>" />
 
-							<label for="description"><?php esc_html_e('About me', 'workscout_core'); ?></label>
+							<!-- <label for="description"><?php esc_html_e('About me', 'workscout_core'); ?></label>
 							<?php
-							$user_desc = get_the_author_meta('description', $current_user->ID);
-							$user_desc_stripped = strip_tags($user_desc, '<p>'); //replace <p> and <a> with whatever tags you want to keep after the strip
+							// $user_desc = get_the_author_meta('description', $current_user->ID);
+							// $user_desc_stripped = strip_tags($user_desc, '<p>'); //replace <p> and <a> with whatever tags you want to keep after the strip
 							?>
-							<textarea name="description" id="description" cols="30" rows="10"><?php echo $user_desc_stripped; ?></textarea>
+							<textarea name="description" id="description" cols="30" rows="10"><?php echo $user_desc_stripped; ?></textarea> -->
 
 							<?php do_action('workscout/my-account/custom-fields'); ?>
 
@@ -134,7 +134,7 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 
 
 							<input type="hidden" name="my-account-submission" value="1" />
-							<button type="submit" form="edit_user" value="<?php esc_html_e('Submit', 'workscout_core'); ?>" class="button margin-top-20 margin-bottom-20"><?php esc_html_e('Save Changes', 'workscout_core'); ?></button>
+							<button type="submit" form="edit_user" value="<?php esc_html_e('Submit', 'workscout_core'); ?>" class="button margin-top-20 margin-bottom-20"><?php esc_html_e('Guardar', 'workscout_core'); ?></button>
 
 						<?php endif; ?>
 
@@ -152,7 +152,7 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 			<div class="dashboard-box margin-top-0">
 
 				<div class="headline">
-					<h3><i class="icon-feather-folder-plus"></i> <?php esc_html_e('Change Password', 'workscout_core') ?></h3>
+					<h3><i class="icon-feather-folder-plus"></i> <?php esc_html_e('Cambiar contraseña', 'workscout_core') ?></h3>
 				</div>
 				<div class="dashboard-list-box-static">
 
@@ -161,7 +161,7 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="notification notice margin-top-0 margin-bottom-0">
-									<p><?php esc_html_e('Your password should be at least 12 random characters long to be safe', 'workscout_core') ?></p>
+									<p><?php esc_html_e('Su contraseña debe tener al menos 12 caracteres aleatorios para que sea segura.', 'workscout_core') ?></p>
 								</div>
 							</div>
 						</div>
@@ -201,16 +201,16 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 							</div>
 						<?php endif; ?>
 						<form name="resetpasswordform" action="" method="post">
-							<label><?php esc_html_e('Current Password', 'workscout_core'); ?></label>
+							<label><?php esc_html_e('Contraseña actual', 'workscout_core'); ?></label>
 							<input type="password" name="current_pass">
 
-							<label for="pass1"><?php esc_html_e('New Password', 'workscout_core'); ?></label>
+							<label for="pass1"><?php esc_html_e('Contraseña nueva', 'workscout_core'); ?></label>
 							<input name="pass1" type="password">
 
-							<label for="pass2"><?php esc_html_e('Confirm New Password', 'workscout_core'); ?></label>
+							<label for="pass2"><?php esc_html_e('Confirma tu nueva contraseña', 'workscout_core'); ?></label>
 							<input name="pass2" type="password">
 
-							<input type="submit" name="wp-submit" id="wp-submit" class="margin-top-20 button" value="<?php esc_html_e('Save Changes', 'workscout_core'); ?>" />
+							<input type="submit" name="wp-submit" id="wp-submit" class="margin-top-20 button" value="<?php esc_html_e('Guardar', 'workscout_core'); ?>" />
 
 							<input type="hidden" name="workscout_core-password-change" value="1" />
 						</form>

@@ -109,7 +109,7 @@ if (defined('PWP_NAME')) { ?>
                 <input type="hidden" name="workscout_register_nonce" value="<?php echo wp_create_nonce('workscout-register-nonce'); ?>" />
                 <input type="hidden" name="workscout_register_check" value="1" />
                 <?php wp_nonce_field('workscout-ajax-login-nonce', 'register_security'); ?>
-                <input type="submit" value="<?php esc_html_e('Register Your Account', 'workscout_core'); ?>" />
+                <input type="submit" value="<?php esc_html_e('Registrarse', 'workscout_core'); ?>" />
             </p>
             <?php if (!get_option('workscout_display_password_field')) : ?>
 

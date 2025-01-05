@@ -18,7 +18,7 @@ $freelancer_profile = get_user_meta($user_id, 'freelancer_profile', true);
 
 			<!-- Headline -->
 			<div class="headline">
-				<h3><i class="icon-material-outline-business-center"></i> <?php esc_html_e('My Resumes.', 'workscout'); ?></h3>
+				<h3><i class="icon-material-outline-business-center"></i> <?php esc_html_e('Mi Currículum.', 'workscout'); ?></h3>
 			</div>
 			<div class="content">
 				<ul class="dashboard-box-list">
@@ -83,14 +83,14 @@ $freelancer_profile = get_user_meta($user_id, 'freelancer_profile', true);
 									switch ($resume->post_status) {
 										case 'publish':
 											if ($resume->ID != $freelancer_profile) {
-												$actions['set_as_profile'] = array('label' => esc_html__('Make this resume your freelancer profile', 'workscout'), 'nonce' => true);
+												// $actions['set_as_profile'] = array('label' => esc_html__('Make this resume your freelancer profile', 'workscout'), 'nonce' => true);
 											} else {
 												$actions['unset_as_profile'] = array('label' => esc_html__('Unset this resume as your freelancer profile', 'workscout'), 'nonce' => true);
 											}
 											if (resume_manager_user_can_edit_published_submissions()) {
 												$actions['edit'] = array('label' => esc_html__('Edit', 'workscout'), 'nonce' => false);
 											}
-											$actions['hide'] = array('label' => esc_html__('Hide', 'workscout'), 'nonce' => true);
+											// $actions['hide'] = array('label' => esc_html__('Hide', 'workscout'), 'nonce' => true);
 											break;
 										case 'hidden':
 											if (resume_manager_user_can_edit_published_submissions()) {

@@ -40,7 +40,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 'view') {
 	?>
 		<div class="messages-container margin-top-0">
 			<div class="messages-headline">
-				<h4><?php echo esc_html($name); ?><?php if ($referral) : ?> <span><?php echo esc_html($referral);  ?></span><?php endif; ?></h4>
+				<h4><?php echo esc_html($name); ?><?php if ($referral) : ?> <?php endif; ?></h4>
 				<a href="?action=delete&conv_id=<?php echo esc_attr($conversation_id); ?>" class="message-action" id="message-delete"><i class="icon-feather-trash-2"></i> <?php esc_html_e('Delete Conversation', 'workscout_core'); ?></a>
 			</div>
 
@@ -125,7 +125,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 'view') {
 					</div>
 					<div class="message-reply">
 						<form action="" id="send-message-from-chat">
-							<textarea cols="120" id="contact-message" name="message" required rows="3" placeholder="<?php esc_html_e('Your Message', 'workscout_core'); ?>"></textarea>
+							<textarea cols="120" id="contact-message" name="message" required rows="3" placeholder="<?php esc_html_e('Escribe tu mensaje', 'workscout_core'); ?>"></textarea>
 							<input type="hidden" id="conversation_id" name="conversation_id" value="<?php echo esc_attr($_GET["conv_id"]) ?>">
 							<input type="hidden" id="recipient" name="recipient" value="<?php echo esc_attr($adversary) ?>">
 							<button class="button"><?php esc_html_e('Send Message', 'workscout_core'); ?></button>

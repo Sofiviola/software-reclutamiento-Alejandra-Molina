@@ -159,7 +159,7 @@ class WorkScout_Core_Registration {
 		  			wp_localize_script( 'workscout_core-ajax-login', 'workscout_login', array( 
 				        'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				        'redirecturl' => home_url(),
-				        'loadingmessage' => __('Sending user info, please wait...','workscout_core')
+				        'loadingmessage' => __('Enviando información del usuario, por favor espere...','workscout_core')
 				    ));
 		  		} else {
 		  			wp_register_script( 'workscout_core-login', esc_url( WORKSCOUT_CORE_ASSETS_URL ) . 'js/login-script.js', array('jquery','workscout-custom'), '1.0' ,true );
@@ -188,24 +188,24 @@ class WorkScout_Core_Registration {
 		    $info['remember'] = isset($_POST['remember-me']) ? true : false;
 
 		    if(empty($info['user_login'])) {
-		    	 echo json_encode(array('loggedin'=>false, 'message'=> esc_html__( 'You do have an email address, right?', 'workscout_core' )));
+		    	 echo json_encode(array('loggedin'=>false, 'message'=> esc_html__( 'Tienes una dirección de correo electrónico, ¿verdad?', 'workscout_core' )));
 		    	 die();
 		    } 
 		    if(empty($info['user_password'])) {
-		    	 echo json_encode(array('loggedin'=>false, 'message'=> esc_html__( 'You need to enter a password to login.', 'workscout_core' )));
+		    	 echo json_encode(array('loggedin'=>false, 'message'=> esc_html__( 'Necesitas introducir una contraseña para iniciar sesión.', 'workscout_core' )));
 		    	 die();
 		    }
 
 		    $user_signon = wp_signon( $info, is_ssl() );
 		    if ( is_wp_error($user_signon) ){
 		    	
-		        echo json_encode(array('loggedin'=>false, 'message'=>esc_html__('Wrong username or password.','workscout_core')));
+		        echo json_encode(array('loggedin'=>false, 'message'=>esc_html__('Nombre de usuario o contraseña incorrectos.','workscout_core')));
 		    } else {
 		    	wp_clear_auth_cookie();
          		 //  do_action('wp_login', $user_signon->ID);
 	            wp_set_current_user($user_signon->ID);
 	            wp_set_auth_cookie($user_signon->ID, true);
-		        echo json_encode(array('loggedin'=>true, 'message'=>esc_html__('Login successful, redirecting...','workscout_core')));
+		        echo json_encode(array('loggedin'=>true, 'message'=>esc_html__('Inicio de sesión exitoso, redirigiendo ...','workscout_core')));
 		    }
 
 		    die();

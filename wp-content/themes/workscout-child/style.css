@@ -73,3 +73,73 @@ Template:  workscout
 .item-listing-description p {
     display: none !important;
 }
+
+.user-menu .header-notifications-dropdown {
+    width: 230px;
+}
+
+.jm-dashboard-job {
+    border: none !important;
+}
+
+
+.form.fieldset-company_tagline, .form.fieldset-company_video, .form.fieldset-company_twitter, .form.fieldset-company_facebook, .form.fieldset-job_deadline, .form.fieldset-application, .form.fieldset-rate_min, .form.fieldset-rate_max, .form.fieldset-apply_link, .form.fieldset-header_image {
+    display: none !important;
+}
+
+.job-listing-company-logo {
+    display: none !important;
+}
+
+.widget.job-widget-keywords, .widget.job-widget-location, .widget.widget_range_filter.widget-salary-filter, .widget.widget_range_filter.widget-rate-filter {
+    display: none !important;
+}
+
+.user-avatar img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
+
+.user-avatar{
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.message-text::before {
+    display: none !important;
+}
+
+.message-avatar a img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
+
+.message-avatar img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+}
+
+.menu-item.menu-item-265 {
+    border: 1px solid white;
+}
+
+.menu-item.menu-item-265 a {
+    font-size: 20px !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.menu-item.menu-item-265 a:hover {
+    background-color: #360d1b !important;
+}
+
+.login-register-buttons .small-dialog {
+    transition: all 0.3s ease-in-out !important;
+}
+
+.login-register-buttons .small-dialog:hover {
+    color : white !important;
+    scale: 1.05 !important;
+}
