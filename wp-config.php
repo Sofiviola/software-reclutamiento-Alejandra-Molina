@@ -78,9 +78,19 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
-}
+
+// Habilitar el modo de depuración de WordPress
+define('WP_DEBUG', true);
+
+// Registrar los errores y advertencias en el archivo debug.log
+define('WP_DEBUG_LOG', true);
+
+// Mostrar errores en la pantalla (desactívalo en producción)
+define('WP_DEBUG_DISPLAY', false);
+@ini_set('display_errors', 0);
+
+// Deshabilitar la edición directa de archivos del theme y plugins desde el admin
+define('DISALLOW_FILE_EDIT', true);
 
 
 define('AUTH_KEY',         'Buvl/aoviiTq/DFknf6Y2slp4l7hb2jj/IAM3ENtDRM50UAyPgBvcqZOuBX+MV2bJC2yNC0U4024FL+xWaunBQ==');

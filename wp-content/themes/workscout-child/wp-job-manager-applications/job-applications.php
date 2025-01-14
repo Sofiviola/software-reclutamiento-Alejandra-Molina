@@ -53,7 +53,17 @@ if (! defined('ABSPATH')) {
 
 			<?php foreach ($applications as $application) :
 			?>
-				<div class="application job-application" id="application-<?php echo esc_attr($application->ID); ?>">
+
+			<!-- Agrego condicional para saber status de la card del usuario en cuestion, si es "Nuevo" por css se agrega color de fondo -->
+		    	<?php global $wp_post_statuses; ?>
+				<?php
+				// Obtener la etiqueta del estado
+				$status_label = $wp_post_statuses[$application->post_status]->label;
+				// Verificar si el estado es "Nuevo"
+				$is_new_status = $status_label === "Nuevo";
+				?>
+
+				<div class="application job-application <?php echo ($wp_post_statuses[$application->post_status]->label === 'Nuevo') ? 'new-status' : ''; ?> custom-style" id="application-<?php echo esc_attr($application->ID); ?>">
 					<div class="app-content">
 
 						<!-- Name / Avatar -->
@@ -77,7 +87,7 @@ if (! defined('ABSPATH')) {
 								<?php
 								if (($resume_id = get_job_application_resume_id($application->ID)) && 'publish' === get_post_status($resume_id) && function_exists('get_resume_share_link') && (
 									$share_link = get_resume_share_link($resume_id))) : ?>
-									<li><a href="<?php echo esc_attr($share_link); ?>" target="_blank" class="job-application-resume">
+									<li><a href="<?php echo esc_attr($share_link); ?> <?php selected($application->post_status, 'Revisión'); ?>" target="_blank" class="job-application-resume">
 											<i class="fa fa-download" aria-hidden="true"></i><?php esc_html_e('View Resume', 'workscout'); ?></a></li>
 								<?php endif; ?>
 							</ul>
@@ -199,7 +209,6 @@ if (! defined('ABSPATH')) {
 							<li><i class="fa fa-calendar"></i> <?php echo date_i18n(get_option('date_format'), strtotime($application->post_date)); ?></li>
 						</ul>
 						<div class="clearfix"></div>
-
 					</div>
 
 				</div>
