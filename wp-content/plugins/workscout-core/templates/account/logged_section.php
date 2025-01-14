@@ -168,7 +168,7 @@ if(class_exists('WorkScout_Freelancer')) {
 
 
 			<!-- <li><a href=" #">My Profile</a></li> -->
-			<li><a href="<?php echo wp_logout_url(get_permalink()); ?>"><i class="icon-material-outline-power-settings-new"></i><?php esc_html_e('Logout', 'workscout_core'); ?></a></li>
+			<!-- <li><a href="<?php //echo wp_logout_url(get_permalink()); ?>"><i class="icon-material-outline-power-settings-new"></i><?php //esc_html_e('Logout', 'workscout_core'); ?></a></li> -->
 		</ul>
 	</div>
 </div>

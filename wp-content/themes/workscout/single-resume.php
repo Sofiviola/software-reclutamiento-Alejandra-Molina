@@ -299,38 +299,7 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
 							<?php endif; ?>
 							<!-- Widget -->
 						<?php } else { ?>
-							<div class="sidebar-widget widget profile-overview-widget">
-								<h3><?php esc_html_e('Profile Overview', 'workscout'); ?></h3>
-								<!-- Profile Overview -->
-								<div class="profile-overview">
-
-									<div class="overview-item">
-										<?php $rate = get_post_meta($post->ID, '_rate_min', true);
-										$currency_position =  get_option('workscout_currency_position', 'before');
-
-										?>
-										<?php
-										if (!empty($rate)) {
-											echo '<strong>';
-											if ($currency_position == 'before') {
-												echo get_workscout_currency_symbol();
-											}
-											echo get_post_meta($post->ID, '_rate_min', true);
-											if ($currency_position == 'after') {
-												echo get_workscout_currency_symbol();
-											}
-											echo '</strong>';
-										} else {
-											echo '<strong class="negotiable">' . esc_html('Negotiable', 'workscout') . '</strong>';
-										}
-										?><span><?php esc_html_e('Hourly Rate', 'workscout'); ?></span>
-
-
-									</div>
-
-
-								</div>
-							</div>
+ 
 						<?php } ?>
 						<?php if (resume_has_links()) :  ?>
 							<div class="sidebar-widget widget">

@@ -279,7 +279,7 @@ if (!is_user_logged_in()) {
                                 <div class="dashboard-nav test">
                                     <div class="dashboard-nav-inner">
 
-                                        <ul data-submenu-title="<?php esc_html_e('Start', 'workscout'); ?>">
+                                        <ul data-submenu-title="<?php esc_html_e('Notificaciones', 'workscout'); ?>">
                                             <!-- Elimina el tab de dashboard en todos los roles -->
                                             <?php
                                             /* $dashboard_page = get_option('workscout_dashboard_page');

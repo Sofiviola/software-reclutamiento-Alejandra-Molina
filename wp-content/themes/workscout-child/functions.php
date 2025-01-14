@@ -26,7 +26,7 @@ function remove_submit_resume_form_fields( $fields ) {
 
 // Unset any of the fields you'd like to remove - copy and repeat as needed
 unset( $fields['resume_fields']['candidate_video'] );
-unset( $fields['resume_fields']['links'] );
+// unset( $fields['resume_fields']['links'] );
 unset( $fields['resume_fields']['candidate_education'] );
 unset( $fields['resume_fields']['candidate_experience'] );
 unset( $fields['resume_fields']['candidate_photo'] );
