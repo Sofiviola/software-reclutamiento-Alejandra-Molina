@@ -158,13 +158,13 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 
 					<!-- Change Password -->
 					<div class="my-profile">
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-md-12">
 								<div class="notification notice margin-top-0 margin-bottom-0">
-									<p><?php esc_html_e('Su contraseña debe tener al menos 12 caracteres aleatorios para que sea segura.', 'workscout_core') ?></p>
+									<p><?php //esc_html_e('Su contraseña debe tener al menos 12 caracteres aleatorios para que sea segura.', 'workscout_core') ?></p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<?php if (isset($_GET['updated_pass']) && $_GET['updated_pass'] == 'true') : ?>
 							<div class="notification success closeable margin-bottom-35">
 								<p><?php esc_html_e('Your password has been updated.', 'workscout_core'); ?></p><a class="close" href="#"></a>

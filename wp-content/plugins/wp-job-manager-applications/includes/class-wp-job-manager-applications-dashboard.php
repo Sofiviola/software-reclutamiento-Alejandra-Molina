@@ -1,57 +1,66 @@
 <?php
+
 /**
  * File containing the class WP_Job_Manager_Applications_Dashboard.
  *
  * @package wp-job-manager-applications
  */
+// require_once( );
+// call phpspreadsheet plugin
+
 
 use WP_Job_Manager_Applications\Application_Stats;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
 /**
  * WP_Job_Manager_Applications_Dashboard class.
  */
-class WP_Job_Manager_Applications_Dashboard {
+class WP_Job_Manager_Applications_Dashboard
+{
 
 	/**
 	 * __construct function.
 	 */
-	public function __construct() {
-		add_filter( 'the_title', [ $this, 'add_breadcrumb_to_the_title' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
-		add_action( 'wp_loaded', [ $this, 'delete_handler' ] );
-		add_action( 'wp_loaded', [ $this, 'edit_handler' ] );
-		add_action( 'wp_loaded', [ $this, 'csv_handler' ] );
-		add_filter( 'job_manager_job_dashboard_columns', [ $this, 'add_applications_columns' ] );
-		add_action( 'job_manager_job_dashboard_column_applications', [ $this, 'applications_column' ] );
-		add_action( 'job_manager_job_dashboard_content_show_applications', [ $this, 'show_applications' ] );
-		add_filter( 'job_manager_job_stats_summary', [ $this, 'application_stats' ], 10, 2 );
+	public function __construct()
+	{
+		add_filter('the_title', [$this, 'add_breadcrumb_to_the_title']);
+		add_action('wp_enqueue_scripts', [$this, 'frontend_scripts']);
+		add_action('wp_loaded', [$this, 'delete_handler']);
+		add_action('wp_loaded', [$this, 'edit_handler']);
+		add_action('wp_loaded', [$this, 'csv_handler']);
+		add_filter('job_manager_job_dashboard_columns', [$this, 'add_applications_columns']);
+		add_action('job_manager_job_dashboard_column_applications', [$this, 'applications_column']);
+		add_action('job_manager_job_dashboard_content_show_applications', [$this, 'show_applications']);
+		add_filter('job_manager_job_stats_summary', [$this, 'application_stats'], 10, 2);
 
 		// Ajax
-		add_action( 'wp_ajax_add_job_application_note', [ $this, 'add_job_application_note' ] );
-		add_action( 'wp_ajax_delete_job_application_note', [ $this, 'delete_job_application_note' ] );
+		add_action('wp_ajax_add_job_application_note', [$this, 'add_job_application_note']);
+		add_action('wp_ajax_delete_job_application_note', [$this, 'delete_job_application_note']);
 
 		// Secure order notes
-		add_filter( 'comments_clauses', [ __CLASS__, 'exclude_application_comments' ], 10, 1 );
-		add_action( 'comment_feed_join', [ $this, 'exclude_application_comments_from_feed_join' ] );
-		add_action( 'comment_feed_where', [ $this, 'exclude_application_comments_from_feed_where' ] );
+		add_filter('comments_clauses', [__CLASS__, 'exclude_application_comments'], 10, 1);
+		add_action('comment_feed_join', [$this, 'exclude_application_comments_from_feed_join']);
+		add_action('comment_feed_where', [$this, 'exclude_application_comments_from_feed_where']);
 	}
 
 	/**
 	 * Change page titles
 	 */
-	public function add_breadcrumb_to_the_title( $post_title ) {
+	public function add_breadcrumb_to_the_title($post_title)
+	{
 		global $post;
 
-		if ( is_main_query() && is_page() && strstr( $post->post_content, '[job_dashboard' ) && in_the_loop() ) {
-			remove_filter( 'the_title', [ $this, 'add_breadcrumb_to_the_title' ] );
-			if ( ! empty( $_GET['action'] ) && 'show_applications' === $_GET['action'] ) {
-				$job_id = absint( $_GET['job_id'] );
-				if ( 'job_listing' === get_post_type( $job_id ) ) {
-					$post_title = __( 'Job Applications', 'wp-job-manager-applications' ) . ' &laquo; <a href="' . get_permalink( $post->ID ) . '">' . $post_title . '</a>';
+		if (is_main_query() && is_page() && strstr($post->post_content, '[job_dashboard') && in_the_loop()) {
+			remove_filter('the_title', [$this, 'add_breadcrumb_to_the_title']);
+			if (! empty($_GET['action']) && 'show_applications' === $_GET['action']) {
+				$job_id = absint($_GET['job_id']);
+				if ('job_listing' === get_post_type($job_id)) {
+					$post_title = __('Job Applications', 'wp-job-manager-applications') . ' &laquo; <a href="' . get_permalink($post->ID) . '">' . $post_title . '</a>';
 				}
 			}
 		}
@@ -65,23 +74,24 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @access public
 	 * @return void
 	 */
-	public function frontend_scripts() {
-		wp_register_script( 'wp-job-manager-applications-dashboard', JOB_MANAGER_APPLICATIONS_PLUGIN_URL . '/assets/dist/js/application-dashboard.js', [ 'jquery' ], JOB_MANAGER_APPLICATIONS_VERSION, true );
+	public function frontend_scripts()
+	{
+		wp_register_script('wp-job-manager-applications-dashboard', JOB_MANAGER_APPLICATIONS_PLUGIN_URL . '/assets/dist/js/application-dashboard.js', ['jquery'], JOB_MANAGER_APPLICATIONS_VERSION, true);
 
 		wp_localize_script(
 			'wp-job-manager-applications-dashboard',
 			'job_manager_application',
 			[
-				'i18n_confirm_delete'         => __( 'Are you sure you want to delete this? There is no undo.', 'wp-job-manager-applications' ),
-				'i18n_toggle_content'         => __( 'Details', 'wp-job-manager-applications' ),
-				'i18n_toggle_notes'           => __( 'Notes', 'wp-job-manager-applications' ),
-				'i18n_hide'                   => __( 'Hide', 'wp-job-manager-applications' ),
-				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
-				'job_application_notes_nonce' => wp_create_nonce( 'job-application-notes' ),
+				'i18n_confirm_delete'         => __('Are you sure you want to delete this? There is no undo.', 'wp-job-manager-applications'),
+				'i18n_toggle_content'         => __('Details', 'wp-job-manager-applications'),
+				'i18n_toggle_notes'           => __('Notes', 'wp-job-manager-applications'),
+				'i18n_hide'                   => __('Hide', 'wp-job-manager-applications'),
+				'ajax_url'                    => admin_url('admin-ajax.php'),
+				'job_application_notes_nonce' => wp_create_nonce('job-application-notes'),
 			]
 		);
 
-		wp_enqueue_style( 'wp-job-manager-applications-frontend', JOB_MANAGER_APPLICATIONS_PLUGIN_URL . '/assets/dist/css/frontend.css', [ 'dashicons' ], JOB_MANAGER_APPLICATIONS_VERSION );
+		wp_enqueue_style('wp-job-manager-applications-frontend', JOB_MANAGER_APPLICATIONS_PLUGIN_URL . '/assets/dist/css/frontend.css', ['dashicons'], JOB_MANAGER_APPLICATIONS_VERSION);
 	}
 
 	/**
@@ -89,17 +99,18 @@ class WP_Job_Manager_Applications_Dashboard {
 	 *
 	 * @return bool
 	 */
-	public function can_edit_application( $application_id ) {
-		$application = get_post( $application_id );
+	public function can_edit_application($application_id)
+	{
+		$application = get_post($application_id);
 
-		if ( ! $application ) {
+		if (! $application) {
 			return false;
 		}
 
-		$job = get_post( $application->post_parent );
+		$job = get_post($application->post_parent);
 
 		// Permissions
-		if ( ! $job || ! $application || $application->post_type !== 'job_application' || $job->post_type !== 'job_listing' || ! job_manager_user_can_edit_job( $job->ID ) ) {
+		if (! $job || ! $application || $application->post_type !== 'job_application' || $job->post_type !== 'job_listing' || ! job_manager_user_can_edit_job($job->ID)) {
 			return false;
 		}
 
@@ -109,24 +120,25 @@ class WP_Job_Manager_Applications_Dashboard {
 	/**
 	 * Edit an application
 	 */
-	public function edit_handler() {
-		if ( ! empty( $_POST['wp_job_manager_edit_application'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'edit_job_application' ) ) {
+	public function edit_handler()
+	{
+		if (! empty($_POST['wp_job_manager_edit_application']) && wp_verify_nonce($_POST['_wpnonce'], 'edit_job_application')) {
 			global $wp_post_statuses;
 
-			$application_id = absint( $_POST['application_id'] );
+			$application_id = absint($_POST['application_id']);
 
-			if ( ! $this->can_edit_application( $application_id ) ) {
+			if (! $this->can_edit_application($application_id)) {
 				return;
 			}
 
-			$application_status = sanitize_text_field( $_POST['application_status'] );
-			$application_rating = floatval( $_POST['application_rating'] );
+			$application_status = sanitize_text_field($_POST['application_status']);
+			$application_rating = floatval($_POST['application_rating']);
 			$application_rating = $application_rating < 0 ? 0 : $application_rating;
 			$application_rating = $application_rating > 5 ? 5 : $application_rating;
 
-			update_post_meta( $application_id, '_rating', $application_rating );
+			update_post_meta($application_id, '_rating', $application_rating);
 
-			if ( array_key_exists( $application_status, $wp_post_statuses ) ) {
+			if (array_key_exists($application_status, $wp_post_statuses)) {
 				wp_update_post(
 					[
 						'ID'          => $application_id,
@@ -140,28 +152,30 @@ class WP_Job_Manager_Applications_Dashboard {
 	/**
 	 * Delete an application
 	 */
-	public function delete_handler() {
-		if ( ! empty( $_GET['delete_job_application'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'delete_job_application' ) ) {
-			$application_id = absint( $_GET['delete_job_application'] );
+	public function delete_handler()
+	{
+		if (! empty($_GET['delete_job_application']) && wp_verify_nonce($_GET['_wpnonce'], 'delete_job_application')) {
+			$application_id = absint($_GET['delete_job_application']);
 
-			if ( ! $this->can_edit_application( $application_id ) ) {
+			if (! $this->can_edit_application($application_id)) {
 				return;
 			}
 
-			wp_delete_post( $application_id, true );
+			wp_delete_post($application_id, true);
 		}
 	}
 
 	/**
-	 * Download a CSV
+	 * Download an Excel file
 	 */
-	public function csv_handler() {
-		if ( ! empty( $_GET['download-csv'] ) ) {
-			$job_id = absint( $_REQUEST['job_id'] );
-			$job    = get_post( $job_id );
+	public function excel_handler()
+	{
+		if (! empty($_GET['download-excel'])) {
+			$job_id = absint($_REQUEST['job_id']);
+			$job    = get_post($job_id);
 
 			// Permissions
-			if ( ! job_manager_user_can_edit_job( $job ) ) {
+			if (! job_manager_user_can_edit_job($job)) {
 				return;
 			}
 
@@ -169,70 +183,37 @@ class WP_Job_Manager_Applications_Dashboard {
 				'job_manager_job_applications_args',
 				[
 					'post_type'           => 'job_application',
-					'post_status'         => array_merge( array_keys( get_job_application_statuses() ), [ 'publish' ] ),
+					'post_status'         => array_merge(array_keys(get_job_application_statuses()), ['publish']),
 					'ignore_sticky_posts' => 1,
 					'posts_per_page'      => -1,
 					'post_parent'         => $job_id,
 				]
 			);
 
-			// Filters
-			$application_status  = ! empty( $_GET['application_status'] ) ? sanitize_text_field( $_GET['application_status'] ) : '';
-			$application_orderby = ! empty( $_GET['application_orderby'] ) ? sanitize_text_field( $_GET['application_orderby'] ) : '';
+			$applications = get_posts($args);
 
-			if ( $application_status ) {
-				$args['post_status'] = $application_status;
-			}
+			// Crear el archivo Excel
+			$spreadsheet = new Spreadsheet();
+			$sheet = $spreadsheet->getActiveSheet();
 
-			switch ( $application_orderby ) {
-				case 'name':
-					$args['order']   = 'ASC';
-					$args['orderby'] = 'post_title';
-					break;
-				case 'rating':
-					$args['order']    = 'DESC';
-					$args['orderby']  = 'meta_value';
-					$args['meta_key'] = '_rating';
-					break;
-				default:
-					$args['order']   = 'DESC';
-					$args['orderby'] = 'date';
-					break;
-			}
-
-			$applications = get_posts( $args );
-
-			@set_time_limit( 0 );
-			if ( function_exists( 'apache_setenv' ) ) {
-				@apache_setenv( 'no-gzip', 1 );
-			}
-			@ini_set( 'zlib.output_compression', 0 );
-
-			header( 'Content-Type: text/csv; charset=UTF-8' );
-			header( 'Content-Disposition: attachment; filename=' . __( 'applications', 'wp-job-manager-applications' ) . '.csv' );
-			header( 'Pragma: no-cache' );
-			header( 'Expires: 0' );
-
-			$fp  = fopen( 'php://output', 'w' );
-			$row = [
-				__( 'Application date', 'wp-job-manager-applications' ),
-				__( 'Application status', 'wp-job-manager-applications' ),
-				__( 'Applicant name', 'wp-job-manager-applications' ),
-				__( 'Applicant email', 'wp-job-manager-applications' ),
-				__( 'Job applied for', 'wp-job-manager-applications' ),
-				__( 'Attachment', 'wp-job-manager-applications' ),
-				__( 'Applicant message', 'wp-job-manager-applications' ),
-				__( 'Rating', 'wp-job-manager-applications' ),
+			// Encabezados
+			$headers = [
+				__('Application date', 'wp-job-manager-applications'),
+				__('Application status', 'wp-job-manager-applications'),
+				__('Applicant name', 'wp-job-manager-applications'),
+				__('Applicant email', 'wp-job-manager-applications'),
+				__('Job applied for', 'wp-job-manager-applications'),
+				__('Attachment', 'wp-job-manager-applications'),
+				__('Applicant message', 'wp-job-manager-applications'),
+				__('Rating', 'wp-job-manager-applications'),
 			];
 
-			// Other custom fields
 			$custom_fields = [];
-
-			foreach ( $applications as $application ) {
-				$custom_fields = array_merge( $custom_fields, array_keys( get_post_custom( $application->ID ) ) );
+			foreach ($applications as $application) {
+				$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
 			}
 
-			$custom_fields = array_unique( $custom_fields );
+			$custom_fields = array_unique($custom_fields);
 			$custom_fields = array_diff(
 				$custom_fields,
 				[
@@ -248,36 +229,177 @@ class WP_Job_Manager_Applications_Dashboard {
 				]
 			);
 
-			foreach ( $custom_fields as $custom_field ) {
+			$headers = array_merge($headers, $custom_fields);
+			$sheet->fromArray($headers, null, 'A1');
+
+			// Datos
+			$rowNumber = 2;
+			foreach ($applications as $application) {
+				$row = [
+					date_i18n(get_option('date_format'), strtotime($application->post_date)),
+					$application->post_status,
+					$application->post_title,
+					get_job_application_email($application->ID),
+					get_the_title($application->post_parent),
+					implode('; ', get_job_application_attachments($application->ID)),
+					$application->post_content,
+					get_job_application_rating($application->ID),
+				];
+
+				foreach ($custom_fields as $custom_field) {
+					$custom_field_value = get_post_meta($application->ID, $custom_field, true);
+
+					if (is_array($custom_field_value)) {
+						$custom_field_value = wp_json_encode($custom_field_value);
+					}
+
+					$row[] = $custom_field_value;
+				}
+
+				$sheet->fromArray($row, null, "A{$rowNumber}");
+				$rowNumber++;
+			}
+
+			// Enviar el archivo Excel al navegador
+			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+			header('Content-Disposition: attachment; filename="applications.xlsx"');
+			header('Pragma: no-cache');
+			header('Expires: 0');
+
+			$writer = new Xlsx($spreadsheet);
+			$writer->save('php://output');
+			exit;
+		}
+	}
+
+
+	/**
+	 * Download a CSV
+	 */
+	public function csv_handler()
+	{
+		if (! empty($_GET['download-csv'])) {
+			$job_id = absint($_REQUEST['job_id']);
+			$job    = get_post($job_id);
+
+			// Permissions
+			if (! job_manager_user_can_edit_job($job)) {
+				return;
+			}
+
+			$args = apply_filters(
+				'job_manager_job_applications_args',
+				[
+					'post_type'           => 'job_application',
+					'post_status'         => array_merge(array_keys(get_job_application_statuses()), ['publish']),
+					'ignore_sticky_posts' => 1,
+					'posts_per_page'      => -1,
+					'post_parent'         => $job_id,
+				]
+			);
+
+			// Filters
+			$application_status  = ! empty($_GET['application_status']) ? sanitize_text_field($_GET['application_status']) : '';
+			$application_orderby = ! empty($_GET['application_orderby']) ? sanitize_text_field($_GET['application_orderby']) : '';
+
+			if ($application_status) {
+				$args['post_status'] = $application_status;
+			}
+
+			switch ($application_orderby) {
+				case 'name':
+					$args['order']   = 'ASC';
+					$args['orderby'] = 'post_title';
+					break;
+				case 'rating':
+					$args['order']    = 'DESC';
+					$args['orderby']  = 'meta_value';
+					$args['meta_key'] = '_rating';
+					break;
+				default:
+					$args['order']   = 'DESC';
+					$args['orderby'] = 'date';
+					break;
+			}
+
+			$applications = get_posts($args);
+
+			@set_time_limit(0);
+			if (function_exists('apache_setenv')) {
+				@apache_setenv('no-gzip', 1);
+			}
+			@ini_set('zlib.output_compression', 0);
+
+			header('Content-Type: text/csv; charset=UTF-8');
+			header('Content-Disposition: attachment; filename=' . __('applications', 'wp-job-manager-applications') . '.csv');
+			header('Pragma: no-cache');
+			header('Expires: 0');
+
+			$fp  = fopen('php://output', 'w');
+			$row = [
+				__('Application date', 'wp-job-manager-applications'),
+				__('Application status', 'wp-job-manager-applications'),
+				__('Applicant name', 'wp-job-manager-applications'),
+				__('Applicant email', 'wp-job-manager-applications'),
+				__('Job applied for', 'wp-job-manager-applications'),
+				__('Attachment', 'wp-job-manager-applications'),
+				__('Applicant message', 'wp-job-manager-applications'),
+				__('Rating', 'wp-job-manager-applications'),
+			];
+
+			// Other custom fields
+			$custom_fields = [];
+
+			foreach ($applications as $application) {
+				$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
+			}
+
+			$custom_fields = array_unique($custom_fields);
+			$custom_fields = array_diff(
+				$custom_fields,
+				[
+					'_edit_lock',
+					'_attachment',
+					'_attachment_file',
+					'_job_applied_for',
+					'_candidate_email',
+					'_candidate_user_id',
+					'_rating',
+					'_application_source',
+					'_secret_dir',
+				]
+			);
+
+			foreach ($custom_fields as $custom_field) {
 				$row[] = $custom_field;
 			}
 
-			fputcsv( $fp, $row );
+			fputcsv($fp, $row);
 
-			foreach ( $applications as $application ) {
+			foreach ($applications as $application) {
 				$row   = [];
-				$row[] = date_i18n( get_option( 'date_format' ), strtotime( $application->post_date ) );
-				$row[] = $this->convert_encoding_to_utf8( $application->post_status );
-				$row[] = $this->convert_encoding_to_utf8( $application->post_title );
-				$row[] = $this->convert_encoding_to_utf8( get_job_application_email( $application->ID ) );
-				$row[] = $this->convert_encoding_to_utf8( get_the_title( $application->post_parent ) );
-				$row[] = $this->convert_encoding_to_utf8( implode( '; ', get_job_application_attachments( $application->ID ) ) );
-				$row[] = $this->convert_encoding_to_utf8( $application->post_content );
-				$row[] = get_job_application_rating( $application->ID );
+				$row[] = date_i18n(get_option('date_format'), strtotime($application->post_date));
+				$row[] = $this->convert_encoding_to_utf8($application->post_status);
+				$row[] = $this->convert_encoding_to_utf8($application->post_title);
+				$row[] = $this->convert_encoding_to_utf8(get_job_application_email($application->ID));
+				$row[] = $this->convert_encoding_to_utf8(get_the_title($application->post_parent));
+				$row[] = $this->convert_encoding_to_utf8(implode('; ', get_job_application_attachments($application->ID)));
+				$row[] = $this->convert_encoding_to_utf8($application->post_content);
+				$row[] = get_job_application_rating($application->ID);
 
-				foreach ( $custom_fields as $custom_field ) {
-					$custom_field_value = get_post_meta( $application->ID, $custom_field, true );
+				foreach ($custom_fields as $custom_field) {
+					$custom_field_value = get_post_meta($application->ID, $custom_field, true);
 
-					if ( is_array( $custom_field_value ) ) {
-						$custom_field_value = wp_json_encode( $custom_field_value );
+					if (is_array($custom_field_value)) {
+						$custom_field_value = wp_json_encode($custom_field_value);
 					}
-					$row[] = $this->convert_encoding_to_utf8( $custom_field_value );
+					$row[] = $this->convert_encoding_to_utf8($custom_field_value);
 				}
 
-				fputcsv( $fp, $row );
+				fputcsv($fp, $row);
 			}
 
-			fclose( $fp );
+			fclose($fp);
 			exit;
 		}
 	}
@@ -288,22 +410,23 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @param string $string
 	 * @return string
 	 */
-	private function convert_encoding_to_utf8( $string ) {
+	private function convert_encoding_to_utf8($string)
+	{
 		static $has_mb = null;
-		if ( null === $has_mb ) {
-			$has_mb = function_exists( 'mb_convert_encoding' ) && function_exists( 'mb_detect_encoding' );
+		if (null === $has_mb) {
+			$has_mb = function_exists('mb_convert_encoding') && function_exists('mb_detect_encoding');
 		}
 
-		if ( ! $has_mb ) {
+		if (! $has_mb) {
 			return $string;
 		}
 
-		$encoding = strtoupper( mb_detect_encoding( $string, null, true ) ?? '' );
+		$encoding = strtoupper(mb_detect_encoding($string, null, true) ?? '');
 
-		if ( empty( $encoding ) || 'UTF-8' === $encoding ) {
+		if (empty($encoding) || 'UTF-8' === $encoding) {
 			return $string;
 		}
-		return mb_convert_encoding( $string, 'UTF-8', $encoding );
+		return mb_convert_encoding($string, 'UTF-8', $encoding);
 	}
 
 	/**
@@ -312,8 +435,9 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @param $columns array
 	 * @return array
 	 */
-	public function add_applications_columns( $columns ) {
-		$columns['applications'] = __( 'Applications', 'wp-job-manager-applications' );
+	public function add_applications_columns($columns)
+	{
+		$columns['applications'] = __('Applications', 'wp-job-manager-applications');
 		return $columns;
 	}
 
@@ -322,34 +446,35 @@ class WP_Job_Manager_Applications_Dashboard {
 	 *
 	 * @param  WP_Post Job
 	 */
-	public function applications_column( $job ) {
+	public function applications_column($job)
+	{
 		global $post;
 
-		$count = get_job_application_count( $job->ID );
+		$count = get_job_application_count($job->ID);
 
 		$link = add_query_arg(
 			[
 				'action' => 'show_applications',
 				'job_id' => $job->ID,
 			],
-			get_permalink( $post->ID )
+			get_permalink($post->ID)
 		);
 
-		$new_applications = $count ? get_job_application_count( $job->ID, 'new' ) : 0;
+		$new_applications = $count ? get_job_application_count($job->ID, 'new') : 0;
 
-		if ( $count ) {
-			echo '<a href="' . esc_attr( $link ) . '">'
-					// translators: Placeholder is the number of applications.
-					. esc_html( sprintf( _n( '%s application', '%s applications', $count, 'wp-job-manager-applications' ), $count ) ) . '</a>';
+		if ($count) {
+			echo '<a href="' . esc_attr($link) . '">'
+				// translators: Placeholder is the number of applications.
+				. esc_html(sprintf(_n('%s application', '%s applications', $count, 'wp-job-manager-applications'), $count)) . '</a>';
 		}
 
-		if ( $new_applications ) {
+		if ($new_applications) {
 			echo '<div class="jm-ui-row">'
-					. '<small>'
-					// translators: Placeholder is the number of new applications.
-					. esc_html( sprintf( _n( '%s new', '%s new', $new_applications, 'wp-job-manager-applications' ), $new_applications ) )
-					. '</small>'
-					. '<a class="jm-ui-marker-dot"></a>'
+				. '<small>'
+				// translators: Placeholder is the number of new applications.
+				. esc_html(sprintf(_n('%s new', '%s new', $new_applications, 'wp-job-manager-applications'), $new_applications))
+				. '</small>'
+				. '<a class="jm-ui-marker-dot"></a>'
 				. '</div>';
 		}
 	}
@@ -357,9 +482,10 @@ class WP_Job_Manager_Applications_Dashboard {
 	/**
 	 * Show applications on the job dashboard
 	 */
-	public function show_applications( $atts ) {
-		$job_id = absint( $_REQUEST['job_id'] );
-		$job    = get_post( $job_id );
+	public function show_applications($atts)
+	{
+		$job_id = absint($_REQUEST['job_id']);
+		$job    = get_post($job_id);
 
 		extract(
 			shortcode_atts(
@@ -370,37 +496,37 @@ class WP_Job_Manager_Applications_Dashboard {
 			)
 		);
 
-		remove_filter( 'the_title', [ $this, 'add_breadcrumb_to_the_title' ] );
+		remove_filter('the_title', [$this, 'add_breadcrumb_to_the_title']);
 
 		// Permissions
-		if ( ! job_manager_user_can_edit_job( $job_id ) ) {
-			_e( 'You do not have permission to view this job.', 'wp-job-manager-applications' );
+		if (! job_manager_user_can_edit_job($job_id)) {
+			_e('You do not have permission to view this job.', 'wp-job-manager-applications');
 			return;
 		}
 
-		wp_enqueue_script( 'wp-job-manager-applications-dashboard' );
+		wp_enqueue_script('wp-job-manager-applications-dashboard');
 
 		$args = apply_filters(
 			'job_manager_job_applications_args',
 			[
 				'post_type'           => 'job_application',
-				'post_status'         => array_diff( array_merge( array_keys( get_job_application_statuses() ), [ 'publish' ] ), [ 'archived' ] ),
+				'post_status'         => array_diff(array_merge(array_keys(get_job_application_statuses()), ['publish']), ['archived']),
 				'ignore_sticky_posts' => 1,
 				'posts_per_page'      => $posts_per_page,
-				'offset'              => ( max( 1, get_query_var( 'paged' ) ) - 1 ) * $posts_per_page,
+				'offset'              => (max(1, get_query_var('paged')) - 1) * $posts_per_page,
 				'post_parent'         => $job_id,
 			]
 		);
 
 		// Filters
-		$application_status  = ! empty( $_GET['application_status'] ) ? sanitize_text_field( $_GET['application_status'] ) : '';
-		$application_orderby = ! empty( $_GET['application_orderby'] ) ? sanitize_text_field( $_GET['application_orderby'] ) : '';
+		$application_status  = ! empty($_GET['application_status']) ? sanitize_text_field($_GET['application_status']) : '';
+		$application_orderby = ! empty($_GET['application_orderby']) ? sanitize_text_field($_GET['application_orderby']) : '';
 
-		if ( $application_status ) {
+		if ($application_status) {
 			$args['post_status'] = $application_status;
 		}
 
-		switch ( $application_orderby ) {
+		switch ($application_orderby) {
 			case 'name':
 				$args['order']   = 'ASC';
 				$args['orderby'] = 'post_title';
@@ -421,16 +547,16 @@ class WP_Job_Manager_Applications_Dashboard {
 		$columns = apply_filters(
 			'job_manager_job_applications_columns',
 			[
-				'name'  => __( 'Name', 'wp-job-manager-applications' ),
-				'email' => __( 'Email', 'wp-job-manager-applications' ),
-				'date'  => __( 'Date Received', 'wp-job-manager-applications' ),
+				'name'  => __('Name', 'wp-job-manager-applications'),
+				'email' => __('Email', 'wp-job-manager-applications'),
+				'date'  => __('Date Received', 'wp-job-manager-applications'),
 			]
 		);
 
 		get_job_manager_template(
 			'job-applications.php',
 			[
-				'applications'        => $applications->query( $args ),
+				'applications'        => $applications->query($args),
 				'job_id'              => $job_id,
 				'max_num_pages'       => $applications->max_num_pages,
 				'columns'             => $columns,
@@ -445,16 +571,17 @@ class WP_Job_Manager_Applications_Dashboard {
 	/**
 	 * Add note via ajax
 	 */
-	public function add_job_application_note() {
-		check_ajax_referer( 'job-application-notes', 'security' );
+	public function add_job_application_note()
+	{
+		check_ajax_referer('job-application-notes', 'security');
 
-		$application_id = absint( $_POST['application_id'] );
-		$application    = get_post( $application_id );
-		$note           = wp_kses_post( trim( stripslashes( $_POST['note'] ) ) );
+		$application_id = absint($_POST['application_id']);
+		$application    = get_post($application_id);
+		$note           = wp_kses_post(trim(stripslashes($_POST['note'])));
 
-		if ( $application_id > 0 && $this->can_edit_application( $application_id ) ) {
+		if ($application_id > 0 && $this->can_edit_application($application_id)) {
 
-			$user                 = get_user_by( 'id', get_current_user_id() );
+			$user                 = get_user_by('id', get_current_user_id());
 			$comment_author       = $user->display_name;
 			$comment_author_email = $user->user_email;
 			$comment_post_ID      = $application_id;
@@ -464,12 +591,12 @@ class WP_Job_Manager_Applications_Dashboard {
 			$comment_type         = 'job_application_note';
 			$comment_parent       = 0;
 			$comment_approved     = 1;
-			$commentdata          = apply_filters( 'job_application_note_data', compact( 'comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_agent', 'comment_type', 'comment_parent', 'comment_approved' ), $application_id );
-			$comment_id           = wp_insert_comment( $commentdata );
+			$commentdata          = apply_filters('job_application_note_data', compact('comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_agent', 'comment_type', 'comment_parent', 'comment_approved'), $application_id);
+			$comment_id           = wp_insert_comment($commentdata);
 
-			echo '<li rel="' . esc_attr( $comment_id ) . '" class="job-application-note"><div class="job-application-note-content">';
-			echo wpautop( wptexturize( $note ) );
-			echo '</div><p class="job-application-note-meta"><a href="#" class="delete_note">' . __( 'Delete note', 'wp-job-manager-applications' ) . '</a></p>';
+			echo '<li rel="' . esc_attr($comment_id) . '" class="job-application-note"><div class="job-application-note-content">';
+			echo wpautop(wptexturize($note));
+			echo '</div><p class="job-application-note-meta"><a href="#" class="delete_note">' . __('Delete note', 'wp-job-manager-applications') . '</a></p>';
 			echo '</li>';
 		}
 		die();
@@ -478,15 +605,16 @@ class WP_Job_Manager_Applications_Dashboard {
 	/**
 	 * Delete note via ajax
 	 */
-	public function delete_job_application_note() {
-		check_ajax_referer( 'job-application-notes', 'security' );
+	public function delete_job_application_note()
+	{
+		check_ajax_referer('job-application-notes', 'security');
 
-		if ( $note_id = absint( $_POST['note_id'] ) ) {
-			$note           = get_comment( $note_id );
-			$application_id = absint( $note->comment_post_ID );
-			$application    = get_post( $application_id );
-			if ( $application_id > 0 && $this->can_edit_application( $application_id ) ) {
-				wp_delete_comment( $note_id );
+		if ($note_id = absint($_POST['note_id'])) {
+			$note           = get_comment($note_id);
+			$application_id = absint($note->comment_post_ID);
+			$application    = get_post($application_id);
+			if ($application_id > 0 && $this->can_edit_application($application_id)) {
+				wp_delete_comment($note_id);
 			}
 		}
 		die();
@@ -503,22 +631,23 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @param array $clauses
 	 * @return array
 	 */
-	public static function exclude_application_comments( $clauses ) {
+	public static function exclude_application_comments($clauses)
+	{
 		global $wpdb, $typenow, $pagenow;
 
-		if ( is_admin() && $typenow == 'job_application' ) {
+		if (is_admin() && $typenow == 'job_application') {
 			return $clauses;
 		}
 
-		if ( ! $clauses['join'] ) {
+		if (! $clauses['join']) {
 			$clauses['join'] = '';
 		}
 
-		if ( ! strstr( $clauses['join'], "JOIN $wpdb->posts" ) ) {
+		if (! strstr($clauses['join'], "JOIN $wpdb->posts")) {
 			$clauses['join'] .= " LEFT JOIN $wpdb->posts ON comment_post_ID = $wpdb->posts.ID ";
 		}
 
-		if ( $clauses['where'] ) {
+		if ($clauses['where']) {
 			$clauses['where'] .= ' AND ';
 		}
 
@@ -533,10 +662,11 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @param string $join
 	 * @return string
 	 */
-	public function exclude_application_comments_from_feed_join( $join ) {
+	public function exclude_application_comments_from_feed_join($join)
+	{
 		global $wpdb;
 
-		if ( ! strstr( $join, $wpdb->posts ) ) {
+		if (! strstr($join, $wpdb->posts)) {
 			$join = " LEFT JOIN $wpdb->posts ON $wpdb->comments.comment_post_ID = $wpdb->posts.ID ";
 		}
 
@@ -549,10 +679,11 @@ class WP_Job_Manager_Applications_Dashboard {
 	 * @param string $where
 	 * @return string
 	 */
-	public function exclude_application_comments_from_feed_where( $where ) {
+	public function exclude_application_comments_from_feed_where($where)
+	{
 		global $wpdb;
 
-		if ( $where ) {
+		if ($where) {
 			$where .= ' AND ';
 		}
 
@@ -569,17 +700,18 @@ class WP_Job_Manager_Applications_Dashboard {
 	 *
 	 * @return array
 	 */
-	public function application_stats( $stats, $job ) {
+	public function application_stats($stats, $job)
+	{
 
-		$application_by_status = Application_Stats::get_application_stats( $job->ID );
+		$application_by_status = Application_Stats::get_application_stats($job->ID);
 
 		$statuses = get_job_application_statuses();
 
 		$counts = [];
 		$total  = 0;
 
-		foreach ( $statuses as $status => $label ) {
-			$value    = $application_by_status[ $status ]->count ?? 0;
+		foreach ($statuses as $status => $label) {
+			$value    = $application_by_status[$status]->count ?? 0;
 			$counts[] = [
 				'label' => $label,
 				'value' => $value,
@@ -587,30 +719,29 @@ class WP_Job_Manager_Applications_Dashboard {
 			$total   += $value;
 		}
 
-		if ( $total > 0 ) {
-			foreach ( $counts as &$count ) {
-				$count['background'] = round( $count['value'] / $total * 100 );
+		if ($total > 0) {
+			foreach ($counts as &$count) {
+				$count['background'] = round($count['value'] / $total * 100);
 			}
 		}
 
 		array_unshift(
 			$counts,
 			[
-				'label'      => __( 'Total', 'wp-job-manager' ),
+				'label'      => __('Total', 'wp-job-manager'),
 				'value'      => $total,
 				'background' => $total > 0 ? 0 : null,
 			]
 		);
 
 		$stats['applications'] = [
-			'title'  => __( 'Applications', 'wp-job-manager' ),
+			'title'  => __('Applications', 'wp-job-manager'),
 			'stats'  => $counts,
 			'column' => 3,
 		];
 
 		return $stats;
 	}
-
 }
 
 new WP_Job_Manager_Applications_Dashboard();

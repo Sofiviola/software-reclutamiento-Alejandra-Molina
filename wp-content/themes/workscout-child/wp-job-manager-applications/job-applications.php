@@ -20,6 +20,10 @@ if (! defined('ABSPATH')) {
 	<div class="sixteen columns alpha omega">
 		<p class="margin-bottom-25" style="float: left;"><?php printf(esc_html__('The job applications for "%s" are listed below.', 'workscout'), '<a href="' . get_permalink($job_id) . '"><strong>' . get_the_title($job_id) . '</strong></a>'); ?></p>
 		<strong><a href="<?php echo esc_url(add_query_arg('download-csv', true)); ?>" class="download-csv job-applications-download-csv"><?php esc_html_e('Download CSV', 'workscout'); ?></a></strong>
+	
+	
+		<!-- download-excel -->
+		<!-- <a href="<?php // echo esc_url(add_query_arg('download-excel', true)); ?>" class="download-excel job-applications-download-excel"><?php // esc_html_e('Download Excel', 'workscout'); ?></a> -->
 	</div>
 	<div class="job-applications">
 		<form class="filter-job-applications" method="GET">
@@ -86,8 +90,8 @@ if (! defined('ABSPATH')) {
 						<!-- Buttons -->
 						<div class="buttons">
 
-							<a href="#edit-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Edit', 'workscout'); ?>" class="button gray app-link job-application-toggle-edit"><i class="fa fa-pencil"></i> <?php esc_html_e('Edit', 'workscout'); ?></a>
-							<a href="#notes-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Notes', 'workscout'); ?>" class="button gray app-link job-application-toggle-notes"><i class="fa fa-sticky-note"></i> <?php esc_html_e('Notes', 'workscout'); ?></a>
+							<a href="#edit-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Edit', 'workscout'); ?>" class="button gray app-link job-application-toggle-edit"><i class="fa fa-edit"></i> <?php esc_html_e('Edit', 'workscout'); ?></a>
+							<!-- <a href="#notes-<?php //echo esc_attr($application->ID); ?>" title="<?php //esc_html_e('Notes', 'workscout'); ?>" class="button gray app-link job-application-toggle-notes"><i class="fa fa-sticky-note"></i> <?php esc_html_e('Notes', 'workscout'); ?></a> -->
 							<a href="#details-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Details', 'workscout'); ?>" class="button gray app-link job-application-toggle-content"><i class="fa fa-plus-circle"></i> <?php esc_html_e('Details', 'workscout'); ?></a>
 
 						</div>

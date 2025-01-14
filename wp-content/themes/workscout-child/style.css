@@ -144,3 +144,20 @@ Template:  workscout
     color : white !important;
     scale: 1.05 !important;
 }
+
+.jm-job-overlay-details-box, .jm-job-overlay-footer {
+    display: none !important;
+}
+
+.jm-chart-bar-tooltip strong {
+    color : white !important;
+
+}
+
+.jm-job-overlay-header .jm-ui-button--link {
+    display: none !important;
+}
+
+.header-details ul li:first-child {
+    display: none !important;
+} 
