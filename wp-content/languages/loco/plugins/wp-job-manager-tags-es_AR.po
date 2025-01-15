@@ -46,7 +46,7 @@ msgstr ""
 
 #: includes/class-job-manager-job-tags-shortcodes.php:51
 msgid "Filter by tag:"
-msgstr "Filtrar por etiqueta:"
+msgstr "Filtrar por palabra clave:"
 
 #: includes/class-job-manager-job-tags-shortcodes.php:209
 msgid "tagged"

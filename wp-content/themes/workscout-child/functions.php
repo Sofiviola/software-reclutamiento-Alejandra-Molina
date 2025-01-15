@@ -21,21 +21,64 @@ add_filter('submit_resume_steps', function($steps) {
 
 
 // QUITAR CAMPOS DEL RESUME QUE SUBE EL USUARIO
-add_filter( 'submit_resume_form_fields', 'remove_submit_resume_form_fields' );
-function remove_submit_resume_form_fields( $fields ) {
+add_filter( 'submit_resume_form_fields', 'customize_resume_form_fields_order' );
+function customize_resume_form_fields_order( $fields ) {
+    // Remover los campos que no necesitas
+    unset( $fields['resume_fields']['candidate_video'] );
+    unset( $fields['resume_fields']['links'] );
+    unset( $fields['resume_fields']['candidate_education'] );
+    unset( $fields['resume_fields']['candidate_experience'] );
+    unset( $fields['resume_fields']['candidate_photo'] );
 
-// Unset any of the fields you'd like to remove - copy and repeat as needed
-unset( $fields['resume_fields']['candidate_video'] );
-// unset( $fields['resume_fields']['links'] );
-unset( $fields['resume_fields']['candidate_education'] );
-unset( $fields['resume_fields']['candidate_experience'] );
-unset( $fields['resume_fields']['candidate_photo'] );
+    // Agregar los campos personalizados
+    $custom_fields = array(
+        // 'candidate_linkedin' => array(
+        //     'label' => 'LinkedIn',
+        //     'type' => 'text',
+        //     'required' => false,
+        // ),
+        // 'candidate_phone' => array(
+        //     'label' => 'Teléfono',
+        //     'type' => 'text',
+        //     'required' => false,
+        // ),
+        // 'candidate_dni' => array(
+        //     'label' => 'DNI',
+        //     'type' => 'text',
+        //     'required' => false,
+        // ),
+    );
 
-// Unset any of the fields you'd like to keep
+    // Reorganizar los campos (incluir los personalizados antes de "resume_content")
+    $new_order = array();
 
-// And return the modified fields
-return $fields;
+    foreach ( $fields['resume_fields'] as $key => $value ) {
+        if ( $key === 'resume_content' ) {
+            // Insertar los campos personalizados antes de "resume_content"
+            $new_order = array_merge( $new_order, $custom_fields );
+        }
+
+        $new_order[ $key ] = $value; // Mantener los campos originales
+    }
+
+    $fields['resume_fields'] = $new_order;
+
+    return $fields;
 }
+
+add_action('init', function () {
+    if (isset($_POST['save_application_note']) && isset($_POST['application_note_nonce']) && wp_verify_nonce($_POST['application_note_nonce'], 'save_application_note')) {
+        $application_id = absint($_POST['application_id']);
+        $application_note = sanitize_textarea_field($_POST['application_note']);
+
+        // Guardar la nota como metadato
+        update_post_meta($application_id, '_application_note', $application_note);
+
+        // Redirigir para evitar reenvíos
+        wp_safe_redirect(add_query_arg('note_saved', 'true'));
+        exit;
+    }
+});
 
 
 

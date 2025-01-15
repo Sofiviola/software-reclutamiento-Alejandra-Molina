@@ -20,10 +20,12 @@ if (! defined('ABSPATH')) {
 	<div class="sixteen columns alpha omega">
 		<p class="margin-bottom-25" style="float: left;"><?php printf(esc_html__('The job applications for "%s" are listed below.', 'workscout'), '<a href="' . get_permalink($job_id) . '"><strong>' . get_the_title($job_id) . '</strong></a>'); ?></p>
 		<strong><a href="<?php echo esc_url(add_query_arg('download-csv', true)); ?>" class="download-csv job-applications-download-csv"><?php esc_html_e('Download CSV', 'workscout'); ?></a></strong>
-	
-	
+
+
 		<!-- download-excel -->
-		<!-- <a href="<?php // echo esc_url(add_query_arg('download-excel', true)); ?>" class="download-excel job-applications-download-excel"><?php // esc_html_e('Download Excel', 'workscout'); ?></a> -->
+		<!-- <a href="<?php // echo esc_url(add_query_arg('download-excel', true)); 
+						?>" class="download-excel job-applications-download-excel"><?php // esc_html_e('Download Excel', 'workscout'); 
+																																				?></a> -->
 	</div>
 	<div class="job-applications">
 		<form class="filter-job-applications" method="GET">
@@ -58,8 +60,8 @@ if (! defined('ABSPATH')) {
 			<?php foreach ($applications as $application) :
 			?>
 
-			<!-- Agrego condicional para saber status de la card del usuario en cuestion, si es "Nuevo" por css se agrega color de fondo -->
-		    	<?php global $wp_post_statuses; ?>
+				<!-- Agrego condicional para saber status de la card del usuario en cuestion, si es "Nuevo" por css se agrega color de fondo -->
+				<?php global $wp_post_statuses; ?>
 				<?php
 				// Obtener la etiqueta del estado
 				$status_label = $wp_post_statuses[$application->post_status]->label;
@@ -101,8 +103,11 @@ if (! defined('ABSPATH')) {
 						<div class="buttons">
 
 							<a href="#edit-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Edit', 'workscout'); ?>" class="button gray app-link job-application-toggle-edit"><i class="fa fa-edit"></i> <?php esc_html_e('Edit', 'workscout'); ?></a>
-							<!-- <a href="#notes-<?php //echo esc_attr($application->ID); ?>" title="<?php //esc_html_e('Notes', 'workscout'); ?>" class="button gray app-link job-application-toggle-notes"><i class="fa fa-sticky-note"></i> <?php esc_html_e('Notes', 'workscout'); ?></a> -->
-							<a href="#details-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Details', 'workscout'); ?>" class="button gray app-link job-application-toggle-content"><i class="fa fa-plus-circle"></i> <?php esc_html_e('Details', 'workscout'); ?></a>
+							<a href="#notes-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Nota', 'workscout'); ?>" class="button gray app-link job-application-toggle-notes"><i class="fa fa-sticky-note"></i> <?php esc_html_e('Nota', 'workscout'); ?></a>
+							<!-- <a href="#details-<?php //echo esc_attr($application->ID); 
+													?>" title="<?php //esc_html_e('Details', 'workscout'); 
+																										?>" class="button gray app-link job-application-toggle-content"><i class="fa fa-plus-circle"></i> <?php //esc_html_e('Details', 'workscout'); 
+																																																														?></a> -->
 
 						</div>
 						<!-- BOTÓN PARA ENVIAR MENSAJE DIRECTO  -->
@@ -148,6 +153,11 @@ if (! defined('ABSPATH')) {
 
 					</div>
 
+					<!-- application post_content -->
+					<div class="app-content" style="padding: 0 40px;">
+						<?php job_application_content($application); ?>
+					</div>
+
 					<!--  Hidden Tabs -->
 					<div class="app-tabs">
 
@@ -186,7 +196,21 @@ if (! defined('ABSPATH')) {
 
 						<!-- Second Tab -->
 						<div class="app-tab-content" id="notes-<?php echo esc_attr($application->ID); ?>">
-							<?php job_application_notes($application); ?>
+							<?php
+							// Obtener la nota guardada
+							$application_note = get_post_meta($application->ID, '_application_note', true);
+							?>
+
+							<form class="job-manager-application-notes-form" method="post">
+								<fieldset>
+									<textarea id="application-note-<?php echo esc_attr($application->ID); ?>" placeholder="Escribir una observación del candidato" name="application_note" rows="5"><?php echo esc_textarea($application_note); ?></textarea>
+								</fieldset>
+								<p style="margin-top: 15px;">
+									<input class="button" type="submit" name="save_application_note" value="<?php esc_attr_e('Guardar', 'workscout'); ?>" />
+									<input type="hidden" name="application_id" value="<?php echo absint($application->ID); ?>" />
+									<?php wp_nonce_field('save_application_note', 'application_note_nonce'); ?>
+								</p>
+							</form>
 						</div>
 
 						<!-- Third Tab -->

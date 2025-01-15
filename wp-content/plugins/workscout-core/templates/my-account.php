@@ -67,8 +67,8 @@ if (isset($_GET['updated']) && $_GET['updated'] == 'true') : ?>
 							<label for="last-name"><?php esc_html_e('Apellido', 'workscout_core'); ?></label>
 							<input class="text-input" name="last-name" type="text" id="last-name" value="<?php echo $current_user->user_lastname; ?>" />
 
-							<label for="phone"><?php esc_html_e('Teléfono', 'workscout_core'); ?></label>
-							<input class="text-input" name="phone" type="text" id="phone" value="<?php echo $current_user->phone; ?>" type="text">
+							<!-- <label for="phone"><?php // esc_html_e('Teléfono', 'workscout_core'); ?></label>
+							<input class="text-input" name="phone" type="text" id="phone" value="<?php //echo $current_user->phone; ?>" type="text"> -->
 
 							<?php if (isset($_GET['user_err_pass']) && !empty($_GET['user_err_pass'])) : ?>
 								<div class="notification error closeable margin-top-35">

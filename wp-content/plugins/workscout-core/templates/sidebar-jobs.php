@@ -282,7 +282,7 @@ if (is_page()) {
 			<div class="widget widget_range_filter widget-tag" <?php if ($job_tags_widget == "off") : echo ' style="display:none;" ';
 																endif; ?>>
 				<div class="filter_wide filter_by_tag">
-					<h4><?php esc_html_e('Filtrar por etiqueta:', 'workscout_core') ?></h4>
+					<h4><?php esc_html_e('Filtrar por palabra clave:', 'workscout_core') ?></h4>
 					<span class="filter_by_tag_cloud"></span>
 				</div>
 			</div>

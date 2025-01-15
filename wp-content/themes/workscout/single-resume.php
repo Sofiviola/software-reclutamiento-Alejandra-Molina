@@ -40,7 +40,7 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
 					<div class="col-md-12">
 						<div class="single-page-header-inner">
 							<div class="left-side">
-								<div class="header-image freelancer-avatar"><?php the_candidate_photo('workscout_core-avatar', get_template_directory_uri() . '/images/candidate.png'); ?></div>
+								<div class="header-image freelancer-avatar"><?php echo get_avatar($user_id, 32); ?></div>
 								<div class="header-details">
 									<h3><?php the_title(); ?> <span><?php the_candidate_title(); ?></span></h3>
 									<ul>
@@ -65,6 +65,43 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
 										<li>
 											<span class="icons"><i class="icon-material-outline-location-on"></i> <?php ws_candidate_location(); ?></span>
 										</li>
+										<li>
+											<span class="icons"><i class="icon-brand-linkedin"></i> <?php 
+												// get LinkedIn URL
+												$linkedIn = get_post_meta($post->ID, '_candidate_linkedin', true);
+												if ($linkedIn) {
+													echo '<a href="' . esc_url($linkedIn) . '" target="_blank">' . esc_html__('LinkedIn', 'workscout') . '</a>';
+												}
+											?></span>
+										</li>
+										<!-- email -->
+										<?php
+										$email = get_post_meta($post->ID, '_candidate_email', true);
+										if ($email) {
+										?>
+											<li>
+												<span class="icons"><i class="icon-feather-mail"></i> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></span>
+											</li>
+										<?php } ?>
+										<!-- phone -->
+										<?php
+										$phone = get_post_meta($post->ID, '_candidate_phone', true);
+										if ($phone) {
+										?>
+											<li>
+												<span class="icons"><i class="icon-feather-phone"></i> <a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></span>
+											</li>
+										<?php } ?>
+										<!-- DNI -->
+										<?php
+										$dni = get_post_meta($post->ID, '_candidate_dni', true);
+										if ($dni) {
+										?>
+											<li>
+												<span class="icons"><i class="icon-feather-user"></i> <?php echo esc_html($dni); ?></span>
+											</li>
+										<?php } ?>
+
 										<?php if (workscout_is_user_verified($user_id)) { ?>
 											<li>
 												<div class="verified-badge-with-title"><?php esc_html_e('Verified', 'workscout'); ?></div>
@@ -302,8 +339,8 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
  
 						<?php } ?>
 						<?php if (resume_has_links()) :  ?>
-							<div class="sidebar-widget widget">
-								<h3><?php esc_html_e('Social Profiles', 'workscout'); ?></h3>
+							<!-- <div class="sidebar-widget widget">
+								<h3><?php // esc_html_e('Social Profiles', 'workscout'); ?></h3>
 								<div class="freelancer-socials margin-top-25">
 									<ul>
 
@@ -322,7 +359,7 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
 
 									</ul>
 								</div>
-							</div>
+							</div> -->
 						<?php endif; ?>
 
 						<!-- Widget -->

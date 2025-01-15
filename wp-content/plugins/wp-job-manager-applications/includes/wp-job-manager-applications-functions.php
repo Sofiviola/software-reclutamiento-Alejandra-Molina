@@ -204,13 +204,13 @@ function get_job_application_statuses() {
 	return apply_filters(
 		'job_application_statuses',
 		[
-			'new'         => _x( 'New', 'job_application', 'wp-job-manager-applications' ),
-			'Revisión'         => _x( 'Revisión', 'job_application', 'wp-job-manager-applications' ),
-			'interviewed' => _x( 'Interviewed', 'job_application', 'wp-job-manager-applications' ),
-			'offer'       => _x( 'Offer extended', 'job_application', 'wp-job-manager-applications' ),
-			'hired'       => _x( 'Hired', 'job_application', 'wp-job-manager-applications' ),
-			'rejected'    => _x( 'Rejected', 'job_application', 'wp-job-manager-applications' ),
-			'archived'    => _x( 'Archived', 'job_application', 'wp-job-manager-applications' ),
+			'new'         => _x( 'Nuevo', 'job_application', 'wp-job-manager-applications' ),
+			'Revisión'    => _x( 'En Revisión', 'job_application', 'wp-job-manager-applications' ),
+			'called'       => _x( 'Llamado', 'job_application', 'wp-job-manager-applications' ),
+			'interviewed' => _x( 'Entrevistado', 'job_application', 'wp-job-manager-applications' ),
+			'oferted'       => _x( 'Ofrecido', 'job_application', 'wp-job-manager-applications' ),
+			'rejected'    => _x( 'Rechazado', 'job_application', 'wp-job-manager-applications' ),
+			'hired'    => _x( 'Contratado', 'job_application', 'wp-job-manager-applications' ),
 		]
 	);
 }

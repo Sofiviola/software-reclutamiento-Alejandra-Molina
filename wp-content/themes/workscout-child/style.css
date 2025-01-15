@@ -146,15 +146,11 @@ Template:  workscout
 }
 
 .application.job-application.new-status {
-    background-color: #3f0e1e79; /* Fondo  claro */
-    border: 1px solid #3f0e1e79; /* Borde  */
+    /* background-color: #3f0e1e79; */
+    border: 2px solid #360d1b; /* Borde  */
 }
 
-.application.job-application:hover {
-    background-color: #bfc1bc; /* Ligero cambio de color al pasar el cursor */
-    border-color: #bfc1bc;
-    cursor: pointer;
-}
+
 
 .jm-job-overlay-details-box, .jm-job-overlay-footer {
     display: none !important;
@@ -172,3 +168,52 @@ Template:  workscout
 .header-details ul li:first-child {
     display: none !important;
 } 
+
+
+.item-listing-stats.job-item .jm-job-stats-chart{
+    display: none !important;
+}
+
+.item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(1), .item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(2) {
+    display: none !important;
+}
+
+.item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(1), .item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(3) {
+    min-width: 100%;
+}
+
+.item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(1), .item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(3) .jm-stat-section {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-around;
+}
+
+.item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(1), .item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(3) .jm-stat-section .jm-stat-row {
+    display: flex;
+    flex-direction: column-reverse !important;
+}
+
+.item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(3) .jm-section-header, .jm-stat-row.jm-ui-row.total{
+    display: none !important;
+}
+
+/* .item-listing-stats.job-item .jm-job-stat-details .jm-ui-col:nth-child(3) .jm-stat-row:first-child {
+    display: none !important;
+} */
+
+.item-listing-stats.job-item .jm-job-stat-details {
+    min-width: 100%;
+    display: flex;
+    margin: 0;
+}
+
+.dashboard-box-list .buttons-to-right.always-visible {
+    top: 65px !important;
+    right: 20px !important;
+    transform: unset;
+}
+
+.item-listing-stats.job-item {
+    min-width: 100%;
+}
