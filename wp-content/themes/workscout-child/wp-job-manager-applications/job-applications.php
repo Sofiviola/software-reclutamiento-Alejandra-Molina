@@ -25,7 +25,7 @@ if (! defined('ABSPATH')) {
 		<!-- download-excel -->
 		<!-- <a href="<?php // echo esc_url(add_query_arg('download-excel', true)); 
 						?>" class="download-excel job-applications-download-excel"><?php // esc_html_e('Download Excel', 'workscout'); 
-																																				?></a> -->
+																					?></a> -->
 	</div>
 	<div class="job-applications">
 		<form class="filter-job-applications" method="GET">
@@ -57,7 +57,25 @@ if (! defined('ABSPATH')) {
 		<!-- Applications -->
 		<div class="sixteen columns alpha omega">
 
-			<?php foreach ($applications as $application) :
+			<?php
+			// Ordenar las aplicaciones: primero las que tienen el estado 'Nuevo'
+			usort($applications, function ($a, $b) {
+				global $wp_post_statuses;
+
+				// Obtener el estado de cada aplicación
+				$status_a = $wp_post_statuses[$a->post_status]->label;
+				$status_b = $wp_post_statuses[$b->post_status]->label;
+
+				// Comparar si uno de los estados es 'Nuevo' y ordenarlo en consecuencia
+				if ($status_a === 'Nuevo' && $status_b !== 'Nuevo') {
+					return -1; // 'Nuevo' debe ir primero
+				}
+				if ($status_b === 'Nuevo' && $status_a !== 'Nuevo') {
+					return 1; // 'Nuevo' debe ir primero
+				}
+				return 0; // Si ambos tienen el mismo estado, mantener el orden original
+			});
+			foreach ($applications as $application) :
 			?>
 
 				<!-- Agrego condicional para saber status de la card del usuario en cuestion, si es "Nuevo" por css se agrega color de fondo -->
@@ -90,12 +108,38 @@ if (! defined('ABSPATH')) {
 								<?php if ($email = get_job_application_email($application->ID)) : ?>
 									<li><a href="mailto:<?php echo esc_attr($email); ?>?subject=<?php echo esc_attr(sprintf(esc_html__('Your job application for %s', 'workscout'), strip_tags(get_the_title($job_id)))); ?>&amp;body=<?php echo esc_attr(sprintf(esc_html__('Hello %s', 'workscout'), get_the_title($application->ID))); ?>" title="<?php esc_html_e('Email', 'workscout'); ?>" class="bjob-application-contact"><i class="fa fa-envelope"></i> <?php esc_html_e('Email', 'workscout'); ?></a></li>
 								<?php endif; ?>
+
+
 								<?php
-								if (($resume_id = get_job_application_resume_id($application->ID)) && 'publish' === get_post_status($resume_id) && function_exists('get_resume_share_link') && (
-									$share_link = get_resume_share_link($resume_id))) : ?>
-									<li><a href="<?php echo esc_attr($share_link); ?> <?php selected($application->post_status, 'Revisión'); ?>" target="_blank" class="job-application-resume">
-											<i class="fa fa-download" aria-hidden="true"></i><?php esc_html_e('View Resume', 'workscout'); ?></a></li>
+								//print_r($application);
+								?>
+
+
+								<?php
+								if (($resume_id = get_job_application_resume_id($application->ID)) && 'publish' === get_post_status($resume_id)
+									&& function_exists('get_resume_share_link') && ($share_link = get_resume_share_link($resume_id))
+								) :
+									// Generar un nonce único para esta aplicación
+									$nonce = wp_create_nonce('change_status_' . $application->ID); // Usamos el ID de la aplicación para el nonce
+								?>
+									<li>
+										<a
+											href="<?php echo esc_attr(add_query_arg([
+														'application_id' => $application->ID,
+														'nonce' => $nonce,  // Pasar el nonce único para verificar
+													], $share_link)); ?>"
+											target="_blank"
+											class="job-application-resume"
+											data-id="<?php echo esc_attr($application->ID); ?>">
+											<i class="fa fa-download" aria-hidden="true"></i>
+											<?php esc_html_e('View Resume', 'workscout'); ?>
+										</a>
+									</li>
 								<?php endif; ?>
+
+
+
+
 							</ul>
 						</div>
 
@@ -106,8 +150,8 @@ if (! defined('ABSPATH')) {
 							<a href="#notes-<?php echo esc_attr($application->ID); ?>" title="<?php esc_html_e('Nota', 'workscout'); ?>" class="button gray app-link job-application-toggle-notes"><i class="fa fa-sticky-note"></i> <?php esc_html_e('Nota', 'workscout'); ?></a>
 							<!-- <a href="#details-<?php //echo esc_attr($application->ID); 
 													?>" title="<?php //esc_html_e('Details', 'workscout'); 
-																										?>" class="button gray app-link job-application-toggle-content"><i class="fa fa-plus-circle"></i> <?php //esc_html_e('Details', 'workscout'); 
-																																																														?></a> -->
+																?>" class="button gray app-link job-application-toggle-content"><i class="fa fa-plus-circle"></i> <?php //esc_html_e('Details', 'workscout'); 
+																																									?></a> -->
 
 						</div>
 						<!-- BOTÓN PARA ENVIAR MENSAJE DIRECTO  -->

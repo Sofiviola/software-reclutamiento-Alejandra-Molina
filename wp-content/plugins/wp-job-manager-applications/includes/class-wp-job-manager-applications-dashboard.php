@@ -149,6 +149,36 @@ class WP_Job_Manager_Applications_Dashboard
 		}
 	}
 
+	public function change_status_handler() {
+		// Cambiar el estado de la postulación a "revision" solo si es "new"
+		if (!empty($_POST['wp_job_manager_change_application_status']) && wp_verify_nonce($_POST['_wpnonce'], 'change_application_status_nonce')) {
+			global $wp_post_statuses;
+	
+			$application_id = absint($_POST['application_id']);
+	
+			// Verificar permisos
+			if (!$this->can_edit_application($application_id)) {
+				return;
+			}
+	
+			// Obtener el estado actual de la postulación
+			$application = get_post($application_id);
+	
+			// Cambiar a "revision" solo si el estado actual es "new"
+			if ($application && $application->post_status === 'new') {
+				$application_status = 'revision';
+	
+				if (array_key_exists($application_status, $wp_post_statuses)) {
+					wp_update_post([
+						'ID'          => $application_id,
+						'post_status' => $application_status,
+					]);
+				}
+			}
+		}
+	}
+	
+
 	/**
 	 * Delete an application
 	 */

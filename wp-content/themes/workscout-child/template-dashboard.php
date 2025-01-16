@@ -344,16 +344,16 @@ if (!is_user_logged_in()) {
 
                                         <?php if (array_intersect($roles, array('candidate'))) : ?>
 
-                                            <?php 
-                                            $test = get_option('workscout_past_applications'); 
+                                            <?php
+                                            $test = get_option('workscout_past_applications');
                                             $is_active = (isset($post) && $post->post_name === 'mis-postulaciones');
                                             ?>
 
                                             <ul data-submenu-title="<?php esc_html_e('Postulaciones', 'workscout'); ?>">
 
 
-                                            <li id="past_applications_page-menu" <?php if ($is_active) : ?>class="active"<?php endif; ?>>
-                                                <a href="/mis-postulaciones">
+                                                <li id="past_applications_page-menu" <?php if ($is_active) : ?>class="active" <?php endif; ?>>
+                                                    <a href="/mis-postulaciones">
                                                         <i class="icon-material-outline-business-center"></i>
                                                         <?php echo 'Mis Postulaciones' ?>
                                                     </a>
@@ -364,7 +364,7 @@ if (!is_user_logged_in()) {
                                             </ul>
                                         <?php endif; ?>
 
-                                        
+
 
                                         <?php if (array_intersect($roles, array('administrator', 'admin', 'employer'))) : ?>
                                             <?php
@@ -383,12 +383,12 @@ if (!is_user_logged_in()) {
                                                             <li id="jobs_dashboard-menu" <?php if ($post->ID == $jobs_dashboard) : ?>class="active" <?php endif; ?>>
                                                                 <a href="<?php echo esc_url(get_permalink($jobs_dashboard)); ?>">
                                                                     <?php esc_html_e('Administrar empleos', 'workscout'); ?> <span class="nav-tag"><?php
-                                                                                                                                            $count_publish =  workscout_count_posts_by_user($user_id, 'job_listing', 'publish');
-                                                                                                                                            $count_pending =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending');
-                                                                                                                                            $count_pending_payment =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending_payment');
-                                                                                                                                            $count_draft =  workscout_count_posts_by_user($user_id, 'job_listing', 'draft');
-                                                                                                                                            $total_pending_count = $count_publish + $count_pending + $count_draft;
-                                                                                                                                            echo $total_pending_count; ?></span>
+                                                                                                                                                    $count_publish =  workscout_count_posts_by_user($user_id, 'job_listing', 'publish');
+                                                                                                                                                    $count_pending =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending');
+                                                                                                                                                    $count_pending_payment =  workscout_count_posts_by_user($user_id, 'job_listing', 'pending_payment');
+                                                                                                                                                    $count_draft =  workscout_count_posts_by_user($user_id, 'job_listing', 'draft');
+                                                                                                                                                    $total_pending_count = $count_publish + $count_pending + $count_draft;
+                                                                                                                                                    echo $total_pending_count; ?></span>
                                                                 </a>
                                                             </li>
                                                         <?php endif; ?>
@@ -487,7 +487,7 @@ if (!is_user_logged_in()) {
                                             endif;
                                             ?>
                                             <?php if (class_exists('WorkScout_Freelancer') || class_exists('WP_Resume_Manager')) { ?>
-                                                <?php if (array_intersect($roles, array( 'candidate'))) : ?>
+                                                <?php if (array_intersect($roles, array('candidate'))) : ?>
                                                     <ul data-submenu-title="<?php esc_html_e('Organize and Manage', 'workscout'); ?>">
                                                         <?php if (class_exists('WorkScout_Freelancer')) { ?>
                                                             <li id="task_my_bids-menu" <?php if ($post->ID == $task_my_bids) : ?>class="active" <?php endif; ?>>
@@ -506,24 +506,24 @@ if (!is_user_logged_in()) {
                                                         $applications_page = get_option('workscout_past_applications');
                                                         if (class_exists('WP_Resume_Manager')) { ?>
 
-                                                                    <?php
+                                                            <?php
 
-                                                                    if (class_exists('WP_Resume_Manager') &&  $resumes_dashboard) : ?>
-                                                                        <li id="resumes_dashboard-menu" <?php if ($post->ID == $resumes_dashboard) : ?>class="active" <?php endif; ?>>
-                                                                            <a href="<?php echo esc_url(get_permalink($resumes_dashboard)); ?>">
-                                                                                <?php esc_html_e('Manage Resumes', 'workscout'); ?> <span class="nav-tag"><?php
-                                                                                                                                                            $count_publish =  workscout_count_posts_by_user($user_id, 'resume', 'publish');
-                                                                                                                                                            $count_pending =  workscout_count_posts_by_user($user_id, 'resume', 'pending');
-                                                                                                                                                            $count_pending_payment =  workscout_count_posts_by_user($user_id, 'resume', 'pending_payment');
-                                                                                                                                                            $count_draft =  workscout_count_posts_by_user($user_id, 'resume', 'draft');
-                                                                                                                                                            $total_pending_count = $count_publish + $count_pending + $count_draft;
-                                                                                                                                                            echo $total_pending_count; ?></span>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php endif; ?>
-                                                                    <!-- Ocultar el agregar Cv para todo rol que no sea Candidato y si ya tiene uno cargado  -->
-                                                                    <?php
-                                                                    /*
+                                                            if (class_exists('WP_Resume_Manager') &&  $resumes_dashboard) : ?>
+                                                                <li id="resumes_dashboard-menu" <?php if ($post->ID == $resumes_dashboard) : ?>class="active" <?php endif; ?>>
+                                                                    <a href="<?php echo esc_url(get_permalink($resumes_dashboard)); ?>">
+                                                                        <?php esc_html_e('Manage Resumes', 'workscout'); ?> <span class="nav-tag"><?php
+                                                                                                                                                    $count_publish =  workscout_count_posts_by_user($user_id, 'resume', 'publish');
+                                                                                                                                                    $count_pending =  workscout_count_posts_by_user($user_id, 'resume', 'pending');
+                                                                                                                                                    $count_pending_payment =  workscout_count_posts_by_user($user_id, 'resume', 'pending_payment');
+                                                                                                                                                    $count_draft =  workscout_count_posts_by_user($user_id, 'resume', 'draft');
+                                                                                                                                                    $total_pending_count = $count_publish + $count_pending + $count_draft;
+                                                                                                                                                    echo $total_pending_count; ?></span>
+                                                                    </a>
+                                                                </li>
+                                                            <?php endif; ?>
+                                                            <!-- Ocultar el agregar Cv para todo rol que no sea Candidato y si ya tiene uno cargado  -->
+                                                            <?php
+                                                            /*
 if (class_exists('WP_Resume_Manager') && $submit_resume) : ?>
     <li id="submit_resume-menu" 
         <?php 
@@ -535,57 +535,82 @@ if (class_exists('WP_Resume_Manager') && $submit_resume) : ?>
 <?php 
 endif; 
 */
-                                                                    ?>
-                                                                    <?php
-                                                                    if (class_exists('WP_Resume_Manager') && $submit_resume) :
-                                                                        $current_user = wp_get_current_user(); // Obtén al usuario actual
-                                                                        $roles = $current_user->roles; // Obtén los roles del usuario actual
+                                                            ?>
+                                                            <?php
+                                                            if (class_exists('WP_Resume_Manager') && $submit_resume) :
+                                                                $current_user = wp_get_current_user(); // Obtén al usuario actual
+                                                                $roles = $current_user->roles; // Obtén los roles del usuario actual
 
-                                                                        // Comprueba si el usuario tiene el rol 'candidate'
-                                                                        if (array_intersect($roles, array('candidate'))) :
-                                                                            // Obtiene los paquetes de usuario para verificar si tiene CV
-                                                                            if (function_exists('wc_paid_listings_get_user_packages')) :
-                                                                                $user_packages = wc_paid_listings_get_user_packages(get_current_user_id());
+                                                                // Comprueba si el usuario tiene el rol 'candidate'
+                                                                if (array_intersect($roles, array('candidate'))) :
+                                                                    // Obtiene los paquetes de usuario para verificar si tiene CV
+                                                                    if (function_exists('wc_paid_listings_get_user_packages')) :
+                                                                        $user_packages = wc_paid_listings_get_user_packages(get_current_user_id());
 
-                                                                                // Comprueba si no hay paquetes (ningún CV cargado)
-                                                                                if (empty($user_packages)) :
-                                                                    ?>
-                                                                                    <li id="submit_resume-menu" <?php if (isset($post->ID) && $post->ID == $submit_resume) : ?>class="active" <?php endif; ?>>
-                                                                                        <a href="<?php echo esc_url(get_permalink($submit_resume)); ?>">
-                                                                                            <?php esc_html_e('Add Resume', 'workscout'); ?>
-                                                                                        </a>
-                                                                                    </li>
-                                                                    <?php
-                                                                                endif; // Cierre de la verificación de paquetes
-                                                                            endif; // Cierre de la función existente
-                                                                        endif; // Cierre de la verificación de rol
-                                                                    endif;
-                                                                    ?>
-
-
-                                                                    <?php
-
-                                                                    if (class_exists('WP_Job_Manager_Applications') && $applications_page) : ?>
-                                                                        <li id="alerts_page-menu" <?php if ($post->ID == $applications_page) : ?>class="active" <?php endif; ?>>
-                                                                            <a href="<?php echo esc_url(get_permalink($applications_page)); ?>">
-                                                                                <?php esc_html_e('My Applications', 'workscout'); ?>
-                                                                                <span class="nav-tag"><?php
-
-                                                                                                        $user_post_count = workscout_count_user_applications($current_user->ID);
-
-                                                                                                        echo $user_post_count;
-
-                                                                                                        ?></span>
-                                                                            </a>
-                                                                        </li>
-                                                                    <?php endif; ?>
+                                                                        // Comprueba si no hay paquetes (ningún CV cargado)
+                                                                        if (empty($user_packages)) :
+                                                            ?>
+                                                                            <li id="submit_resume-menu" <?php if (isset($post->ID) && $post->ID == $submit_resume) : ?>class="active" <?php endif; ?>>
+                                                                                <a href="<?php echo esc_url(get_permalink($submit_resume)); ?>">
+                                                                                    <?php esc_html_e('Add Resume', 'workscout'); ?>
+                                                                                </a>
+                                                                            </li>
+                                                            <?php
+                                                                        endif; // Cierre de la verificación de paquetes
+                                                                    endif; // Cierre de la función existente
+                                                                endif; // Cierre de la verificación de rol
+                                                            endif;
+                                                            ?>
 
 
-                                                                <?php wp_nav_menu(array('theme_location' => 'candidate', 'menu_id' => 'employer', 'container' => false, 'items_wrap' => '%3$s', 'fallback_cb' => false)); ?>
+                                                            <?php
+
+                                                            if (class_exists('WP_Job_Manager_Applications') && $applications_page) : ?>
+                                                                <li id="alerts_page-menu" <?php if ($post->ID == $applications_page) : ?>class="active" <?php endif; ?>>
+                                                                    <a href="<?php echo esc_url(get_permalink($applications_page)); ?>">
+                                                                        <?php esc_html_e('My Applications', 'workscout'); ?>
+                                                                        <span class="nav-tag"><?php
+
+                                                                                                $user_post_count = workscout_count_user_applications($current_user->ID);
+
+                                                                                                echo $user_post_count;
+
+                                                                                                ?></span>
+                                                                    </a>
+                                                                </li>
+                                                            <?php endif; ?>
+
+
+                                                            <?php wp_nav_menu(array('theme_location' => 'candidate', 'menu_id' => 'employer', 'container' => false, 'items_wrap' => '%3$s', 'fallback_cb' => false)); ?>
                                                         <?php } ?>
                                                     </ul>
                                             <?php endif;
                                             } ?>
+
+
+
+                                            <?php if (array_intersect($roles, array('administrator', 'admin', 'employer'))) : ?>
+
+                                                <?php
+                                                $test = get_option('workscout_past_applications');
+                                                $is_active = (isset($post) && $post->post_name === 'candidatos');
+                                                ?>
+
+                                                <ul data-submenu-title="<?php esc_html_e('Base de datos de candidatos', 'workscout'); ?>">
+
+
+                                                    <li id="past_applications_page-menu" <?php if ($is_active) : ?>class="active" <?php endif; ?>>
+                                                        <a href="/candidatos">
+                                                            <i class="icon-material-outline-supervisor-account"></i>
+                                                            <?php echo 'Candidatos' ?>
+                                                        </a>
+                                                    </li>
+
+
+
+                                                </ul>
+                                            <?php endif; ?>
+
 
                                             <ul data-submenu-title="<?php esc_html_e('Account', 'workscout'); ?>">
                                                 <?php $profile_page = get_option('workscout_profile_page');
@@ -618,6 +643,7 @@ endif;
                                                 <li id="logout-menu"><a href="<?php echo wp_logout_url(home_url()); ?>"><i class="icon-material-outline-power-settings-new"></i> <?php esc_html_e('Logout', 'workscout'); ?></a></li>
 
                                             </ul>
+
 
                                     </div>
                                 </div>

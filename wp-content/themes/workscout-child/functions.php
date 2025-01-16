@@ -130,3 +130,32 @@ $allcaps[ $cap[0] ] = true;
 
 return $allcaps;
 }
+
+
+// NO FUNCA DEL TODO - CUANDO SE PONE VER CURRICULUM QUE CAMBIE EL ESTADO A EN REVISIÓN
+// add_action('template_redirect', function () {
+//     // Verificar si los parámetros están presentes en la URL
+//     if ($_GET['application_id']) {
+//         $application_id = absint($_GET['application_id']);  // Sanear el ID de la aplicación
+//         $nonce = sanitize_text_field($_GET['nonce']);  // Sanear el nonce
+
+//         // Verificar si el nonce es válido
+//         if (!wp_verify_nonce($nonce, 'change_status_' . $application_id)) {
+//             return;  // Si el nonce no es válido, no hacer nada
+//         }
+
+//         $application = get_post($application_id);  // Obtener el post de la aplicación
+
+//         // Verificar si la aplicación existe y si su estado es 'new'
+//         if ($application && 'new' === $application->post_status) {
+//             // Cambiar el estado a 'revision'
+//             wp_update_post([
+//                 'ID'          => $application_id,
+//                 'post_status' => 'revision',
+//             ]);
+//             error_log('Changed status to revision for application_id: ' . $application_id);  // Verificar que el estado se cambió correctamente
+//         } else {
+//             error_log('Application not found or not in "new" status. Application ID: ' . $application_id);  // En caso de que no se cumpla la condición
+//         }
+//     }
+// });

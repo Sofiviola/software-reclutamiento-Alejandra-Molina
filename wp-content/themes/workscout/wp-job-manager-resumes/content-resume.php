@@ -18,8 +18,8 @@ $category = get_the_resume_category();
 			<!-- Avatar -->
 			<div class="freelancer-avatar">
 				<?php if (workscout_is_user_verified($post->ID)) { ?><div class="verified-badge"></div><?php } ?>
-				<a href="<?php the_permalink(); ?>"><?php the_candidate_photo('workscout_core-preview', get_template_directory_uri() . '/images/candidate.png'); ?></a>
-			</div>
+				<div class="header-image freelancer-avatar"><?php echo get_avatar(get_the_author_meta('ID'), 200); ?></div>
+				</div>
 
 			<!-- Name -->
 			<div class="freelancer-name">

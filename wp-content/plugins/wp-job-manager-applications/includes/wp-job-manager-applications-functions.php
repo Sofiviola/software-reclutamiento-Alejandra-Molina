@@ -205,7 +205,7 @@ function get_job_application_statuses() {
 		'job_application_statuses',
 		[
 			'new'         => _x( 'Nuevo', 'job_application', 'wp-job-manager-applications' ),
-			'Revisión'    => _x( 'En Revisión', 'job_application', 'wp-job-manager-applications' ),
+			'revision'    => _x( 'En Revisión', 'job_application', 'wp-job-manager-applications' ),
 			'called'       => _x( 'Llamado', 'job_application', 'wp-job-manager-applications' ),
 			'interviewed' => _x( 'Entrevistado', 'job_application', 'wp-job-manager-applications' ),
 			'oferted'       => _x( 'Ofrecido', 'job_application', 'wp-job-manager-applications' ),

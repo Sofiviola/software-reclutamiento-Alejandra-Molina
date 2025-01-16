@@ -40,7 +40,7 @@ $header_image = apply_filters('workscout_single_job_header_image', $header_image
 					<div class="col-md-12">
 						<div class="single-page-header-inner">
 							<div class="left-side">
-								<div class="header-image freelancer-avatar"><?php echo get_avatar($user_id, 32); ?></div>
+								<div class="header-image freelancer-avatar"><?php echo get_avatar(get_the_author_meta('ID'), 200); ?></div>
 								<div class="header-details">
 									<h3><?php the_title(); ?> <span><?php the_candidate_title(); ?></span></h3>
 									<ul>

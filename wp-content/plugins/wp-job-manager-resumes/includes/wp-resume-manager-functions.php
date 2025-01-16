@@ -285,14 +285,16 @@ if ( ! function_exists( 'get_resume_share_link' ) ) :
 	 * @access public
 	 * @return array
 	 */
-	function get_resume_share_link( $resume_id ) {
-		if ( ! $key = get_post_meta( $resume_id, 'share_link_key', true ) ) {
-			$key = wp_generate_password( 32, false );
-			update_post_meta( $resume_id, 'share_link_key', $key );
+	function get_resume_share_link($resume_id) {
+		if (!$key = get_post_meta($resume_id, 'share_link_key', true)) {
+			$key = wp_generate_password(32, false);
+			update_post_meta($resume_id, 'share_link_key', $key);
 		}
-
-		return add_query_arg( 'key', $key, get_permalink( $resume_id ) );
+	
+		return add_query_arg('key', $key, get_permalink($resume_id));
 	}
+	
+	
 endif;
 
 if ( ! function_exists( 'get_resume_categories' ) ) :
