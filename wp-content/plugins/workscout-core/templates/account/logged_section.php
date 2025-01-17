@@ -51,15 +51,20 @@ $user_id = get_current_user_id();
 					<li id="bookmarks_page-menu" <?php if (isset($post) && $post->ID == $bookmarks_page) : ?>class="active" <?php endif; ?>><a href="<?php echo esc_url(get_permalink($bookmarks_page)); ?>"><i class="icon-material-outline-star-border"></i> <?php esc_html_e('Bookmarks', 'workscout_core'); ?></a></li>
 				<?php endif; ?>
 
-				<?php /*
+			<?php if (in_array($role, array('candidate'))) : ?>
+				
+				<?php 
 				$alerts_page = get_option('job_manager_alerts_page_id');
 				if (class_exists('WP_Job_Manager_Alerts') && $alerts_page) : ?>
 					<li id="alerts_page-menu" <?php if (isset($post) && $post->ID == $alerts_page) : ?>class="active" <?php endif; ?>>
 						<a href="<?php echo esc_url(get_permalink($alerts_page)); ?>"><i class="icon-material-outline-notifications-active"></i>
-							<?php esc_html_e('Job Alerts', 'workscout_core'); ?>
+							<?php esc_html_e('Alertas de trabajo', 'workscout_core'); ?>
 						</a>
 					</li>
-				<?php endif; */ ?>
+				<?php endif;  ?>
+				<?php endif;  ?>
+
+
 				<?php
 				$resumes_dashboard = get_option('resume_manager_candidate_dashboard_page_id');
 				if (class_exists('WP_Resume_Manager') &&  $resumes_dashboard) : ?>

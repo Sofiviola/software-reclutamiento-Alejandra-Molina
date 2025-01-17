@@ -150,7 +150,7 @@ Template:  workscout
     border: 1px solid #360d1b; /* Borde  */
 }
 
-.freelancer-details-list-rate.no-rate {
+.freelancer-details-list-rate.no-rate, .freelancer-details-list {
     display: none !important;
 }
 
@@ -218,4 +218,16 @@ Template:  workscout
 
 .item-listing-stats.job-item {
     min-width: 100%;
+}
+
+.filled-true {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffe6e6;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: #ea5252;
+    font-size: 13px;
 }

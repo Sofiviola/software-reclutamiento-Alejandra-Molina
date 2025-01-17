@@ -5394,7 +5394,7 @@ msgstr ""
 
 #: wp-job-manager-resumes/apply-with-resume.php:52
 msgid "Submit resume and apply"
-msgstr "Enviar currículum y postularse"
+msgstr "Subir currículum y postularse"
 
 #: wp-job-manager-resumes/candidate-dashboard-login.php:3
 msgid "You need to be signed in to manage your resumes."

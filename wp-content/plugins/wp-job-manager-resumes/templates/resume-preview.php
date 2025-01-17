@@ -27,8 +27,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'preview_resume_form_start' );
 	?>
 	<div class="job_listing_preview_title">
-		<input type="submit" name="continue" id="resume_preview_submit_button" class="button job-manager-button-submit-listing" value="<?php echo esc_attr( apply_filters( 'submit_resume_step_preview_submit_text', __( 'Submit Resume &rarr;', 'wp-job-manager-resumes' ) ) ); ?>" />
-		<input type="submit" name="edit_resume" class="button" value="<?php esc_attr_e( '&larr; Edit resume', 'wp-job-manager-resumes' ); ?>" />
+		<!-- get the if of the job page from i come -->
+		<input type="hidden" name="job_id" value="<?php echo esc_attr( $form->get_job_id() ); ?>" />
+		
+
+		<input type="submit" name="continue" id="resume_preview_submit_button" class="button job-manager-button-submit-listing" value="<?php echo esc_attr( apply_filters( 'submit_resume_step_preview_submit_text', __( 'Subir currículum &rarr;', 'wp-job-manager-resumes' ) ) ); ?>" />
+		<input type="submit" name="edit_resume" class="button" value="<?php esc_attr_e( '&larr; Volver', 'wp-job-manager-resumes' ); ?>" />
 		<input type="hidden" name="resume_id" value="<?php echo esc_attr( $form->get_resume_id() ); ?>" />
 		<input type="hidden" name="job_id" value="<?php echo esc_attr( $form->get_job_id() ); ?>" />
 		<input type="hidden" name="step" value="<?php echo esc_attr( $form->get_step() ); ?>" />

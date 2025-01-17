@@ -49,7 +49,7 @@ if ( is_user_logged_in() && count( $resumes ) ) : ?>
 			?></textarea>
 		</p>
 		<p>
-			<input type="submit" name="wp_job_manager_resumes_apply_with_resume" value="<?php esc_attr_e( 'Send Application', 'wp-job-manager-resumes' ); ?>" />
+			<input type="submit"  name="wp_job_manager_resumes_apply_with_resume" value="<?php esc_attr_e( 'Send Application', 'wp-job-manager-resumes' ); ?>" />
 			<input type="hidden" name="job_id" value="<?php echo esc_attr( absint( $post->ID ) ); ?>" />
 		</p>
 	</form>
@@ -58,7 +58,7 @@ if ( is_user_logged_in() && count( $resumes ) ) : ?>
 		<p><?php esc_html_e( 'You can apply to this job and others using your online resume. Click the link below to submit your online resume and email your application to this employer.', 'wp-job-manager-resumes' ); ?></p>
 
 		<p>
-			<input type="submit" name="wp_job_manager_resumes_apply_with_resume_create" value="<?php esc_attr_e( 'Submit Resume &amp; Apply', 'wp-job-manager-resumes' ); ?>" />
+			<input type="submit" name="wp_job_manager_resumes_apply_with_resume_create" value="<?php esc_attr_e( 'Subir currículum y postular', 'wp-job-manager-resumes' ); ?>" />
 			<input type="hidden" name="job_id" value="<?php echo esc_attr( absint( $post->ID ) ); ?>" />
 		</p>
 	</form>

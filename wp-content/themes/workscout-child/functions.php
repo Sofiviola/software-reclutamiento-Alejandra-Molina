@@ -131,6 +131,16 @@ $allcaps[ $cap[0] ] = true;
 return $allcaps;
 }
 
+add_action('wp', function() {
+    if (isset($_POST['wp_job_manager_resumes_apply_with_resume'])) {
+        // Procesar el formulario aquí (lo que hace actualmente).
+        
+        // Redirigir al home.
+        wp_redirect(home_url() . '/mis-postulaciones/');
+        exit;
+    }
+});
+
 
 // NO FUNCA DEL TODO - CUANDO SE PONE VER CURRICULUM QUE CAMBIE EL ESTADO A EN REVISIÓN
 // add_action('template_redirect', function () {

@@ -25,20 +25,20 @@ switch ( $resume->post_status ) :
 			echo wp_kses_post(
 				sprintf(
 					// translators: Placeholder is URL to view the resume.
-					__( 'Your resume has been submitted successfully. To view your resume <a href="%s">click here</a>.', 'wp-job-manager-resumes' ),
+					__( 'Su currículum ha sido enviado con éxito.', 'wp-job-manager-resumes' ),
 					esc_url( get_permalink( $resume->ID ) )
 				)
 			);
 			echo '</p>';
 		} else {
 			echo '<p class="resume-submitted">';
-			echo esc_html( __( 'Your resume has been submitted successfully.', 'wp-job-manager-resumes' ) );
+			echo esc_html( __( 'Su currículum ha sido enviado con éxito.', 'wp-job-manager-resumes' ) );
 			echo '</p>';
 		}
 		break;
 	case 'pending':
 		echo '<p class="resume-submitted">';
-		echo esc_html( __( 'Your resume has been submitted successfully and is pending approval.', 'wp-job-manager-resumes' ) );
+		echo esc_html( __( 'Su currículum ha sido enviado con éxito and is pending approval.', 'wp-job-manager-resumes' ) );
 		if (
 			$job_id
 			&& 'publish' === get_post_status( $job_id )

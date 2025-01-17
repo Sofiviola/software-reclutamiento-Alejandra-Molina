@@ -406,7 +406,7 @@ class WorkScout_Core_Registration {
 		    	if ( get_option('workscout_autologin') ) {
 
 			    	if ( get_option('workscout_display_password_field') ) :
-			        	echo json_encode(array('registered'=>true, 'message'=>__('You have been successfully registered, you will be logged in a moment.','workscout_core')));
+			        	echo json_encode(array('registered'=>true, 'message'=>__('Te has registrado exitosamente, iniciarás sesión en un momento.','workscout_core')));
 			        else :
 			        	echo json_encode(array('registered'=>true, 'message'=>esc_html__('You have been successfully registered,  you will be logged in a moment. Please check your email for the password.','workscout_core')));
 			        endif;

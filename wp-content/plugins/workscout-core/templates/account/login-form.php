@@ -33,7 +33,7 @@ if (defined('PWP_NAME')) { ?>
             </div>
             <p>
                 <?php wp_nonce_field('workscout-ajax-login-nonce', 'login_security'); ?>
-                <input id="workscout_login_submit" type="submit" value="<?php esc_attr_e('Login', 'workscout_core'); ?>" />
+                <input id="workscout_login_submit" type="submit"  value="<?php esc_attr_e('Login', 'workscout_core'); ?>" />
             </p>
             <p>
                 <?php esc_html_e('Aún no tienes una cuenta?', 'workscout_core'); ?> <a class="modal-register-link" href="<?php echo get_permalink($loginpage); ?>?action=register"><?php esc_html_e('Registrarse', 'workscout_core'); ?></a>
@@ -64,3 +64,24 @@ if (defined('PWP_NAME')) { ?>
                                                                                                                                             ?>
             </div>
         <?php } ?>
+
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginSubmitButton = document.getElementById('workscout_login_submit');
+        const loginForm = document.getElementById('workscout_login_form');
+
+        if (loginSubmitButton && loginForm) {
+            loginForm.addEventListener('submit', function (event) {
+                // Prevenir la recarga inmediata para permitir la validación del backend
+                event.preventDefault();
+
+                // Simula una espera para el backend
+                setTimeout(function () {
+                    // Recargar la página tras enviar el formulario
+                    window.location.reload();
+                }, 1000);
+            });
+        }
+    });
+</script>

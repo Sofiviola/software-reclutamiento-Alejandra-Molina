@@ -31,21 +31,35 @@
 
 										<!-- Details -->
 										<div class="item-listing-description">
+
+											<?php $check_filled = $job->_filled; ?>
+
+											<?php if($check_filled == false):?>
 											<h3 class="item-listing-title"> <?php if ($job && $job->post_status == 'publish') { ?>
 													<a href="<?php echo esc_url(get_permalink($job_id)); ?>"><?php echo esc_html($job_title); ?></a>
 												<?php } else {
 																				echo esc_html($job_title);
 																			} ?>
 											</h3>
-											
-												<?php echo wpautop(wp_kses_post($application->post_content)); ?>
-											
+											<?php else: ?>
+											<h3 class="item-listing-title"> <?php if ($job && $job->post_status == 'publish') { ?>
+													<a href="<?php echo esc_url(get_permalink($job_id)); ?>"><?php echo esc_html($job_title); ?></a>
+												<?php } else {
+																				echo esc_html($job_title);
+																			} ?>
+											</h3>
+											<span class="filled-true">Este puesto ya ha sido cubierto</span>
+											<?php endif; ?>
+
+											<?php echo wpautop(wp_kses_post($application->post_content)); ?>
+
 
 
 											<!-- item Listing Footer -->
 											<div class="item-listing-footer">
 												<ul>
-													<li><i class="icon-material-outline-business"></i> Status: <?php echo esc_html($wp_post_statuses[get_post_status($application_id)]->label); ?></li>
+													<!-- <li><i class="icon-material-outline-business"></i> Status: <?php //echo esc_html($wp_post_statuses[get_post_status($application_id)]->label); 
+																													?></li> -->
 													<li><i class="icon-material-outline-access-time"></i> <?php echo esc_html(get_the_date(get_option('date_format'), $application_id)); ?></li>
 												</ul>
 											</div>

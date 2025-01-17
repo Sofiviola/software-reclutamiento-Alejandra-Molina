@@ -27,7 +27,7 @@ if ( 'publish' !== $resume->post_status ) {
 <h3 class="applying_for">
 	<?php
 	// translators: Placeholder %s is a link to the job listing with the title as the text.
-	echo wp_kses_post( sprintf( __( 'Submit your application to the job "%s".', 'wp-job-manager-resumes' ), '<a href="' . get_permalink( $job_id ) . '">' . get_the_title( $job_id ) . '</a>' ) );
+	echo wp_kses_post( sprintf( __( 'Envía tu solicitud al trabajo "%s".', 'wp-job-manager-resumes' ), '<a href="' . get_permalink( $job_id ) . '">' . get_the_title( $job_id ) . '</a>' ) );
 	?>
 </h3>
 <?php
