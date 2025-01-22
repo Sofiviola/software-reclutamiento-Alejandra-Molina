@@ -505,14 +505,14 @@ class WP_Job_Manager_Applications_Dashboard
 	
 			// Escribir encabezados
 			$sheet->setCellValue('A1', __('Application date', 'wp-job-manager-applications'))
-				  ->setCellValue('B1', __('Application status', 'wp-job-manager-applications'))
-				  ->setCellValue('C1', __('Applicant name', 'wp-job-manager-applications'))
-				  ->setCellValue('D1', __('Applicant email', 'wp-job-manager-applications'))
-				  ->setCellValue('E1', __('Job applied for', 'wp-job-manager-applications'))
-				  ->setCellValue('F1', __('Attachment', 'wp-job-manager-applications'))
-				  ->setCellValue('G1', __('Applicant message', 'wp-job-manager-applications'))
-				  ->setCellValue('H1', __('Rating', 'wp-job-manager-applications'));
-	
+			->setCellValue('B1', __('Application status', 'wp-job-manager-applications'))
+			->setCellValue('C1', __('Applicant name', 'wp-job-manager-applications'))
+			->setCellValue('D1', __('Applicant email', 'wp-job-manager-applications'))
+			->setCellValue('E1', __('Job applied for', 'wp-job-manager-applications'))
+			// Eliminar el encabezado de "Attachment"
+			->setCellValue('F1', __('Applicant message', 'wp-job-manager-applications'))
+			->setCellValue('G1', __('Rating', 'wp-job-manager-applications'));
+
 			// Obtener campos personalizados
 			$custom_fields = [];
 			foreach ($applications as $application) {
@@ -523,9 +523,9 @@ class WP_Job_Manager_Applications_Dashboard
 					$custom_fields = array_diff(
 						$custom_fields,
 						[
-							'_resume_',   // Campo relacionado con currículum
-							'_attachment', // Campo relacionado con adjuntos
-							'_attachment_file',
+							'_resume_id',   // Campo relacionado con currículum
+							// '_attachment', // Campo relacionado con adjuntos
+							// '_attachment_file',
 						]
 					);
 					
@@ -554,7 +554,7 @@ class WP_Job_Manager_Applications_Dashboard
 				array_unshift($custom_fields, '_resume_');
 			}
 			// Agregar los campos personalizados a los encabezados
-			$column = 9; // Inicia desde la columna I
+			$column = 8; // Inicia desde la columna I
 			foreach ($custom_fields as $custom_field) {
 				$columnLetter = PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($column);
 			
@@ -579,7 +579,6 @@ class WP_Job_Manager_Applications_Dashboard
 					$this->convert_encoding_to_utf8($application->post_title),
 					$this->convert_encoding_to_utf8(get_job_application_email($application->ID)),
 					$this->convert_encoding_to_utf8(get_the_title($application->post_parent)),
-					$this->convert_encoding_to_utf8(implode('; ', get_job_application_attachments($application->ID))),
 					$this->convert_encoding_to_utf8($application->post_content),
 					get_job_application_rating($application->ID),
 				];
