@@ -518,6 +518,21 @@ class WP_Job_Manager_Applications_Dashboard
 			foreach ($applications as $application) {
 				$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
 			}
+
+			        // Excluir las columnas `_resume_` y `Attachment`
+					$custom_fields = array_diff(
+						$custom_fields,
+						[
+							'_resume_',   // Campo relacionado con currículum
+							'_attachment', // Campo relacionado con adjuntos
+							'_attachment_file',
+						]
+					);
+					
+			$custom_field_labels = [
+				'_application_note' => __('Observación', 'wp-job-manager-applications'),
+				'_resume_'          => __('Currículum', 'wp-job-manager-applications'),
+			];
 	
 			$custom_fields = array_unique($custom_fields);
 			$custom_fields = array_diff(
@@ -534,12 +549,24 @@ class WP_Job_Manager_Applications_Dashboard
 					'_secret_dir',
 				]
 			);
-	
+			
+			if (!in_array('_resume_', $custom_fields)) {
+				array_unshift($custom_fields, '_resume_');
+			}
 			// Agregar los campos personalizados a los encabezados
 			$column = 9; // Inicia desde la columna I
 			foreach ($custom_fields as $custom_field) {
 				$columnLetter = PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($column);
-				$sheet->setCellValue($columnLetter . '1', $custom_field);
+			
+				// Usar el nombre personalizado si existe, de lo contrario, usar el nombre técnico
+				if (isset($custom_field_labels[$custom_field])) {
+					$field_label = $custom_field_labels[$custom_field];
+				} else {
+					$field_label = $custom_field; // Fallback al nombre técnico si no existe en el mapeo
+				}
+			
+				// Establecer el encabezado en la hoja
+				$sheet->setCellValue($columnLetter . '1', $field_label);
 				$column++;
 			}
 	
@@ -556,15 +583,39 @@ class WP_Job_Manager_Applications_Dashboard
 					$this->convert_encoding_to_utf8($application->post_content),
 					get_job_application_rating($application->ID),
 				];
-	
+			
 				foreach ($custom_fields as $custom_field) {
 					$custom_field_value = get_post_meta($application->ID, $custom_field, true);
+			
+    // Personalizar el contenido del campo "_resume_"
+    if ($custom_field === '_resume_') {
+        // Obtener el ID del currículum
+        $resume_id = get_job_application_resume_id($application->ID);
+
+        // Verificar si el currículum está publicado y se puede compartir
+        if ($resume_id && 'publish' === get_post_status($resume_id) && function_exists('get_resume_share_link')) {
+            $share_link = get_resume_share_link($resume_id);
+
+            // Generar un nonce único para esta aplicación
+            $nonce = wp_create_nonce('change_status_' . $application->ID);
+
+            // Generar la URL del currículum
+            $custom_field_value = esc_attr(add_query_arg([
+                'application_id' => $application->ID,
+                'nonce'          => $nonce,
+            ], $share_link));
+        } else {
+            $custom_field_value = __('No resume available', 'workscout');
+        }
+    }
+			
 					if (is_array($custom_field_value)) {
 						$custom_field_value = wp_json_encode($custom_field_value);
 					}
+			
 					$row[] = $this->convert_encoding_to_utf8($custom_field_value);
 				}
-	
+			
 				// Escribir la fila de datos
 				$column = 1;
 				foreach ($row as $cellValue) {
@@ -572,7 +623,7 @@ class WP_Job_Manager_Applications_Dashboard
 					$sheet->setCellValue($columnLetter . $rowIndex, $cellValue);
 					$column++;
 				}
-	
+			
 				$rowIndex++;
 			}
 	
