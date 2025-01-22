@@ -4492,7 +4492,7 @@ msgstr "Administrar trabajos"
 
 #: template-dashboard.php:373
 msgid "Submit Job"
-msgstr "Enviar trabajo"
+msgstr "Subir trabajo"
 
 #: template-dashboard.php:391
 msgid "Companies"

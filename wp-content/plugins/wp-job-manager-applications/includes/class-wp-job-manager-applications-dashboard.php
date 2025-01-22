@@ -33,6 +33,8 @@ class WP_Job_Manager_Applications_Dashboard
 		add_action('wp_loaded', [$this, 'delete_handler']);
 		add_action('wp_loaded', [$this, 'edit_handler']);
 		add_action('wp_loaded', [$this, 'csv_handler']);
+		add_action('wp_loaded', [$this, 'excel_export']);
+
 		add_filter('job_manager_job_dashboard_columns', [$this, 'add_applications_columns']);
 		add_action('job_manager_job_dashboard_column_applications', [$this, 'applications_column']);
 		add_action('job_manager_job_dashboard_content_show_applications', [$this, 'show_applications']);
@@ -149,25 +151,26 @@ class WP_Job_Manager_Applications_Dashboard
 		}
 	}
 
-	public function change_status_handler() {
+	public function change_status_handler()
+	{
 		// Cambiar el estado de la postulación a "revision" solo si es "new"
 		if (!empty($_POST['wp_job_manager_change_application_status']) && wp_verify_nonce($_POST['_wpnonce'], 'change_application_status_nonce')) {
 			global $wp_post_statuses;
-	
+
 			$application_id = absint($_POST['application_id']);
-	
+
 			// Verificar permisos
 			if (!$this->can_edit_application($application_id)) {
 				return;
 			}
-	
+
 			// Obtener el estado actual de la postulación
 			$application = get_post($application_id);
-	
+
 			// Cambiar a "revision" solo si el estado actual es "new"
 			if ($application && $application->post_status === 'new') {
 				$application_status = 'revision';
-	
+
 				if (array_key_exists($application_status, $wp_post_statuses)) {
 					wp_update_post([
 						'ID'          => $application_id,
@@ -177,7 +180,7 @@ class WP_Job_Manager_Applications_Dashboard
 			}
 		}
 	}
-	
+
 
 	/**
 	 * Delete an application
@@ -198,109 +201,109 @@ class WP_Job_Manager_Applications_Dashboard
 	/**
 	 * Download an Excel file
 	 */
-	public function excel_handler()
-	{
-		if (! empty($_GET['download-excel'])) {
-			$job_id = absint($_REQUEST['job_id']);
-			$job    = get_post($job_id);
+	// public function excel_handler()
+	// {
+	// 	if (! empty($_GET['download-excel'])) {
+	// 		$job_id = absint($_REQUEST['job_id']);
+	// 		$job    = get_post($job_id);
 
-			// Permissions
-			if (! job_manager_user_can_edit_job($job)) {
-				return;
-			}
+	// 		// Permissions
+	// 		if (! job_manager_user_can_edit_job($job)) {
+	// 			return;
+	// 		}
 
-			$args = apply_filters(
-				'job_manager_job_applications_args',
-				[
-					'post_type'           => 'job_application',
-					'post_status'         => array_merge(array_keys(get_job_application_statuses()), ['publish']),
-					'ignore_sticky_posts' => 1,
-					'posts_per_page'      => -1,
-					'post_parent'         => $job_id,
-				]
-			);
+	// 		$args = apply_filters(
+	// 			'job_manager_job_applications_args',
+	// 			[
+	// 				'post_type'           => 'job_application',
+	// 				'post_status'         => array_merge(array_keys(get_job_application_statuses()), ['publish']),
+	// 				'ignore_sticky_posts' => 1,
+	// 				'posts_per_page'      => -1,
+	// 				'post_parent'         => $job_id,
+	// 			]
+	// 		);
 
-			$applications = get_posts($args);
+	// 		$applications = get_posts($args);
 
-			// Crear el archivo Excel
-			$spreadsheet = new Spreadsheet();
-			$sheet = $spreadsheet->getActiveSheet();
+	// 		// Crear el archivo Excel
+	// 		$spreadsheet = new Spreadsheet();
+	// 		$sheet = $spreadsheet->getActiveSheet();
 
-			// Encabezados
-			$headers = [
-				__('Application date', 'wp-job-manager-applications'),
-				__('Application status', 'wp-job-manager-applications'),
-				__('Applicant name', 'wp-job-manager-applications'),
-				__('Applicant email', 'wp-job-manager-applications'),
-				__('Job applied for', 'wp-job-manager-applications'),
-				__('Attachment', 'wp-job-manager-applications'),
-				__('Applicant message', 'wp-job-manager-applications'),
-				__('Rating', 'wp-job-manager-applications'),
-			];
+	// 		// Encabezados
+	// 		$headers = [
+	// 			__('Application date', 'wp-job-manager-applications'),
+	// 			__('Application status', 'wp-job-manager-applications'),
+	// 			__('Applicant name', 'wp-job-manager-applications'),
+	// 			__('Applicant email', 'wp-job-manager-applications'),
+	// 			__('Job applied for', 'wp-job-manager-applications'),
+	// 			__('Attachment', 'wp-job-manager-applications'),
+	// 			__('Applicant message', 'wp-job-manager-applications'),
+	// 			__('Rating', 'wp-job-manager-applications'),
+	// 		];
 
-			$custom_fields = [];
-			foreach ($applications as $application) {
-				$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
-			}
+	// 		$custom_fields = [];
+	// 		foreach ($applications as $application) {
+	// 			$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
+	// 		}
 
-			$custom_fields = array_unique($custom_fields);
-			$custom_fields = array_diff(
-				$custom_fields,
-				[
-					'_edit_lock',
-					'_attachment',
-					'_attachment_file',
-					'_job_applied_for',
-					'_candidate_email',
-					'_candidate_user_id',
-					'_rating',
-					'_application_source',
-					'_secret_dir',
-				]
-			);
+	// 		$custom_fields = array_unique($custom_fields);
+	// 		$custom_fields = array_diff(
+	// 			$custom_fields,
+	// 			[
+	// 				'_edit_lock',
+	// 				'_attachment',
+	// 				'_attachment_file',
+	// 				'_job_applied_for',
+	// 				'_candidate_email',
+	// 				'_candidate_user_id',
+	// 				'_rating',
+	// 				'_application_source',
+	// 				'_secret_dir',
+	// 			]
+	// 		);
 
-			$headers = array_merge($headers, $custom_fields);
-			$sheet->fromArray($headers, null, 'A1');
+	// 		$headers = array_merge($headers, $custom_fields);
+	// 		$sheet->fromArray($headers, null, 'A1');
 
-			// Datos
-			$rowNumber = 2;
-			foreach ($applications as $application) {
-				$row = [
-					date_i18n(get_option('date_format'), strtotime($application->post_date)),
-					$application->post_status,
-					$application->post_title,
-					get_job_application_email($application->ID),
-					get_the_title($application->post_parent),
-					implode('; ', get_job_application_attachments($application->ID)),
-					$application->post_content,
-					get_job_application_rating($application->ID),
-				];
+	// 		// Datos
+	// 		$rowNumber = 2;
+	// 		foreach ($applications as $application) {
+	// 			$row = [
+	// 				date_i18n(get_option('date_format'), strtotime($application->post_date)),
+	// 				$application->post_status,
+	// 				$application->post_title,
+	// 				get_job_application_email($application->ID),
+	// 				get_the_title($application->post_parent),
+	// 				implode('; ', get_job_application_attachments($application->ID)),
+	// 				$application->post_content,
+	// 				get_job_application_rating($application->ID),
+	// 			];
 
-				foreach ($custom_fields as $custom_field) {
-					$custom_field_value = get_post_meta($application->ID, $custom_field, true);
+	// 			foreach ($custom_fields as $custom_field) {
+	// 				$custom_field_value = get_post_meta($application->ID, $custom_field, true);
 
-					if (is_array($custom_field_value)) {
-						$custom_field_value = wp_json_encode($custom_field_value);
-					}
+	// 				if (is_array($custom_field_value)) {
+	// 					$custom_field_value = wp_json_encode($custom_field_value);
+	// 				}
 
-					$row[] = $custom_field_value;
-				}
+	// 				$row[] = $custom_field_value;
+	// 			}
 
-				$sheet->fromArray($row, null, "A{$rowNumber}");
-				$rowNumber++;
-			}
+	// 			$sheet->fromArray($row, null, "A{$rowNumber}");
+	// 			$rowNumber++;
+	// 		}
 
-			// Enviar el archivo Excel al navegador
-			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment; filename="applications.xlsx"');
-			header('Pragma: no-cache');
-			header('Expires: 0');
+	// 		// Enviar el archivo Excel al navegador
+	// 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+	// 		header('Content-Disposition: attachment; filename="applications.xlsx"');
+	// 		header('Pragma: no-cache');
+	// 		header('Expires: 0');
 
-			$writer = new Xlsx($spreadsheet);
-			$writer->save('php://output');
-			exit;
-		}
-	}
+	// 		$writer = new Xlsx($spreadsheet);
+	// 		$writer->save('php://output');
+	// 		exit;
+	// 	}
+	// }
 
 
 	/**
@@ -433,6 +436,162 @@ class WP_Job_Manager_Applications_Dashboard
 			exit;
 		}
 	}
+
+	public function excel_export()
+	{
+		// Ahora con el download-excel con PhpSpreadsheet
+		if (isset($_GET['download-excel'])) {
+	
+			// Asegúrate de que el autoload de Composer está cargado
+			if (! class_exists('PhpOffice\PhpSpreadsheet\Spreadsheet')) {
+				require_once __DIR__ . '/vendor/autoload.php';  // Incluir si no está ya incluido
+			}
+	
+			// Obtener el ID de la oferta de trabajo
+			$job_id = absint($_REQUEST['job_id']);
+			$job    = get_post($job_id);
+	
+			// Permisos
+			if (! job_manager_user_can_edit_job($job)) {
+				return;
+			}
+	
+			$args = apply_filters(
+				'job_manager_job_applications_args',
+				[
+					'post_type'           => 'job_application',
+					'post_status'         => array_merge(array_keys(get_job_application_statuses()), ['publish']),
+					'ignore_sticky_posts' => 1,
+					'posts_per_page'      => -1,
+					'post_parent'         => $job_id,
+				]
+			);
+	
+			// Filtros
+			$application_status  = ! empty($_GET['application_status']) ? sanitize_text_field($_GET['application_status']) : '';
+			$application_orderby = ! empty($_GET['application_orderby']) ? sanitize_text_field($_GET['application_orderby']) : '';
+	
+			if ($application_status) {
+				$args['post_status'] = $application_status;
+			}
+	
+			switch ($application_orderby) {
+				case 'name':
+					$args['order']   = 'ASC';
+					$args['orderby'] = 'post_title';
+					break;
+				case 'rating':
+					$args['order']    = 'DESC';
+					$args['orderby']  = 'meta_value';
+					$args['meta_key'] = '_rating';
+					break;
+				default:
+					$args['order']   = 'DESC';
+					$args['orderby'] = 'date';
+					break;
+			}
+	
+			$applications = get_posts($args);
+	
+			@set_time_limit(0);
+			if (function_exists('apache_setenv')) {
+				@apache_setenv('no-gzip', 1);
+			}
+			@ini_set('zlib.output_compression', 0);
+	
+			// Cargar PhpSpreadsheet
+			$spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+			$sheet = $spreadsheet->getActiveSheet();
+	
+			// Escribir encabezados
+			$sheet->setCellValue('A1', __('Application date', 'wp-job-manager-applications'))
+				  ->setCellValue('B1', __('Application status', 'wp-job-manager-applications'))
+				  ->setCellValue('C1', __('Applicant name', 'wp-job-manager-applications'))
+				  ->setCellValue('D1', __('Applicant email', 'wp-job-manager-applications'))
+				  ->setCellValue('E1', __('Job applied for', 'wp-job-manager-applications'))
+				  ->setCellValue('F1', __('Attachment', 'wp-job-manager-applications'))
+				  ->setCellValue('G1', __('Applicant message', 'wp-job-manager-applications'))
+				  ->setCellValue('H1', __('Rating', 'wp-job-manager-applications'));
+	
+			// Obtener campos personalizados
+			$custom_fields = [];
+			foreach ($applications as $application) {
+				$custom_fields = array_merge($custom_fields, array_keys(get_post_custom($application->ID)));
+			}
+	
+			$custom_fields = array_unique($custom_fields);
+			$custom_fields = array_diff(
+				$custom_fields,
+				[
+					'_edit_lock',
+					'_attachment',
+					'_attachment_file',
+					'_job_applied_for',
+					'_candidate_email',
+					'_candidate_user_id',
+					'_rating',
+					'_application_source',
+					'_secret_dir',
+				]
+			);
+	
+			// Agregar los campos personalizados a los encabezados
+			$column = 9; // Inicia desde la columna I
+			foreach ($custom_fields as $custom_field) {
+				$columnLetter = PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($column);
+				$sheet->setCellValue($columnLetter . '1', $custom_field);
+				$column++;
+			}
+	
+			// Escribir los datos de las aplicaciones
+			$rowIndex = 2; // Comienza desde la fila 2
+			foreach ($applications as $application) {
+				$row = [
+					date_i18n(get_option('date_format'), strtotime($application->post_date)),
+					$this->convert_encoding_to_utf8($application->post_status),
+					$this->convert_encoding_to_utf8($application->post_title),
+					$this->convert_encoding_to_utf8(get_job_application_email($application->ID)),
+					$this->convert_encoding_to_utf8(get_the_title($application->post_parent)),
+					$this->convert_encoding_to_utf8(implode('; ', get_job_application_attachments($application->ID))),
+					$this->convert_encoding_to_utf8($application->post_content),
+					get_job_application_rating($application->ID),
+				];
+	
+				foreach ($custom_fields as $custom_field) {
+					$custom_field_value = get_post_meta($application->ID, $custom_field, true);
+					if (is_array($custom_field_value)) {
+						$custom_field_value = wp_json_encode($custom_field_value);
+					}
+					$row[] = $this->convert_encoding_to_utf8($custom_field_value);
+				}
+	
+				// Escribir la fila de datos
+				$column = 1;
+				foreach ($row as $cellValue) {
+					$columnLetter = PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($column);
+					$sheet->setCellValue($columnLetter . $rowIndex, $cellValue);
+					$column++;
+				}
+	
+				$rowIndex++;
+			}
+	
+			// Nombre del archivo dinámico con el nombre de la oferta laboral
+			$fileName = 'Postulaciones-' . sanitize_title_with_dashes($job->post_title) . '.xlsx';
+	
+			// Generar y descargar el archivo Excel
+			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+			header('Content-Disposition: attachment;filename="' . $fileName . '"');
+			header('Cache-Control: max-age=0');
+	
+			$writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+			$writer->save('php://output');
+			exit;
+		}
+	}
+	
+
+
 
 	/**
 	 * Convert encoding to UTF-8

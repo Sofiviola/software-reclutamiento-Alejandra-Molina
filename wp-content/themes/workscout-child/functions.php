@@ -1,4 +1,10 @@
 <?php 
+
+// import autoload IMPORTANTE NO BORRAR FV
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+
+
 add_action( 'wp_enqueue_scripts', 'workscout_enqueue_styles' );
 function workscout_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css',array('workscout-base','workscout-responsive','workscout-font-awesome') );
@@ -140,6 +146,26 @@ add_action('wp', function() {
         exit;
     }
 });
+
+add_filter('wp_editor_settings', function ($settings) {
+    $settings['media_buttons'] = true; // Agregar botones de medios (subir imagen)
+    return $settings;
+});
+
+add_filter('mce_buttons', function ($buttons) {
+    array_push($buttons, 'image'); // Agregar el botón de insertar imagen
+    return $buttons;
+});
+
+add_filter('mce_external_plugins', function ($plugins) {
+    $plugins['image'] = includes_url('/js/tinymce/plugins/image/plugin.min.js');
+    return $plugins;
+});
+
+
+
+
+
 
 
 // NO FUNCA DEL TODO - CUANDO SE PONE VER CURRICULUM QUE CAMBIE EL ESTADO A EN REVISIÓN
